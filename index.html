@@ -1,1 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>1Utility</title>
 
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+
+  /* ===== DESIGN SYSTEM ===== */
+  --bg:#0b1020;
+  --panel:#121a2b;
+  --panel2:#0f172a;
+  --border:rgba(255,255,255,0.08);
+
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+
+  --primary:#6366f1;
+  --accent:#22c55e;
+  --warn:#f59e0b;
+
+  /* TOOL GRADIENTS (future-ready system) */
+  --emi-grad: linear-gradient(135deg,#6366f1,#22c55e);
+  --sip-grad: linear-gradient(135deg,#f59e0b,#ef4444);
+  --tax-grad: linear-gradient(135deg,#06b6d4,#6366f1);
+  --fd-grad: linear-gradient(135deg,#22c55e,#10b981);
+  --cur-grad: linear-gradient(135deg,#a855f7,#6366f1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:"DM Sans";}
+
+body{
+  background: radial-gradient(circle at top,#1e1b4b,#0b1020);
+  color:var(--text);
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  padding:40px 20px 20px;
+}
+
+h1{
+  font-size:44px;
+  letter-spacing:-1px;
+  background:linear-gradient(90deg,#fff,#a5b4fc,#22c55e);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* COUNTRY */
+.country{
+  margin:20px auto;
+  display:flex;
+  justify-content:center;
+}
+
+.country select{
+  background:var(--panel);
+  color:var(--text);
+  border:1px solid var(--border);
+  padding:10px 14px;
+  border-radius:10px;
+}
+
+/* TABS */
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  padding:10px;
+}
+
+.tab{
+  background:var(--panel);
+  border:1px solid var(--border);
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.tab.active{
+  background:var(--primary);
+  color:white;
+}
+
+/* CONTAINER */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+
+/* CARD */
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px;
+  margin-top:20px;
+}
+
+.card h2{
+  font-size:18px;
+  margin-bottom:5px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:20px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:12px;
+}
+
+label{
+  font-size:11px;
+  color:var(--muted);
+}
+
+input,select{
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:var(--panel2);
+  color:white;
+  margin-top:5px;
+}
+
+/* BUTTON */
+button{
+  margin-top:15px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  background:var(--primary);
+}
+
+/* RESULTS */
+.results{
+  margin-top:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:10px;
+}
+
+.box{
+  background:var(--panel2);
+  border:1px solid var(--border);
+  padding:12px;
+  border-radius:12px;
+  text-align:center;
+}
+
+.box h4{
+  font-size:11px;
+  color:var(--muted);
+}
+
+.box p{
+  margin-top:5px;
+  font-size:16px;
+}
+
+/* HIDE */
+.hidden{display:none;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>1Utility</h1>
+  <div class="subtitle">Finance Calculators · Clean & Fast</div>
+
+  <div class="country">
+    <select id="country">
+      <option>India (₹)</option>
+      <option>USA ($)</option>
+      <option>UK (£)</option>
+      <option>UAE (AED)</option>
+    </select>
+  </div>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="show('emi')">EMI</div>
+  <div class="tab" onclick="show('sip')">SIP</div>
+  <div class="tab" onclick="show('tax')">Tax</div>
+  <div class="tab" onclick="show('fd')">FD</div>
+  <div class="tab" onclick="show('cur')">Currency</div>
+</div>
+
+<div class="container">
+
+<!-- EMI -->
+<div id="emi" class="card">
+  <h2>EMI Calculator</h2>
+  <p>Loan repayment estimator</p>
+
+  <div class="grid">
+    <div>
+      <label>Loan Amount</label>
+      <input id="p" type="number" value="1000000">
+    </div>
+    <div>
+      <label>Interest %</label>
+      <input id="r" type="number" value="8.5">
+    </div>
+    <div>
+      <label>Years</label>
+      <input id="n" type="number" value="20">
+    </div>
+  </div>
+
+  <button onclick="emi()">Calculate</button>
+
+  <div class="results hidden" id="emiR"></div>
+</div>
+
+<!-- SIP -->
+<div id="sip" class="card hidden">
+  <h2>SIP Calculator</h2>
+  <p>Investment growth</p>
+
+  <div class="grid">
+    <div>
+      <label>Monthly Investment</label>
+      <input id="s1" value="10000">
+    </div>
+    <div>
+      <label>Return %</label>
+      <input id="s2" value="12">
+    </div>
+    <div>
+      <label>Years</label>
+      <input id="s3" value="15">
+    </div>
+  </div>
+
+  <button onclick="sip()">Calculate</button>
+  <div class="results hidden" id="sipR"></div>
+</div>
+
+<!-- TAX -->
+<div id="tax" class="card hidden">
+  <h2>Tax Calculator</h2>
+  <p>Simple tax estimator</p>
+
+  <div class="grid">
+    <div>
+      <label>Income</label>
+      <input id="t1" value="1200000">
+    </div>
+  </div>
+
+  <button onclick="tax()">Calculate</button>
+  <div class="results hidden" id="taxR"></div>
+</div>
+
+<!-- FD -->
+<div id="fd" class="card hidden">
+  <h2>FD Calculator</h2>
+  <p>Fixed deposit returns</p>
+
+  <div class="grid">
+    <div>
+      <label>Amount</label>
+      <input id="f1" value="500000">
+    </div>
+    <div>
+      <label>Rate</label>
+      <input id="f2" value="7">
+    </div>
+    <div>
+      <label>Years</label>
+      <input id="f3" value="3">
+    </div>
+  </div>
+
+  <button onclick="fd()">Calculate</button>
+  <div class="results hidden" id="fdR"></div>
+</div>
+
+<!-- CURRENCY -->
+<div id="cur" class="card hidden">
+  <h2>Currency</h2>
+  <p>Simple converter</p>
+
+  <div class="grid">
+    <div>
+      <label>Amount</label>
+      <input id="c1" value="1000">
+    </div>
+  </div>
+
+  <button onclick="cur()">Convert</button>
+  <div class="results hidden" id="curR"></div>
+</div>
+
+</div>
+
+<script>
+
+function show(id){
+  document.querySelectorAll(".card").forEach(c=>c.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  event.target.classList.add("active");
+}
+
+/* EMI */
+function emi(){
+  let P=+p.value, r=+r.value/12/100, n=+n.value*12;
+  let e=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+
+  emiR.classList.remove("hidden");
+  emiR.innerHTML=`
+  <div class="box"><h4>EMI</h4><p>${Math.round(e)}</p></div>
+  <div class="box"><h4>Total</h4><p>${Math.round(e*n)}</p></div>
+  <div class="box"><h4>Interest</h4><p>${Math.round(e*n-P)}</p></div>`;
+}
+
+/* SIP */
+function sip(){
+  let m=+s1.value, r=+s2.value/100/12, n=+s3.value*12;
+  let v=m*((Math.pow(1+r,n)-1)/r)*(1+r);
+
+  sipR.classList.remove("hidden");
+  sipR.innerHTML=`
+  <div class="box"><h4>Maturity</h4><p>${Math.round(v)}</p></div>`;
+}
+
+/* TAX */
+function tax(){
+  let i=+t1.value;
+  let tax=i*0.1;
+
+  taxR.classList.remove("hidden");
+  taxR.innerHTML=`
+  <div class="box"><h4>Tax</h4><p>${Math.round(tax)}</p></div>`;
+}
+
+/* FD */
+function fd(){
+  let p=+f1.value, r=+f2.value/100, t=+f3.value;
+  let m=p*Math.pow(1+r,t);
+
+  fdR.classList.remove("hidden");
+  fdR.innerHTML=`
+  <div class="box"><h4>Maturity</h4><p>${Math.round(m)}</p></div>`;
+}
+
+/* CUR */
+function cur(){
+  let v=+c1.value;
+  curR.classList.remove("hidden");
+  curR.innerHTML=`
+  <div class="box"><h4>USD</h4><p>${(v/83).toFixed(2)}</p></div>`;
+}
+
+</script>
+
+</body>
+</html>
