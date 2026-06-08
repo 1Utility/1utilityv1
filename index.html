@@ -148,6 +148,31 @@ footer a{color:var(--gold);text-decoration:none;}
   </div>
 </div>
 
+<!-- PRIVACY POLICY MODAL -->
+<div class="terms-modal" id="privacy-modal">
+  <div class="terms-content">
+    <h3>Privacy Policy</h3>
+    <p><strong>Last Updated: June 2026</strong></p>
+    
+    <h4>1. Information We Collect</h4>
+    <p>We do not collect or store any personal data. All calculations are performed locally in your browser.</p>
+    
+    <h4>2. Cookies and Analytics</h4>
+    <p>We may use cookies for basic functionality and Google AdSense for advertisements. AdSense may collect data for personalized ads as per Google's privacy policy.</p>
+    
+    <h4>3. Third-Party Services</h4>
+    <p>This site uses Google AdSense. For more details, please review <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+    
+    <h4>4. Data Security</h4>
+    <p>Since no personal information is collected or stored on our servers, your data remains private on your device.</p>
+    
+    <h4>5. Changes to This Policy</h4>
+    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page.</p>
+    
+    <button class="terms-btn" onclick="document.getElementById('privacy-modal').classList.remove('active')">Close</button>
+  </div>
+</div>
+
 <header>
   <div class="logo-badge">1UTILITY.NET</div>
   <h1>1Utility</h1>
@@ -172,7 +197,10 @@ footer a{color:var(--gold);text-decoration:none;}
 
 <div class="tabs-wrap"><div class="ad-slot" style="margin-bottom:20px;">📢 Advertisement Space (300×250) — Bottom</div></div>
 
-<footer>1Utility.net — One Tool For All &nbsp;|&nbsp; Educational Purposes Only &nbsp;|&nbsp; <a href="#" onclick="document.getElementById('terms-modal').classList.add('active');return false;">Terms & Conditions</a></footer>
+<footer>1Utility.net — One Tool For All &nbsp;|&nbsp; Educational Purposes Only &nbsp;|&nbsp; 
+  <a href="#" onclick="showTerms();return false;">Terms & Conditions</a> &nbsp;|&nbsp; 
+  <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>
+</footer>
 
 <!-- CALCULATOR MODAL -->
 <div class="modal" id="calc-modal">
@@ -1648,6 +1676,14 @@ window.doHourly=function(){
   const hourly=ann/(wks*hpw),daily=hourly*8,monthly=ann/12;
   showResults('hr-r',[{label:'Hourly Rate',value:fmt(hourly),h:true,c:'gold'},{label:'Daily Rate (8hr)',value:fmt(daily)},{label:'Monthly Salary',value:fmt(monthly)},{label:'Annual Salary',value:fmt(ann)}]);
 };
+
+// Privacy & Terms Functions
+function showTerms() {
+  document.getElementById('terms-modal').classList.add('active');
+}
+function showPrivacy() {
+  document.getElementById('privacy-modal').classList.add('active');
+}
 
 // =============================================
 // INIT
