@@ -3,294 +3,1664 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1Utility — Financial Calculators</title>
-
+<title>1Utility - One Tool For All</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
-/* ===== YOUR ORIGINAL DESIGN (UNCHANGED) ===== */
 :root {
-  --gold: #C9A84C; --gold-light: #E8C96A; --gold-dim: rgba(201,168,76,0.15);
-  --dark: #0A0A0F; --dark2: #111118; --dark3: #1A1A24; --dark4: #22222F;
-  --text: #F0EDE8; --text-dim: #9A9490; --green: #2ECC8A; --red: #E05A5A;
+  --gold:#C9A84C;--gold-light:#E8C96A;--gold-dim:rgba(201,168,76,0.13);
+  --dark:#0A0A0F;--dark2:#111118;--dark3:#1A1A24;--dark4:#22222F;
+  --text:#F0EDE8;--text-dim:#9A9490;--green:#2ECC8A;--red:#E05A5A;--blue:#5A8EE0;
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  background: var(--dark);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  min-height: 100vh;
-  background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,168,76,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(90,142,224,0.05) 0%, transparent 50%);
-}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -20%,rgba(201,168,76,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 90% 90%,rgba(90,142,224,0.04) 0%,transparent 50%);}
 
 /* HEADER */
-header { text-align: center; padding: 40px 24px 24px; }
+header{text-align:center;padding:36px 20px 16px;}
+.logo-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold-dim);border:1px solid rgba(201,168,76,0.3);border-radius:100px;padding:5px 16px;font-size:11px;font-weight:600;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+h1{font-family:'Playfair Display',serif;font-size:clamp(40px,7vw,70px);font-weight:900;background:linear-gradient(135deg,#fff,var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:6px;}
+.tagline{color:var(--text-dim);font-size:14px;font-weight:300;margin-bottom:20px;}
 
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(40px, 7vw, 72px);
-  font-weight: 900;
-  background: linear-gradient(135deg, #fff 0%, var(--gold-light) 45%, var(--gold) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+/* REGION */
+.country-wrap{display:flex;justify-content:center;margin:0 0 20px;}
+.country-select-box{display:flex;align-items:center;gap:8px;background:var(--dark2);border:1.5px solid rgba(201,168,76,0.35);border-radius:14px;padding:8px 14px;max-width:420px;width:100%;position:relative;flex-wrap:nowrap;}
+.country-select-box label{color:var(--gold);font-weight:600;font-size:12px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
+#flag-preview{font-size:20px;flex-shrink:0;}
+#country-select{background:none;border:none;color:var(--text);flex:1 1 auto;min-width:0;font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;outline:none;appearance:none;}
+#country-select option{background:var(--dark3);}
+.auto-badge{font-size:9px;background:rgba(46,204,138,0.12);color:var(--green);border:1px solid rgba(46,204,138,0.3);border-radius:20px;padding:1px 6px;white-space:nowrap;flex-shrink:0;margin-left:2px;}
 
-/* COUNTRY */
-.country-wrap { display: flex; justify-content: center; margin-bottom: 24px; }
-.country-select-box {
-  display: flex; align-items: center; gap: 12px;
-  background: var(--dark2);
-  border: 1.5px solid rgba(201,168,76,0.35);
-  border-radius: 14px;
-  padding: 10px 18px;
-}
+/* AD SLOTS */
+.ad-slot{background:var(--dark3);border:1px dashed var(--dark4);padding:16px;text-align:center;color:var(--text-dim);border-radius:12px;font-size:12px;letter-spacing:1px;}
 
-/* TABS */
-.tabs-wrap { max-width: 920px; margin: auto; padding: 0 20px; }
-
-.tabs {
-  display: flex;
-  gap: 4px;
-  background: var(--dark2);
-  border: 1px solid var(--dark4);
-  border-radius: 14px;
-  padding: 6px;
-  overflow-x: auto;
-}
-
-.tab {
-  flex: 1;
-  min-width: 90px;
-  background: none;
-  border: none;
-  color: var(--text-dim);
-  padding: 9px 12px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.tab.active {
-  background: var(--gold);
-  color: var(--dark);
-  font-weight: 700;
-}
+/* TABS WRAP */
+.tabs-wrap{max-width:980px;margin:0 auto;padding:0 16px;}
+.tabs{display:flex;flex-wrap:wrap;gap:5px;background:var(--dark2);border:1px solid var(--dark4);border-radius:16px;padding:7px;justify-content:center;}
+.tab{padding:11px 18px;background:none;border:none;color:var(--text-dim);font-family:'DM Sans',sans-serif;font-weight:500;font-size:13px;border-radius:10px;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.tab:hover{color:var(--text);background:var(--dark3);}
+.tab.active{background:var(--gold);color:var(--dark);font-weight:700;}
 
 /* MAIN */
-.main { max-width: 920px; margin: 16px auto; padding: 0 20px 80px; }
+.main{max-width:980px;margin:16px auto;padding:0 16px 60px;}
+.calc-card{background:var(--dark2);border:1px solid var(--dark4);border-radius:20px;padding:24px;margin-bottom:20px;display:none;}
+.calc-card.active{display:block;animation:fadeIn 0.25s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.card-title{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:6px;}
+.card-desc{color:var(--text-dim);font-size:13px;margin-bottom:20px;}
 
-/* CARD */
-.calc-card {
-  background: var(--dark2);
-  border: 1px solid var(--dark4);
-  border-radius: 20px;
-  padding: 28px;
-  display: none;
-}
+/* FINANCE GRID */
+.finance-grid,.health-grid,.academic-grid,.hike-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:16px;}
+.section-label{font-size:11px;font-weight:600;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin:20px 0 10px;padding-left:2px;}
+.calc-box-card{background:var(--dark3);border:1px solid var(--dark4);border-radius:14px;padding:16px 12px;text-align:center;cursor:pointer;transition:all 0.2s;}
+.calc-box-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 6px 20px rgba(201,168,76,0.15);}
+.calc-box-card .icon{font-size:26px;margin-bottom:8px;display:block;}
+.calc-box-card .ctitle{font-weight:600;font-size:13px;line-height:1.3;}
 
-.calc-card.active { display: block; }
+/* MODAL */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.78);z-index:9999;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;}
+.modal.active{display:flex;}
+.modal-content{background:var(--dark2);border:1px solid var(--dark4);border-radius:22px;width:100%;max-width:680px;padding:0;position:relative;margin:auto;overflow:hidden;}
+.modal-header{background:linear-gradient(135deg,var(--dark3),var(--dark4));padding:20px 24px 16px;border-bottom:1px solid var(--dark4);}
+.modal-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:2px;}
+.modal-subtitle{color:var(--text-dim);font-size:12px;}
+.modal-close{position:absolute;top:16px;right:18px;font-size:22px;color:var(--text-dim);cursor:pointer;background:var(--dark4);border:none;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.modal-close:hover{color:var(--text);background:var(--gold-dim);}
+.modal-body{padding:22px 24px;}
+.modal-ad{background:var(--dark3);border:1px dashed var(--dark4);padding:10px;text-align:center;color:var(--text-dim);font-size:11px;letter-spacing:1px;}
 
 /* FORM */
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 14px;
-}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:18px;}
+.field label{display:block;font-size:11px;font-weight:600;color:var(--text-dim);letter-spacing:0.8px;text-transform:uppercase;margin-bottom:6px;}
+.input-wrap{display:flex;align-items:center;background:var(--dark3);border:1.5px solid var(--dark4);border-radius:10px;transition:border-color 0.2s;overflow:hidden;}
+.input-wrap:focus-within{border-color:var(--gold);}
+.input-prefix{padding:0 11px;color:var(--gold);font-weight:600;font-size:13px;border-right:1px solid var(--dark4);height:44px;line-height:44px;white-space:nowrap;flex-shrink:0;}
+.input-wrap input,.input-wrap select{background:none;border:none;outline:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:0 12px;height:44px;width:100%;appearance:none;}
+.input-wrap select option{background:var(--dark3);}
 
-.field label {
-  font-size: 11px;
-  color: var(--text-dim);
-  text-transform: uppercase;
-}
-
-.input-wrap {
-  background: var(--dark3);
-  border: 1.5px solid var(--dark4);
-  border-radius: 10px;
-  display: flex;
-}
-
-.input-wrap input, .input-wrap select {
-  width: 100%;
-  background: none;
-  border: none;
-  color: var(--text);
-  padding: 10px;
-}
-
-/* BUTTON */
-.calc-btn {
-  width: 100%;
-  margin-top: 20px;
-  padding: 14px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(90deg,#C9A84C,#E8C96A);
-  font-weight: 700;
-}
+/* ACTION ROW */
+.action-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:580px){.action-row{grid-template-columns:1fr;}}
+.calc-box-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);border:none;border-radius:11px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:all 0.2s;}
+.calc-box-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,168,76,0.3);}
+.ai-box-disabled{border:1.5px dashed rgba(201,168,76,0.25);padding:16px;border-radius:12px;background:rgba(10,10,15,0.6);text-align:center;}
+.ai-box-disabled .ai-title{font-size:13px;font-weight:600;color:var(--text-dim);margin-bottom:6px;}
+.ai-box-disabled .ai-badge{display:inline-block;font-size:10px;background:rgba(201,168,76,0.1);color:var(--gold);border:1px solid rgba(201,168,76,0.25);border-radius:20px;padding:2px 9px;margin-bottom:10px;}
+.ai-box-disabled .ai-btn-dis{width:100%;padding:11px;background:var(--dark3);color:var(--text-dim);border:1.5px dashed var(--dark4);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:13px;cursor:not-allowed;opacity:0.6;margin-bottom:8px;}
+.ai-terms{font-size:10px;color:var(--text-dim);line-height:1.6;}
+.ai-terms a{color:var(--gold);text-decoration:none;}
 
 /* RESULTS */
-.result-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
-  margin-top: 20px;
-}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin-top:18px;}
+.result-box{background:var(--dark3);border:1px solid var(--dark4);border-radius:11px;padding:14px;text-align:center;}
+.result-box.highlight{border-color:var(--gold);background:var(--gold-dim);}
+.result-label{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:5px;}
+.result-value{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--text);}
+.result-value.green{color:var(--green);}.result-value.red{color:var(--red);}.result-value.gold{color:var(--gold);}
 
-.result-box {
-  background: var(--dark3);
-  border: 1px solid var(--dark4);
-  padding: 14px;
-  border-radius: 12px;
-  text-align: center;
-}
+/* INFO SECTIONS */
+.info-section{margin-top:20px;border-top:1px solid var(--dark4);padding-top:18px;}
+.info-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.info-tab{padding:7px 14px;font-size:12px;font-weight:600;border:1px solid var(--dark4);border-radius:8px;cursor:pointer;background:none;color:var(--text-dim);font-family:'DM Sans',sans-serif;transition:all 0.15s;}
+.info-tab.active{background:var(--gold-dim);border-color:var(--gold);color:var(--gold);}
+.info-panel{display:none;font-size:13px;color:var(--text-dim);line-height:1.75;}
+.info-panel.active{display:block;}
+.info-panel h4{color:var(--text);font-size:14px;font-weight:600;margin:12px 0 5px;}
+.info-panel p{margin-bottom:8px;}
+.info-panel ul{padding-left:18px;margin-bottom:8px;}
+.info-panel li{margin-bottom:4px;}
+.formula-box{background:var(--dark3);border:1px solid var(--dark4);border-radius:10px;padding:14px;font-family:monospace;font-size:13px;color:var(--gold);margin:8px 0;white-space:pre-wrap;}
+.compare-table{width:100%;border-collapse:collapse;font-size:12px;margin:8px 0;}
+.compare-table th{background:var(--dark3);color:var(--gold);padding:8px 10px;text-align:left;font-weight:600;}
+.compare-table td{padding:7px 10px;border-top:1px solid var(--dark4);color:var(--text-dim);}
+.compare-table tr:hover td{background:rgba(255,255,255,0.02);}
+.related-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.related-pill{background:var(--dark3);border:1px solid var(--dark4);border-radius:20px;padding:5px 13px;font-size:12px;color:var(--text-dim);cursor:pointer;transition:all 0.15s;}
+.related-pill:hover{border-color:var(--gold);color:var(--gold);}
 
-.result-label {
-  font-size: 10px;
-  color: var(--text-dim);
-}
+/* TERMS MODAL */
+.terms-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:19999;align-items:center;justify-content:center;padding:20px;}
+.terms-modal.active{display:flex;}
+.terms-content{background:var(--dark2);border:1px solid var(--dark4);border-radius:20px;max-width:540px;width:100%;padding:28px;max-height:82vh;overflow-y:auto;}
+.terms-content h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);margin-bottom:16px;}
+.terms-content h4{color:var(--text);font-size:13px;margin:12px 0 4px;}
+.terms-content p{color:var(--text-dim);font-size:13px;line-height:1.7;margin-bottom:6px;}
+.terms-btn{background:var(--gold);color:var(--dark);border:none;border-radius:10px;padding:11px 24px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;cursor:pointer;margin-top:16px;}
 
-.result-value {
-  font-size: 18px;
-  margin-top: 6px;
-}
+footer{text-align:center;padding:20px;color:var(--text-dim);font-size:12px;border-top:1px solid var(--dark4);margin-top:20px;}
+footer a{color:var(--gold);text-decoration:none;}
+@media(max-width:600px){.modal-body{padding:16px;}.form-grid{grid-template-columns:1fr;}}
 </style>
 </head>
-
 <body>
 
-<header>
-  <h1>1Utility</h1>
+<!-- TERMS MODAL -->
+<div class="terms-modal" id="terms-modal">
+  <div class="terms-content">
+    <h3>Terms & Conditions — AI Advice</h3>
+    <h4>1. Informational Purpose Only</h4><p>AI financial advice by 1Utility is for general informational and educational purposes only. It does not constitute professional financial, investment, tax, or legal advice.</p>
+    <h4>2. No Fiduciary Relationship</h4><p>Use of this tool does not create a financial advisor–client relationship between you and 1Utility.</p>
+    <h4>3. Accuracy Disclaimer</h4><p>Calculations and AI-generated insights are estimates based on inputs provided. 1Utility makes no representations regarding accuracy or suitability of results.</p>
+    <h4>4. AI Limitations</h4><p>AI advice is generated by a language model and may contain errors. Always consult a qualified professional before making financial decisions.</p>
+    <h4>5. Data & Privacy</h4><p>Inputs are sent to the AI model only to generate advice. No personal data is stored by 1Utility.</p>
+    <h4>6. Feature Availability</h4><p>AI Advice is currently disabled and will be available in a future release. By using this feature once enabled, you agree to these terms.</p>
+    <button class="terms-btn" onclick="document.getElementById('terms-modal').classList.remove('active')">I Understand</button>
+  </div>
+</div>
 
+<header>
+  <div class="logo-badge">1UTILITY.NET</div>
+  <h1>1Utility</h1>
+  <p class="tagline">One Tool For All</p>
   <div class="country-wrap">
     <div class="country-select-box">
-      <label style="font-size:11px;color:var(--gold);">Region</label>
-      <select id="country" onchange="setRegion()">
-        <option value="IN">India (₹)</option>
-        <option value="US">USA ($)</option>
-        <option value="UK">UK (£)</option>
-      </select>
+      <label>🌍 Region</label>
+      <span id="flag-preview">🇮🇳</span>
+      <select id="country-select" onchange="onCountryChange()"></select>
+      <span class="auto-badge" id="auto-badge">Auto</span>
     </div>
   </div>
 </header>
 
 <div class="tabs-wrap">
-  <div class="tabs">
-    <button class="tab active" onclick="openTab('emi',this)">EMI</button>
-    <button class="tab" onclick="openTab('sip',this)">SIP</button>
-    <button class="tab" onclick="openTab('tax',this)">Tax</button>
-    <button class="tab" onclick="openTab('fd',this)">FD</button>
-  </div>
+  <div class="ad-slot" style="margin-bottom:16px;">📢 Advertisement Space (728×90) — Top Banner</div>
+  <div class="tabs" id="main-tabs"></div>
+  <div class="ad-slot" style="margin-top:16px;">📢 Advertisement Space (728×90) — Middle Banner</div>
 </div>
 
-<div class="main">
+<div class="main" id="main-content"></div>
 
-<!-- EMI -->
-<div id="emi" class="calc-card active">
-  <div class="form-grid">
-    <div class="field">
-      <label>Loan Amount</label>
-      <div class="input-wrap"><input id="emiP" type="number" value="1000000"></div>
+<div class="tabs-wrap"><div class="ad-slot" style="margin-bottom:20px;">📢 Advertisement Space (300×250) — Bottom</div></div>
+
+<footer>1Utility.net — One Tool For All &nbsp;|&nbsp; Educational Purposes Only &nbsp;|&nbsp; <a href="#" onclick="document.getElementById('terms-modal').classList.add('active');return false;">Terms & Conditions</a></footer>
+
+<!-- CALCULATOR MODAL -->
+<div class="modal" id="calc-modal">
+  <div class="modal-content">
+    <div class="modal-ad">📢 Ad Space — Top (Inside Calculator)</div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header">
+      <div class="modal-title" id="modal-title">Calculator</div>
+      <div class="modal-subtitle" id="modal-subtitle"></div>
     </div>
-    <div class="field">
-      <label>Interest %</label>
-      <div class="input-wrap"><input id="emiR" type="number" value="8.5"></div>
-    </div>
-    <div class="field">
-      <label>Years</label>
-      <div class="input-wrap"><input id="emiN" type="number" value="20"></div>
-    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-ad">📢 Ad Space — Bottom (Inside Calculator)</div>
   </div>
-
-  <button class="calc-btn" onclick="calcEMI()">Calculate</button>
-  <div class="result-grid" id="emiOut"></div>
-</div>
-
-<!-- SIP -->
-<div id="sip" class="calc-card">
-  <div class="form-grid">
-    <div class="field"><label>Monthly</label><div class="input-wrap"><input id="sipA" value="10000"></div></div>
-    <div class="field"><label>Return %</label><div class="input-wrap"><input id="sipR" value="12"></div></div>
-    <div class="field"><label>Years</label><div class="input-wrap"><input id="sipY" value="15"></div></div>
-  </div>
-
-  <button class="calc-btn" onclick="calcSIP()">Calculate</button>
-  <div class="result-grid" id="sipOut"></div>
-</div>
-
-<!-- TAX -->
-<div id="tax" class="calc-card">
-  <div class="form-grid">
-    <div class="field"><label>Income</label><div class="input-wrap"><input id="taxI" value="1200000"></div></div>
-  </div>
-
-  <button class="calc-btn" onclick="calcTax()">Calculate</button>
-  <div class="result-grid" id="taxOut"></div>
-</div>
-
-<!-- FD -->
-<div id="fd" class="calc-card">
-  <div class="form-grid">
-    <div class="field"><label>Amount</label><div class="input-wrap"><input id="fdP" value="500000"></div></div>
-    <div class="field"><label>Rate</label><div class="input-wrap"><input id="fdR" value="7"></div></div>
-    <div class="field"><label>Years</label><div class="input-wrap"><input id="fdY" value="3"></div></div>
-  </div>
-
-  <button class="calc-btn" onclick="calcFD()">Calculate</button>
-  <div class="result-grid" id="fdOut"></div>
-</div>
-
 </div>
 
 <script>
+// =============================================
+// DATA
+// =============================================
+const COUNTRY_DATA={
+  IN:{flag:"🇮🇳",symbol:"₹",name:"India",currency:"INR"},US:{flag:"🇺🇸",symbol:"$",name:"United States",currency:"USD"},
+  GB:{flag:"🇬🇧",symbol:"£",name:"United Kingdom",currency:"GBP"},AE:{flag:"🇦🇪",symbol:"د.إ",name:"UAE",currency:"AED"},
+  SG:{flag:"🇸🇬",symbol:"S$",name:"Singapore",currency:"SGD"},AU:{flag:"🇦🇺",symbol:"A$",name:"Australia",currency:"AUD"},
+  JP:{flag:"🇯🇵",symbol:"¥",name:"Japan",currency:"JPY"},CN:{flag:"🇨🇳",symbol:"¥",name:"China",currency:"CNY"},
+  DE:{flag:"🇩🇪",symbol:"€",name:"Germany",currency:"EUR"},FR:{flag:"🇫🇷",symbol:"€",name:"France",currency:"EUR"},
+  CA:{flag:"🇨🇦",symbol:"CA$",name:"Canada",currency:"CAD"},BR:{flag:"🇧🇷",symbol:"R$",name:"Brazil",currency:"BRL"},
+  SA:{flag:"🇸🇦",symbol:"﷼",name:"Saudi Arabia",currency:"SAR"},MY:{flag:"🇲🇾",symbol:"RM",name:"Malaysia",currency:"MYR"},
+  ZA:{flag:"🇿🇦",symbol:"R",name:"South Africa",currency:"ZAR"},ID:{flag:"🇮🇩",symbol:"Rp",name:"Indonesia",currency:"IDR"},
+  RU:{flag:"🇷🇺",symbol:"₽",name:"Russia",currency:"RUB"},MX:{flag:"🇲🇽",symbol:"$",name:"Mexico",currency:"MXN"},
+  NG:{flag:"🇳🇬",symbol:"₦",name:"Nigeria",currency:"NGN"},KE:{flag:"🇰🇪",symbol:"KSh",name:"Kenya",currency:"KES"}
+};
+const FX={USD:1,INR:95.6,EUR:0.868,GBP:0.75,JPY:160.3,CNY:7.22,AED:3.6725,SGD:1.345,AUD:1.42,CAD:1.39,BRL:5.65,SAR:3.75,MYR:4.72,ZAR:18.4,IDR:16250,RUB:96.5,MXN:20.3,NGN:1620,KES:129};
+const TZ_MAP={'Asia/Kolkata':'IN','Asia/Calcutta':'IN','America/New_York':'US','America/Chicago':'US','America/Los_Angeles':'US','America/Denver':'US','Europe/London':'GB','Asia/Dubai':'AE','Asia/Singapore':'SG','Australia/Sydney':'AU','Australia/Melbourne':'AU','Asia/Tokyo':'JP','Asia/Shanghai':'CN','Asia/Hong_Kong':'CN','Europe/Berlin':'DE','Europe/Paris':'FR','America/Toronto':'CA','America/Sao_Paulo':'BR','Asia/Riyadh':'SA','Asia/Kuala_Lumpur':'MY','Africa/Johannesburg':'ZA','Asia/Jakarta':'ID','Europe/Moscow':'RU','America/Mexico_City':'MX','Africa/Lagos':'NG','Africa/Nairobi':'KE'};
 
-function openTab(id,btn){
-  document.querySelectorAll('.calc-card').forEach(c=>c.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+let currentRegion='IN';
 
+function detectCountry(){try{return TZ_MAP[Intl.DateTimeFormat().resolvedOptions().timeZone]||'IN';}catch(e){return'IN';}}
+function populateCountries(){
+  const sel=document.getElementById('country-select');
+  const preferred=['IN','US'];
+  const grp1=document.createElement('optgroup');grp1.label='⭐ Preferred';
+  preferred.forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=`${COUNTRY_DATA[c].flag} ${COUNTRY_DATA[c].name} (${COUNTRY_DATA[c].symbol})`;grp1.appendChild(o);});
+  sel.appendChild(grp1);
+  const grp2=document.createElement('optgroup');grp2.label='🌍 All Countries';
+  Object.keys(COUNTRY_DATA).filter(c=>!preferred.includes(c)).forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=`${COUNTRY_DATA[c].flag} ${COUNTRY_DATA[c].name} (${COUNTRY_DATA[c].symbol})`;grp2.appendChild(o);});
+  sel.appendChild(grp2);
+}
+function applyRegion(code){
+  currentRegion=code;
+  const d=COUNTRY_DATA[code]||COUNTRY_DATA.IN;
+  document.getElementById('flag-preview').textContent=d.flag;
+  document.querySelectorAll('.cur-symbol').forEach(el=>el.textContent=d.symbol);
+}
+function onCountryChange(){document.getElementById('auto-badge').style.display='none';applyRegion(document.getElementById('country-select').value);}
+
+// =============================================
+// TABS & CATEGORIES
+// =============================================
+const CATEGORIES=[
+  {id:'finance',name:'💰 Finance'},
+  {id:'health',name:'❤️ Health'},
+  {id:'academic',name:'🎓 Academic'},
+  {id:'hike',name:'📈 Salary / Hike'}
+];
+function createTabs(){
+  const c=document.getElementById('main-tabs');
+  CATEGORIES.forEach((cat,i)=>{
+    const b=document.createElement('button');
+    b.className='tab'+(i===0?' active':'');
+    b.textContent=cat.name;
+    b.onclick=()=>showCategory(cat.id,b);
+    c.appendChild(b);
+  });
+}
+function showCategory(id,btn){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
+  document.querySelectorAll('.calc-card').forEach(c=>c.classList.remove('active'));
+  const card=document.getElementById('card-'+id);
+  if(card)card.classList.add('active');
 }
 
-/* EMI */
-function calcEMI(){
-  let P=+emiP.value, r=+emiR.value/12/100, n=+emiN.value*12;
-  let e=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+// =============================================
+// CALCULATOR DEFINITIONS
+// =============================================
+const FINANCE_CALCS=[
+  {id:'emi',icon:'🏦',title:'EMI / Loan',desc:'Home, Car, Personal Loans'},
+  {id:'sip',icon:'📈',title:'SIP / Investment',desc:'Mutual Funds & SIP'},
+  {id:'fd',icon:'🏛',title:'Fixed Deposit',desc:'FD / CD Maturity'},
+  {id:'retire',icon:'🌅',title:'Retirement Planner',desc:'Corpus Planning'},
+  {id:'currency',icon:'💱',title:'Currency Converter',desc:'Global Exchange Rates'},
+];
+const HEALTH_CALCS={
+  'Body & Fitness':[
+    {id:'bmi',icon:'⚖️',title:'BMI Calculator'},
+    {id:'bodyfat',icon:'💪',title:'Body Fat Calculator'},
+    {id:'idealweight',icon:'🎯',title:'Ideal Weight'},
+    {id:'bmr',icon:'🔥',title:'BMR Calculator'},
+    {id:'tdee',icon:'⚡',title:'TDEE Calculator'},
+    {id:'calorie',icon:'🍎',title:'Calorie Calculator'},
+    {id:'water',icon:'💧',title:'Water Intake'},
+    {id:'protein',icon:'🥩',title:'Protein Intake'},
+  ],
+  'Medical & Wellness':[
+    {id:'pregnancy',icon:'🤰',title:'Pregnancy Due Date'},
+    {id:'ovulation',icon:'🌸',title:'Ovulation Calculator'},
+    {id:'heartrate',icon:'❤️',title:'Heart Rate Zones'},
+    {id:'bloodpressure',icon:'🩺',title:'Blood Pressure Check'},
+    {id:'diabetes',icon:'🩸',title:'Diabetes Risk'},
+    {id:'sleep',icon:'😴',title:'Sleep Calculator'},
+    {id:'age',icon:'🎂',title:'Age Calculator'},
+  ]
+};
+const ACADEMIC_CALCS={
+  'School':[
+    {id:'percentage',icon:'📊',title:'Percentage Calculator'},
+    {id:'cgpato',icon:'🔄',title:'CGPA → Percentage'},
+    {id:'toCGPA',icon:'🔄',title:'Percentage → CGPA'},
+    {id:'marks',icon:'📝',title:'Marks Calculator'},
+    {id:'grade',icon:'🏅',title:'Grade Calculator'},
+  ],
+  'Engineering / Science':[
+    {id:'scientific',icon:'🔬',title:'Scientific Calculator'},
+    {id:'matrix',icon:'🔢',title:'Matrix Calculator'},
+    {id:'gpa',icon:'📐',title:'GPA Calculator'},
+    {id:'attendance',icon:'📅',title:'Attendance Calculator'},
+    {id:'unit',icon:'📏',title:'Unit Converter'},
+  ],
+  'Competitive Exams':[
+    {id:'rankpredictor',icon:'🏆',title:'Rank Predictor'},
+    {id:'cutoff',icon:'✂️',title:'Cutoff Predictor'},
+    {id:'score',icon:'🎯',title:'Score Calculator'},
+  ],
+  'College Students':[
+    {id:'semgpa',icon:'📚',title:'Semester GPA'},
+    {id:'cgpa',icon:'🎓',title:'CGPA Calculator'},
+    {id:'backlog',icon:'⚠️',title:'Backlog Impact'},
+  ]
+};
+const HIKE_CALCS={
+  'Salary':[
+    {id:'inhand',icon:'💵',title:'In-Hand Salary'},
+    {id:'ctc',icon:'📋',title:'CTC Calculator'},
+    {id:'hikecalc',icon:'📈',title:'Salary Hike'},
+    {id:'increment',icon:'➕',title:'Increment Calculator'},
+    {id:'bonus',icon:'🎁',title:'Bonus Calculator'},
+  ],
+  'Tax':[
+    {id:'oldtax',icon:'📜',title:'Old Tax Regime'},
+    {id:'newtax',icon:'🆕',title:'New Tax Regime'},
+    {id:'incometax',icon:'🧾',title:'Income Tax'},
+    {id:'hra',icon:'🏠',title:'HRA Exemption'},
+    {id:'sec80c',icon:'💰',title:'80C Savings'},
+  ],
+  'Employment':[
+    {id:'pf',icon:'🏦',title:'PF Calculator'},
+    {id:'epf',icon:'🏛',title:'EPF Maturity'},
+    {id:'gratuity',icon:'🤝',title:'Gratuity Calculator'},
+    {id:'nps',icon:'🌅',title:'NPS Calculator'},
+    {id:'leave',icon:'🏖',title:'Leave Encashment'},
+  ],
+  'Career':[
+    {id:'promotionhike',icon:'🚀',title:'Promotion Hike'},
+    {id:'freelance',icon:'💻',title:'Freelance Rate'},
+    {id:'hourly',icon:'⏱',title:'Hourly Rate'},
+  ]
+};
 
-  emiOut.innerHTML=`
-  <div class="result-box"><div class="result-label">EMI</div><div class="result-value">${Math.round(e)}</div></div>
-  <div class="result-box"><div class="result-label">Total</div><div class="result-value">${Math.round(e*n)}</div></div>`;
+// =============================================
+// BUILD CATEGORY CARDS
+// =============================================
+function buildGrid(calcs,clickFn){
+  if(Array.isArray(calcs)){
+    return calcs.map(c=>`<div class="calc-box-card" onclick="${clickFn}('${c.id}')"><span class="icon">${c.icon}</span><div class="ctitle">${c.title}</div></div>`).join('');
+  }
+  let html='';
+  Object.keys(calcs).forEach(section=>{
+    html+=`<div style="grid-column:1/-1" class="section-label">${section}</div>`;
+    html+=calcs[section].map(c=>`<div class="calc-box-card" onclick="${clickFn}('${c.id}')"><span class="icon">${c.icon}</span><div class="ctitle">${c.title}</div></div>`).join('');
+  });
+  return html;
 }
 
-/* SIP */
-function calcSIP(){
-  let m=+sipA.value, r=+sipR.value/100/12, n=+sipY.value*12;
-  let v=m*((Math.pow(1+r,n)-1)/r)*(1+r);
+function financeHTML(){return`<div class="calc-card active" id="card-finance"><div class="card-title">Finance Calculators</div><div class="card-desc">Select a calculator below</div><div class="finance-grid">${buildGrid(FINANCE_CALCS,'openCalc')}</div></div>`;}
+function healthHTML(){return`<div class="calc-card" id="card-health"><div class="card-title">Health Calculators</div><div class="card-desc">Body, fitness & wellness tools</div><div class="health-grid">${buildGrid(HEALTH_CALCS,'openCalc')}</div></div>`;}
+function academicHTML(){return`<div class="calc-card" id="card-academic"><div class="card-title">Academic Calculators</div><div class="card-desc">School, college & competitive exam tools</div><div class="academic-grid">${buildGrid(ACADEMIC_CALCS,'openCalc')}</div></div>`;}
+function hikeHTML(){return`<div class="calc-card" id="card-hike"><div class="card-title">Salary / Hike Calculators</div><div class="card-desc">Salary, tax & career tools</div><div class="hike-grid">${buildGrid(HIKE_CALCS,'openCalc')}</div></div>`;}
 
-  sipOut.innerHTML=`
-  <div class="result-box"><div class="result-label">Maturity</div><div class="result-value">${Math.round(v)}</div></div>`;
+// =============================================
+// MODAL OPEN/CLOSE
+// =============================================
+function openCalc(type){
+  const modal=document.getElementById('calc-modal');
+  modal.classList.add('active');
+  const config=getCalcConfig(type);
+  document.getElementById('modal-title').textContent=config.title;
+  document.getElementById('modal-subtitle').textContent=config.subtitle||'';
+  document.getElementById('modal-body').innerHTML=config.html+infoSection(config)+aiBox(config.aiLabel||config.title);
+  if(config.onOpen)config.onOpen();
+}
+function closeModal(){document.getElementById('calc-modal').classList.remove('active');}
+document.getElementById('calc-modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+function aiBox(label){
+  return`<div class="action-row" style="grid-template-columns:1fr;">
+  <div class="ai-box-disabled">
+    <div class="ai-title">🤖 AI Advice for ${label}</div>
+    <span class="ai-badge">Coming Soon</span>
+    <button class="ai-btn-dis" disabled>AI Advice — Currently Disabled</button>
+    <div class="ai-terms">AI advice is temporarily disabled. When enabled, governed by our <a href="#" onclick="document.getElementById('terms-modal').classList.add('active');return false;">Terms & Conditions</a>. For informational purposes only.</div>
+  </div></div>`;
 }
 
-/* TAX */
-function calcTax(){
-  let i=+taxI.value;
-  taxOut.innerHTML=`
-  <div class="result-box"><div class="result-label">Tax</div><div class="result-value">${Math.round(i*0.1)}</div></div>`;
+function infoSection(cfg){
+  if(!cfg.info)return'';
+  const tabs=Object.keys(cfg.info);
+  const tabsHTML=tabs.map((t,i)=>`<button class="info-tab${i===0?' active':''}" onclick="switchInfo(this,'ip-${cfg.id}-${i}')">${t}</button>`).join('');
+  const panelsHTML=tabs.map((t,i)=>`<div class="info-panel${i===0?' active':''}" id="ip-${cfg.id}-${i}">${cfg.info[t]}</div>`).join('');
+  return`<div class="info-section"><div class="info-tabs">${tabsHTML}</div>${panelsHTML}</div>`;
+}
+function switchInfo(btn,panelId){
+  const section=btn.closest('.info-section');
+  section.querySelectorAll('.info-tab').forEach(t=>t.classList.remove('active'));
+  section.querySelectorAll('.info-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
 }
 
-/* FD */
-function calcFD(){
-  let p=+fdP.value, r=+fdR.value/100, y=+fdY.value;
-  let m=p*Math.pow(1+r,y);
+// =============================================
+// SHARED HELPERS
+// =============================================
+function fmt(n,decimals=0){
+  n=parseFloat(n);
+  if(isNaN(n))return'—';
+  const d=COUNTRY_DATA[currentRegion]||COUNTRY_DATA.IN;
+  const rounded=decimals?n.toFixed(decimals):Math.round(n);
+  if(currentRegion==='IN'&&decimals===0){
+    let s=Math.round(n).toString();
+    if(s.length<=3)return d.symbol+s;
+    let last3=s.slice(-3),rest=s.slice(0,-3);
+    rest=rest.replace(/\B(?=(\d{2})+(?!\d))/g,',');
+    return d.symbol+rest+','+last3;
+  }
+  return d.symbol+(decimals?parseFloat(n.toFixed(decimals)).toLocaleString('en-US'):Math.round(n).toLocaleString('en-US'));
+}
+function fmtRaw(n,decimals=2){return parseFloat(n).toFixed(decimals);}
+function showResults(id,boxes){
+  const el=document.getElementById(id);if(!el)return;
+  el.style.display='grid';
+  el.innerHTML=boxes.map(b=>`<div class="result-box${b.h?' highlight':''}"><div class="result-label">${b.label}</div><div class="result-value${b.c?' '+b.c:''}">${b.value}</div></div>`).join('');
+}
+function getSym(){return(COUNTRY_DATA[currentRegion]||COUNTRY_DATA.IN).symbol;}
 
-  fdOut.innerHTML=`
-  <div class="result-box"><div class="result-label">Maturity</div><div class="result-value">${Math.round(m)}</div></div>`;
+// =============================================
+// RELATED PILLS HELPER
+// =============================================
+function relatedPills(ids){
+  const all=[...FINANCE_CALCS,...Object.values(HEALTH_CALCS).flat(),...Object.values(ACADEMIC_CALCS).flat(),...Object.values(HIKE_CALCS).flat()];
+  return`<div class="related-grid">${ids.map(id=>{const c=all.find(x=>x.id===id);return c?`<span class="related-pill" onclick="openCalc('${id}')">${c.icon} ${c.title}</span>`:''}).join('')}</div>`;
 }
 
+// =============================================
+// CALCULATOR CONFIGS
+// =============================================
+function getCalcConfig(type){
+  const sym=getSym();
+  switch(type){
+
+  // ─── FINANCE ────────────────────────────────
+  case'emi':return{id:'emi',title:'EMI / Loan Calculator',subtitle:'Home · Car · Personal · Education',
+    html:`<div class="form-grid">
+      <div class="field"><label>Loan Amount</label><div class="input-wrap"><span class="input-prefix cur-symbol">${sym}</span><input type="number" id="emi-amount" value="1000000"></div></div>
+      <div class="field"><label>Interest Rate (%/yr)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="emi-rate" value="8.5" step="0.1"></div></div>
+      <div class="field"><label>Tenure (Years)</label><div class="input-wrap"><span class="input-prefix">Yr</span><input type="number" id="emi-tenure" value="20" min="1" max="30"></div></div>
+      <div class="field"><label>Loan Type</label><div class="input-wrap"><select id="emi-type"><option>Home Loan</option><option>Car Loan</option><option>Personal Loan</option><option>Education Loan</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doEMI()">⚡ Calculate EMI</button></div>
+    <div class="result-grid" id="emi-r"></div>`,
+    info:{
+      'Formula':`<h4>EMI Formula</h4><div class="formula-box">EMI = P × r × (1+r)ⁿ / ((1+r)ⁿ - 1)\n\nWhere:\n  P = Principal loan amount\n  r = Monthly interest rate (Annual rate ÷ 12 ÷ 100)\n  n = Total number of monthly payments</div><p>The EMI formula uses compound interest to spread the repayment evenly across the loan tenure.</p>`,
+      'Example':`<h4>Example Calculation</h4><p><b>Home Loan of ₹50,00,000 at 8.5% for 20 years:</b></p><ul><li>P = 50,00,000</li><li>r = 8.5 / 12 / 100 = 0.00708</li><li>n = 20 × 12 = 240</li><li>EMI = ₹43,391/month</li><li>Total Payment = ₹1,04,13,843</li><li>Total Interest = ₹54,13,843</li></ul>`,
+      'How to Use':`<h4>Step-by-Step Guide</h4><ol style="padding-left:18px;"><li>Enter your loan amount</li><li>Enter the annual interest rate offered by the bank</li><li>Select the loan tenure in years</li><li>Click Calculate to see your EMI, total payment and interest</li></ol><h4>Tips</h4><ul><li>Longer tenure = lower EMI but higher total interest</li><li>Making prepayments can save significant interest</li><li>Compare rates from multiple banks before taking a loan</li></ul>`,
+      'Comparison':`<h4>Loan Type Comparison (₹10L, 5yr)</h4><table class="compare-table"><tr><th>Type</th><th>Typical Rate</th><th>Approx EMI</th></tr><tr><td>Home Loan</td><td>8.4–9.5%</td><td>₹20,607</td></tr><tr><td>Car Loan</td><td>9.5–12%</td><td>₹21,247</td></tr><tr><td>Personal Loan</td><td>12–24%</td><td>₹22,244</td></tr><tr><td>Education Loan</td><td>8–12%</td><td>₹20,276</td></tr></table>`,
+      'FAQ':`<h4>Frequently Asked Questions</h4><h4>Can I prepay my loan?</h4><p>Yes. Most banks allow prepayment. Partial prepayment reduces the principal and can lower either your EMI or tenure.</p><h4>What is a floating vs fixed rate?</h4><p>Floating rates change with market conditions (linked to RBI repo rate). Fixed rates stay constant but are usually higher.</p><h4>How does CIBIL score affect my EMI?</h4><p>A higher CIBIL score (750+) qualifies you for lower interest rates, reducing your EMI significantly.</p>`,
+      'Related':relatedPills(['sip','fd','retire','ctc'])
+    }
+  };
+
+  case'sip':return{id:'sip',title:'SIP / Investment Calculator',subtitle:'Mutual Funds · ELSS · Index Funds',
+    html:`<div class="form-grid">
+      <div class="field"><label>Monthly Investment</label><div class="input-wrap"><span class="input-prefix cur-symbol">${sym}</span><input type="number" id="sip-amount" value="10000"></div></div>
+      <div class="field"><label>Expected Return (%/yr)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="sip-return" value="12" step="0.5"></div></div>
+      <div class="field"><label>Period (Years)</label><div class="input-wrap"><span class="input-prefix">Yr</span><input type="number" id="sip-tenure" value="15" min="1" max="50"></div></div>
+      <div class="field"><label>Type</label><div class="input-wrap"><select id="sip-type"><option value="sip">SIP (Monthly)</option><option value="lump">Lump Sum</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doSIP()">⚡ Calculate Returns</button></div>
+    <div class="result-grid" id="sip-r"></div>`,
+    info:{
+      'Formula':`<h4>SIP Future Value Formula</h4><div class="formula-box">M = P × ((1 + r)ⁿ - 1) / r × (1 + r)\n\nWhere:\n  M = Maturity amount\n  P = Monthly SIP amount\n  r = Monthly return (Annual return ÷ 12 ÷ 100)\n  n = Number of months</div>`,
+      'Example':`<h4>₹10,000/month for 15 years at 12%</h4><ul><li>Total invested = ₹18,00,000</li><li>Maturity value = ₹50,45,760</li><li>Wealth gained = ₹32,45,760</li><li>Wealth ratio = 2.8x</li></ul><p>This is the <b>power of compounding</b> — starting early doubles your advantage.</p>`,
+      'How to Use':`<h4>Getting Started with SIP</h4><ol style="padding-left:18px;"><li>Decide your monthly investment amount</li><li>Choose expected return (12% = equity MF average; 7% = debt MF)</li><li>Set your goal period</li><li>Click Calculate to see your wealth projection</li></ol><h4>Recommended Instruments</h4><ul><li>🇮🇳 India: NIFTY 50 Index Fund, ELSS, Flexi Cap</li><li>🇺🇸 US: S&P 500 ETF, Fidelity Index Funds</li></ul>`,
+      'Comparison':`<table class="compare-table"><tr><th>Investment</th><th>Avg Return</th><th>Risk</th><th>Lock-in</th></tr><tr><td>FD</td><td>7–7.5%</td><td>Low</td><td>Flexible</td></tr><tr><td>Debt MF</td><td>7–8%</td><td>Low</td><td>None</td></tr><tr><td>Hybrid MF</td><td>10–11%</td><td>Medium</td><td>None</td></tr><tr><td>Equity MF</td><td>12–15%</td><td>High</td><td>None</td></tr><tr><td>ELSS</td><td>12–14%</td><td>High</td><td>3 years</td></tr></table>`,
+      'FAQ':`<h4>Is 12% return realistic?</h4><p>India's Nifty 50 has delivered ~12–14% CAGR over 20 years. Past performance doesn't guarantee future returns.</p><h4>What is ELSS?</h4><p>Equity Linked Savings Scheme — a tax-saving mutual fund eligible for ₹1.5L deduction under Section 80C with 3-year lock-in.</p>`,
+      'Related':relatedPills(['emi','fd','retire','sec80c'])
+    }
+  };
+
+  case'fd':return{id:'fd',title:'Fixed Deposit Calculator',subtitle:'FD · RD · Certificate of Deposit',
+    html:`<div class="form-grid">
+      <div class="field"><label>Principal Amount</label><div class="input-wrap"><span class="input-prefix cur-symbol">${sym}</span><input type="number" id="fd-principal" value="500000"></div></div>
+      <div class="field"><label>Interest Rate (%/yr)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="fd-rate" value="7.1" step="0.1"></div></div>
+      <div class="field"><label>Tenure (Years)</label><div class="input-wrap"><span class="input-prefix">Yr</span><input type="number" id="fd-tenure" value="3" min="0.5" step="0.5"></div></div>
+      <div class="field"><label>Compounding</label><div class="input-wrap"><select id="fd-comp"><option value="4">Quarterly</option><option value="12">Monthly</option><option value="2">Half-Yearly</option><option value="1">Annually</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doFD()">⚡ Calculate Maturity</button></div>
+    <div class="result-grid" id="fd-r"></div>`,
+    info:{
+      'Formula':`<h4>Compound Interest Formula</h4><div class="formula-box">A = P × (1 + r/n)^(n×t)\n\nWhere:\n  A = Maturity amount\n  P = Principal\n  r = Annual interest rate (decimal)\n  n = Compounding frequency per year\n  t = Time in years</div>`,
+      'Example':`<h4>₹5,00,000 at 7.1% for 3 years (Quarterly)</h4><ul><li>Maturity = ₹6,17,091</li><li>Interest earned = ₹1,17,091</li><li>Effective annual rate = 7.31%</li></ul>`,
+      'Comparison':`<table class="compare-table"><tr><th>Bank</th><th>1yr Rate</th><th>3yr Rate</th><th>5yr Rate</th></tr><tr><td>SBI</td><td>6.8%</td><td>6.75%</td><td>6.5%</td></tr><tr><td>HDFC</td><td>7.1%</td><td>7.0%</td><td>7.0%</td></tr><tr><td>ICICI</td><td>7.1%</td><td>7.0%</td><td>7.0%</td></tr><tr><td>Post Office</td><td>6.9%</td><td>7.1%</td><td>7.5%</td></tr></table><p style="font-size:11px;margin-top:6px;">*Rates indicative. Check bank website for current rates.</p>`,
+      'FAQ':`<h4>Is FD interest taxable?</h4><p>Yes. FD interest is added to your income and taxed at your slab rate. TDS is deducted at 10% if interest > ₹40,000/year.</p><h4>What is FD laddering?</h4><p>Splitting your FD across multiple tenures (e.g., 1yr, 2yr, 3yr) to benefit from different rates and maintain liquidity.</p>`,
+      'Related':relatedPills(['sip','retire','newtax','sec80c'])
+    }
+  };
+
+  case'retire':return{id:'retire',title:'Retirement Planner',subtitle:'Corpus · NPS · PPF Planning',
+    html:`<div class="form-grid">
+      <div class="field"><label>Current Age</label><div class="input-wrap"><span class="input-prefix">Age</span><input type="number" id="ret-age" value="30" min="18"></div></div>
+      <div class="field"><label>Retirement Age</label><div class="input-wrap"><span class="input-prefix">Age</span><input type="number" id="ret-retire" value="60"></div></div>
+      <div class="field"><label>Monthly Expenses Now</label><div class="input-wrap"><span class="input-prefix cur-symbol">${sym}</span><input type="number" id="ret-exp" value="50000"></div></div>
+      <div class="field"><label>Expected Inflation (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="ret-inf" value="6" step="0.5"></div></div>
+      <div class="field"><label>Expected Return (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="ret-roi" value="10" step="0.5"></div></div>
+      <div class="field"><label>Life Expectancy</label><div class="input-wrap"><span class="input-prefix">Age</span><input type="number" id="ret-life" value="85"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doRetire()">⚡ Plan My Retirement</button></div>
+    <div class="result-grid" id="ret-r"></div>`,
+    info:{
+      'Formula':`<h4>Retirement Corpus Formula</h4><div class="formula-box">Future Expenses = Current Expenses × (1 + inflation)^years\n\nCorpus = Future Monthly Expense × 12 × \n  [(1 - (1+real_rate)^(-retirement_years)) / real_rate]\n\nReal Rate = (return - inflation) / (1 + inflation)</div>`,
+      'Example':`<h4>Age 30, Retire at 60, ₹50K/month expenses</h4><ul><li>Future monthly expenses at 60 = ₹2,87,175</li><li>Corpus needed = ₹3.8 Cr (30-yr post retirement)</li><li>Monthly SIP needed = ₹23,450 at 10% return</li></ul>`,
+      'How to Use':`<ol style="padding-left:18px;"><li>Enter your current age and target retirement age</li><li>Enter your current monthly expenses</li><li>Set expected inflation (6% for India)</li><li>Set expected investment return (10–12% for equity)</li><li>Set life expectancy (85 is standard)</li></ol>`,
+      'FAQ':`<h4>How much should I save?</h4><p>A general rule: save 15–20% of income from age 25. The earlier you start, the less you need to save monthly due to compounding.</p><h4>Best retirement vehicles in India?</h4><p>NPS (National Pension System), PPF (Public Provident Fund), EPF, ELSS Mutual Funds, and annuity plans.</p>`,
+      'Related':relatedPills(['sip','nps','epf','pf'])
+    }
+  };
+
+  case'currency':return{id:'currency',title:'Currency Converter',subtitle:'Live Reference Exchange Rates',
+    html:(()=>{let opts='';Object.keys(COUNTRY_DATA).forEach(c=>{opts+=`<option value="${COUNTRY_DATA[c].currency}">${COUNTRY_DATA[c].flag} ${COUNTRY_DATA[c].name} (${COUNTRY_DATA[c].currency})</option>`;});return`<div class="form-grid">
+      <div class="field"><label>Amount</label><div class="input-wrap"><input type="number" id="cur-amount" value="1000" style="padding-left:14px;"></div></div>
+      <div class="field"><label>From</label><div class="input-wrap"><select id="cur-from"><option value="USD" selected>🇺🇸 United States (USD)</option>${opts}</select></div></div>
+      <div class="field"><label>To</label><div class="input-wrap"><select id="cur-to"><option value="INR" selected>🇮🇳 India (INR)</option>${opts}</select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doCurrency()">⚡ Convert Now</button></div>
+    <div class="result-grid" id="cur-r"></div>`;})(),
+    info:{
+      'How It Works':`<p>Currency conversion uses <b>reference mid-market exchange rates</b> relative to USD (updated June 2026). These are approximate for educational use only.</p><p><b>Important:</b> Real bank/forex rates include spreads and fees. For actual transactions, always check your bank, Wise, or official forex provider for live rates.</p>`,
+      'FAQ':`<h4>Why is the bank rate different?</h4><p>Banks add a spread (margin) of 1–3% over the interbank rate. For international transfers, services like Wise or Revolut offer rates closer to the mid-market rate.</p>`,
+      'Related':relatedPills(['emi','sip','freelance','hourly'])
+    }
+  };
+
+  // ─── HEALTH ─────────────────────────────────
+  case'bmi':return{id:'bmi',title:'BMI Calculator',subtitle:'Body Mass Index',
+    html:`<div class="form-grid">
+      <div class="field"><label>Weight (kg)</label><div class="input-wrap"><span class="input-prefix">kg</span><input type="number" id="bmi-w" value="70" step="0.1"></div></div>
+      <div class="field"><label>Height (cm)</label><div class="input-wrap"><span class="input-prefix">cm</span><input type="number" id="bmi-h" value="170" step="0.1"></div></div>
+      <div class="field"><label>Age</label><div class="input-wrap"><span class="input-prefix">Yr</span><input type="number" id="bmi-age" value="25"></div></div>
+      <div class="field"><label>Gender</label><div class="input-wrap"><select id="bmi-gender"><option>Male</option><option>Female</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doBMI()">⚡ Calculate BMI</button></div>
+    <div class="result-grid" id="bmi-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">BMI = Weight (kg) / Height (m)²\n\nCategories:\n  < 18.5   = Underweight\n  18.5–24.9 = Normal Weight\n  25.0–29.9 = Overweight\n  ≥ 30      = Obese</div>`,
+      'Example':`<h4>Example</h4><p>Weight: 70 kg, Height: 170 cm (1.7 m)</p><p>BMI = 70 / (1.7 × 1.7) = 70 / 2.89 = <b>24.2 (Normal)</b></p>`,
+      'Comparison':`<table class="compare-table"><tr><th>Category</th><th>BMI Range</th><th>Health Risk</th></tr><tr><td>Underweight</td><td>&lt; 18.5</td><td>Moderate</td></tr><tr><td>Normal</td><td>18.5–24.9</td><td>Low</td></tr><tr><td>Overweight</td><td>25–29.9</td><td>Moderate</td></tr><tr><td>Obese I</td><td>30–34.9</td><td>High</td></tr><tr><td>Obese II</td><td>35–39.9</td><td>Very High</td></tr><tr><td>Obese III</td><td>≥ 40</td><td>Extreme</td></tr></table>`,
+      'FAQ':`<h4>Is BMI accurate for everyone?</h4><p>BMI doesn't distinguish muscle from fat. Athletes may have high BMI but low body fat. Use in conjunction with body fat % for better accuracy.</p>`,
+      'Related':relatedPills(['bodyfat','idealweight','bmr','tdee'])
+    }
+  };
+
+  case'bodyfat':return{id:'bodyfat',title:'Body Fat Calculator',subtitle:'US Navy Method',
+    html:`<div class="form-grid">
+      <div class="field"><label>Gender</label><div class="input-wrap"><select id="bf-gender" onchange="toggleBFFields()"><option value="male">Male</option><option value="female">Female</option></select></div></div>
+      <div class="field"><label>Height (cm)</label><div class="input-wrap"><span class="input-prefix">cm</span><input type="number" id="bf-height" value="175"></div></div>
+      <div class="field"><label>Neck Circumference (cm)</label><div class="input-wrap"><span class="input-prefix">cm</span><input type="number" id="bf-neck" value="38"></div></div>
+      <div class="field"><label>Waist Circumference (cm)</label><div class="input-wrap"><span class="input-prefix">cm</span><input type="number" id="bf-waist" value="85"></div></div>
+      <div class="field" id="bf-hip-field" style="display:none"><label>Hip Circumference (cm)</label><div class="input-wrap"><span class="input-prefix">cm</span><input type="number" id="bf-hip" value="95"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doBodyFat()">⚡ Calculate Body Fat</button></div>
+    <div class="result-grid" id="bf-r"></div>`,
+    onOpen:()=>{setTimeout(toggleBFFields,100);},
+    info:{
+      'Formula':`<div class="formula-box">Male: 495 / (1.0324 - 0.19077 × log10(waist-neck) + 0.15456 × log10(height)) - 450\n\nFemale: 495 / (1.29579 - 0.35004 × log10(waist+hip-neck) + 0.22100 × log10(height)) - 450</div>`,
+      'Comparison':`<table class="compare-table"><tr><th>Category</th><th>Men</th><th>Women</th></tr><tr><td>Essential Fat</td><td>2–5%</td><td>10–13%</td></tr><tr><td>Athlete</td><td>6–13%</td><td>14–20%</td></tr><tr><td>Fitness</td><td>14–17%</td><td>21–24%</td></tr><tr><td>Average</td><td>18–24%</td><td>25–31%</td></tr><tr><td>Obese</td><td>&gt;25%</td><td>&gt;32%</td></tr></table>`,
+      'Related':relatedPills(['bmi','idealweight','bmr','tdee'])
+    }
+  };
+
+  case'idealweight':return{id:'idealweight',title:'Ideal Weight Calculator',subtitle:'Multiple Formula Methods',
+    html:`<div class="form-grid">
+      <div class="field"><label>Height (cm)</label><div class="input-wrap"><span class="input-prefix">cm</span><input type="number" id="iw-height" value="170"></div></div>
+      <div class="field"><label>Gender</label><div class="input-wrap"><select id="iw-gender"><option>Male</option><option>Female</option></select></div></div>
+      <div class="field"><label>Frame Size</label><div class="input-wrap"><select id="iw-frame"><option>Small</option><option selected>Medium</option><option>Large</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doIdealWeight()">⚡ Calculate Ideal Weight</button></div>
+    <div class="result-grid" id="iw-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">Devine (Male):   50 + 2.3 × (height_in - 60)\nDevine (Female): 45.5 + 2.3 × (height_in - 60)\n\nHamwi (Male):   48 + 2.7 × (height_in - 60)\nHamwi (Female): 45.5 + 2.2 × (height_in - 60)\n\nBMI Method: √(height_m² × 22) for BMI of 22</div>`,
+      'FAQ':`<h4>Which formula is most accurate?</h4><p>No single formula works for everyone. The BMI method (targeting BMI 18.5–24.9) is most commonly used. Your ideal weight also depends on muscle mass and body composition.</p>`,
+      'Related':relatedPills(['bmi','bodyfat','bmr','calorie'])
+    }
+  };
+
+  case'bmr':return{id:'bmr',title:'BMR Calculator',subtitle:'Basal Metabolic Rate',
+    html:`<div class="form-grid">
+      <div class="field"><label>Weight (kg)</label><div class="input-wrap"><span class="input-prefix">kg</span><input type="number" id="bmr-w" value="70"></div></div>
+      <div class="field"><label>Height (cm)</label><div class="input-wrap"><span class="input-prefix">cm</span><input type="number" id="bmr-h" value="170"></div></div>
+      <div class="field"><label>Age (Years)</label><div class="input-wrap"><span class="input-prefix">Yr</span><input type="number" id="bmr-age" value="25"></div></div>
+      <div class="field"><label>Gender</label><div class="input-wrap"><select id="bmr-gender"><option>Male</option><option>Female</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doBMR()">⚡ Calculate BMR</button></div>
+    <div class="result-grid" id="bmr-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">Mifflin-St Jeor (Most Accurate):\n\nMale:   (10 × weight) + (6.25 × height) - (5 × age) + 5\nFemale: (10 × weight) + (6.25 × height) - (5 × age) - 161\n\nBMR = calories your body burns at complete rest</div>`,
+      'Example':`<h4>Male, 70kg, 170cm, age 25</h4><p>BMR = (10×70) + (6.25×170) - (5×25) + 5 = 700 + 1062.5 - 125 + 5 = <b>1,642 kcal/day</b></p>`,
+      'Related':relatedPills(['tdee','calorie','protein','water'])
+    }
+  };
+
+  case'tdee':return{id:'tdee',title:'TDEE Calculator',subtitle:'Total Daily Energy Expenditure',
+    html:`<div class="form-grid">
+      <div class="field"><label>Weight (kg)</label><div class="input-wrap"><span class="input-prefix">kg</span><input type="number" id="tdee-w" value="70"></div></div>
+      <div class="field"><label>Height (cm)</label><div class="input-wrap"><span class="input-prefix">cm</span><input type="number" id="tdee-h" value="170"></div></div>
+      <div class="field"><label>Age</label><div class="input-wrap"><span class="input-prefix">Yr</span><input type="number" id="tdee-age" value="25"></div></div>
+      <div class="field"><label>Gender</label><div class="input-wrap"><select id="tdee-gender"><option>Male</option><option>Female</option></select></div></div>
+      <div class="field"><label>Activity Level</label><div class="input-wrap"><select id="tdee-act">
+        <option value="1.2">Sedentary (desk job, no exercise)</option>
+        <option value="1.375">Light (exercise 1–3 days/week)</option>
+        <option value="1.55" selected>Moderate (exercise 3–5 days/week)</option>
+        <option value="1.725">Active (hard exercise 6–7 days/week)</option>
+        <option value="1.9">Very Active (athlete / physical job)</option>
+      </select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doTDEE()">⚡ Calculate TDEE</button></div>
+    <div class="result-grid" id="tdee-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">TDEE = BMR × Activity Multiplier\n\nActivity Multipliers:\n  1.2   = Sedentary\n  1.375 = Lightly active\n  1.55  = Moderately active\n  1.725 = Very active\n  1.9   = Extremely active</div>`,
+      'How to Use':`<p>TDEE is your maintenance calorie level — eat at TDEE to maintain weight, below to lose, above to gain.</p>
+      <table class="compare-table"><tr><th>Goal</th><th>Calories</th></tr><tr><td>Lose weight</td><td>TDEE − 300 to 500</td></tr><tr><td>Maintain</td><td>TDEE</td></tr><tr><td>Gain muscle</td><td>TDEE + 200 to 300</td></tr></table>`,
+      'Related':relatedPills(['bmr','calorie','protein','bmi'])
+    }
+  };
+
+  case'calorie':return{id:'calorie',title:'Calorie Calculator',subtitle:'Daily Calorie Needs by Goal',
+    html:`<div class="form-grid">
+      <div class="field"><label>Weight (kg)</label><div class="input-wrap"><span class="input-prefix">kg</span><input type="number" id="cal-w" value="70"></div></div>
+      <div class="field"><label>Height (cm)</label><div class="input-wrap"><span class="input-prefix">cm</span><input type="number" id="cal-h" value="170"></div></div>
+      <div class="field"><label>Age</label><div class="input-wrap"><span class="input-prefix">Yr</span><input type="number" id="cal-age" value="25"></div></div>
+      <div class="field"><label>Gender</label><div class="input-wrap"><select id="cal-gender"><option>Male</option><option>Female</option></select></div></div>
+      <div class="field"><label>Activity</label><div class="input-wrap"><select id="cal-act"><option value="1.2">Sedentary</option><option value="1.375">Light</option><option value="1.55" selected>Moderate</option><option value="1.725">Active</option><option value="1.9">Very Active</option></select></div></div>
+      <div class="field"><label>Goal</label><div class="input-wrap"><select id="cal-goal"><option value="-500">Lose Weight (−500 cal)</option><option value="0" selected>Maintain Weight</option><option value="300">Gain Muscle (+300 cal)</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doCalorie()">⚡ Calculate Calories</button></div>
+    <div class="result-grid" id="cal-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">BMR (Mifflin) → TDEE = BMR × Activity Factor → Target = TDEE + Goal Adjustment</div>`,
+      'Related':relatedPills(['bmr','tdee','protein','water'])
+    }
+  };
+
+  case'water':return{id:'water',title:'Water Intake Calculator',subtitle:'Daily Hydration Needs',
+    html:`<div class="form-grid">
+      <div class="field"><label>Weight (kg)</label><div class="input-wrap"><span class="input-prefix">kg</span><input type="number" id="wat-w" value="70"></div></div>
+      <div class="field"><label>Activity Level</label><div class="input-wrap"><select id="wat-act"><option value="0">Sedentary</option><option value="0.35" selected>Moderately Active</option><option value="0.6">Very Active / Athlete</option></select></div></div>
+      <div class="field"><label>Climate</label><div class="input-wrap"><select id="wat-climate"><option value="0">Temperate</option><option value="0.3">Hot / Humid</option><option value="-0.2">Cold</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doWater()">⚡ Calculate Water Intake</button></div>
+    <div class="result-grid" id="wat-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">Base: Weight (kg) × 0.033 litres\n+Extra for activity (0–0.6 L)\n+Extra for climate (−0.2 to +0.3 L)</div>`,
+      'FAQ':`<h4>Does coffee/tea count?</h4><p>Caffeinated drinks have a mild diuretic effect. Count them at ~50% of their volume toward water intake.</p>`,
+      'Related':relatedPills(['bmr','tdee','calorie','protein'])
+    }
+  };
+
+  case'protein':return{id:'protein',title:'Protein Intake Calculator',subtitle:'Daily Protein Requirements',
+    html:`<div class="form-grid">
+      <div class="field"><label>Weight (kg)</label><div class="input-wrap"><span class="input-prefix">kg</span><input type="number" id="prot-w" value="70"></div></div>
+      <div class="field"><label>Goal</label><div class="input-wrap"><select id="prot-goal"><option value="0.8">General Health (0.8g/kg)</option><option value="1.4">Endurance Athlete (1.4g/kg)</option><option value="1.7" selected>Muscle Building (1.7g/kg)</option><option value="2.2">Heavy Lifter (2.2g/kg)</option></select></div></div>
+      <div class="field"><label>Activity Level</label><div class="input-wrap"><select id="prot-act"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doProtein()">⚡ Calculate Protein</button></div>
+    <div class="result-grid" id="prot-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">Daily Protein = Body Weight (kg) × Protein Factor (g/kg)\n\nFactors by Goal:\n  General Health:   0.8 g/kg\n  Endurance Sports: 1.2–1.6 g/kg\n  Muscle Building:  1.6–2.2 g/kg\n  Heavy Lifting:    2.0–3.1 g/kg</div>`,
+      'Related':relatedPills(['calorie','tdee','bmr','water'])
+    }
+  };
+
+  case'pregnancy':return{id:'pregnancy',title:'Pregnancy Due Date Calculator',subtitle:'LMP Method',
+    html:`<div class="form-grid">
+      <div class="field"><label>Last Menstrual Period (LMP)</label><div class="input-wrap"><input type="date" id="preg-lmp" style="padding-left:12px;"></div></div>
+      <div class="field"><label>Average Cycle Length (days)</label><div class="input-wrap"><span class="input-prefix">days</span><input type="number" id="preg-cycle" value="28" min="21" max="45"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doPregnancy()">⚡ Calculate Due Date</button></div>
+    <div class="result-grid" id="preg-r"></div>`,
+    onOpen:()=>{const d=new Date();d.setDate(d.getDate()-14);document.getElementById('preg-lmp').value=d.toISOString().split('T')[0];},
+    info:{
+      'Formula':`<div class="formula-box">Naegele's Rule:\nDue Date = LMP + 280 days (40 weeks)\n\nAdjusted for cycle length:\nDue Date = LMP + 280 + (Cycle Length - 28) days</div>`,
+      'FAQ':`<h4>How accurate is this?</h4><p>LMP method gives ±2 weeks accuracy. An ultrasound at 8–10 weeks gives the most accurate due date.</p>`,
+      'Related':relatedPills(['ovulation','age'])
+    }
+  };
+
+  case'ovulation':return{id:'ovulation',title:'Ovulation Calculator',subtitle:'Fertile Window Predictor',
+    html:`<div class="form-grid">
+      <div class="field"><label>First Day of Last Period</label><div class="input-wrap"><input type="date" id="ovul-lmp" style="padding-left:12px;"></div></div>
+      <div class="field"><label>Cycle Length (days)</label><div class="input-wrap"><span class="input-prefix">days</span><input type="number" id="ovul-cycle" value="28" min="21" max="45"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doOvulation()">⚡ Find Fertile Window</button></div>
+    <div class="result-grid" id="ovul-r"></div>`,
+    onOpen:()=>{const d=new Date();d.setDate(d.getDate()-5);document.getElementById('ovul-lmp').value=d.toISOString().split('T')[0];},
+    info:{
+      'Formula':`<div class="formula-box">Ovulation ≈ LMP + (Cycle Length - 14) days\n\nFertile Window = Ovulation Day - 5 to Ovulation Day + 1\n\n(Sperm survives ~5 days; egg viable for ~24 hours)</div>`,
+      'Related':relatedPills(['pregnancy','age'])
+    }
+  };
+
+  case'heartrate':return{id:'heartrate',title:'Heart Rate Zone Calculator',subtitle:'Training Zones by Age',
+    html:`<div class="form-grid">
+      <div class="field"><label>Age</label><div class="input-wrap"><span class="input-prefix">Yr</span><input type="number" id="hr-age" value="30"></div></div>
+      <div class="field"><label>Resting Heart Rate (bpm)</label><div class="input-wrap"><span class="input-prefix">bpm</span><input type="number" id="hr-resting" value="65"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doHeartRate()">⚡ Calculate Zones</button></div>
+    <div class="result-grid" id="hr-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">Max HR = 220 - Age\n\nKarvonen Formula (Target HR):\nTHR = ((MaxHR - RestingHR) × Intensity%) + RestingHR\n\nZones:\n  Zone 1 (Warm-up):   50–60% MaxHR\n  Zone 2 (Fat Burn):  60–70% MaxHR\n  Zone 3 (Aerobic):   70–80% MaxHR\n  Zone 4 (Threshold): 80–90% MaxHR\n  Zone 5 (Anaerobic): 90–100% MaxHR</div>`,
+      'Related':relatedPills(['bmr','tdee','calorie','bmi'])
+    }
+  };
+
+  case'bloodpressure':return{id:'bloodpressure',title:'Blood Pressure Category Checker',subtitle:'AHA Classification',
+    html:`<div class="form-grid">
+      <div class="field"><label>Systolic (mmHg) — Top Number</label><div class="input-wrap"><span class="input-prefix">mmHg</span><input type="number" id="bp-sys" value="120" min="60" max="250"></div></div>
+      <div class="field"><label>Diastolic (mmHg) — Bottom Number</label><div class="input-wrap"><span class="input-prefix">mmHg</span><input type="number" id="bp-dia" value="80" min="40" max="150"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doBP()">⚡ Check Category</button></div>
+    <div class="result-grid" id="bp-r"></div>`,
+    info:{
+      'Comparison':`<table class="compare-table"><tr><th>Category</th><th>Systolic</th><th>Diastolic</th></tr><tr><td>Normal</td><td>&lt;120</td><td>&lt;80</td></tr><tr><td>Elevated</td><td>120–129</td><td>&lt;80</td></tr><tr><td>Stage 1 Hypertension</td><td>130–139</td><td>80–89</td></tr><tr><td>Stage 2 Hypertension</td><td>≥140</td><td>≥90</td></tr><tr><td>Hypertensive Crisis</td><td>&gt;180</td><td>&gt;120</td></tr></table>`,
+      'Related':relatedPills(['bmi','diabetes','heartrate'])
+    }
+  };
+
+  case'diabetes':return{id:'diabetes',title:'Diabetes Risk Calculator',subtitle:'ADA Risk Factors',
+    html:`<div class="form-grid">
+      <div class="field"><label>Age</label><div class="input-wrap"><span class="input-prefix">Yr</span><input type="number" id="diab-age" value="35"></div></div>
+      <div class="field"><label>BMI</label><div class="input-wrap"><span class="input-prefix">BMI</span><input type="number" id="diab-bmi" value="24" step="0.1"></div></div>
+      <div class="field"><label>Family History of Diabetes?</label><div class="input-wrap"><select id="diab-fam"><option value="0">No</option><option value="1">Yes (parent/sibling)</option></select></div></div>
+      <div class="field"><label>Physical Activity</label><div class="input-wrap"><select id="diab-act"><option value="0">Active (30+ min/day)</option><option value="1">Sedentary</option></select></div></div>
+      <div class="field"><label>High Blood Pressure?</label><div class="input-wrap"><select id="diab-bp"><option value="0">No</option><option value="1">Yes</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doDiabetes()">⚡ Check Risk</button></div>
+    <div class="result-grid" id="diab-r"></div>`,
+    info:{
+      'FAQ':`<h4>This is a screening tool only</h4><p>This calculator estimates risk based on known ADA risk factors. Only a blood test (HbA1c or fasting glucose) can confirm diabetes. Consult a doctor for diagnosis.</p>`,
+      'Related':relatedPills(['bmi','bloodpressure','calorie','tdee'])
+    }
+  };
+
+  case'sleep':return{id:'sleep',title:'Sleep Calculator',subtitle:'Optimal Bedtime & Wake-up Times',
+    html:`<div class="form-grid">
+      <div class="field"><label>I want to wake up at</label><div class="input-wrap"><input type="time" id="sleep-wake" value="06:30" style="padding-left:12px;"></div></div>
+      <div class="field"><label>Age Group</label><div class="input-wrap"><select id="sleep-age"><option value="9">Child (6–13 yrs) — 9–11 hrs</option><option value="9">Teen (14–17 yrs) — 8–10 hrs</option><option value="8" selected>Adult (18–64 yrs) — 7–9 hrs</option><option value="7">Senior (65+) — 7–8 hrs</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doSleep()">⚡ Find Sleep Times</button></div>
+    <div class="result-grid" id="sleep-r"></div>`,
+    info:{
+      'How It Works':`<p>Sleep occurs in 90-minute cycles. Waking at the end of a cycle leaves you feeling more refreshed. This calculator shows optimal bedtimes that align with complete cycles.</p>`,
+      'Comparison':`<table class="compare-table"><tr><th>Age Group</th><th>Recommended Sleep</th></tr><tr><td>Infants (0–1)</td><td>12–16 hrs</td></tr><tr><td>Toddlers (1–2)</td><td>11–14 hrs</td></tr><tr><td>Children (3–5)</td><td>10–13 hrs</td></tr><tr><td>School Age (6–12)</td><td>9–12 hrs</td></tr><tr><td>Teens (13–18)</td><td>8–10 hrs</td></tr><tr><td>Adults (18–60)</td><td>7–9 hrs</td></tr><tr><td>Seniors (61+)</td><td>7–8 hrs</td></tr></table>`,
+      'Related':relatedPills(['age','bmr','calorie'])
+    }
+  };
+
+  case'age':return{id:'age',title:'Age Calculator',subtitle:'Exact Age in Years, Months & Days',
+    html:`<div class="form-grid">
+      <div class="field"><label>Date of Birth</label><div class="input-wrap"><input type="date" id="age-dob" style="padding-left:12px;"></div></div>
+      <div class="field"><label>Calculate Age As Of</label><div class="input-wrap"><input type="date" id="age-today" style="padding-left:12px;"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doAge()">⚡ Calculate Age</button></div>
+    <div class="result-grid" id="age-r"></div>`,
+    onOpen:()=>{const t=new Date().toISOString().split('T')[0];document.getElementById('age-today').value=t;const d=new Date();d.setFullYear(d.getFullYear()-25);document.getElementById('age-dob').value=d.toISOString().split('T')[0];},
+    info:{
+      'Related':relatedPills(['pregnancy','ovulation','sleep','bmi'])
+    }
+  };
+
+  // ─── ACADEMIC ───────────────────────────────
+  case'percentage':return{id:'percentage',title:'Percentage Calculator',subtitle:'Marks to Percentage Conversion',
+    html:`<div class="form-grid">
+      <div class="field"><label>Marks Obtained</label><div class="input-wrap"><span class="input-prefix">✓</span><input type="number" id="pct-marks" value="450"></div></div>
+      <div class="field"><label>Total Marks</label><div class="input-wrap"><span class="input-prefix">/ </span><input type="number" id="pct-total" value="500"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doPercentage()">⚡ Calculate Percentage</button></div>
+    <div class="result-grid" id="pct-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">Percentage = (Marks Obtained / Total Marks) × 100</div>`,
+      'Comparison':`<table class="compare-table"><tr><th>Percentage</th><th>Grade (India)</th><th>Grade (US)</th></tr><tr><td>90–100%</td><td>O (Outstanding)</td><td>A</td></tr><tr><td>75–89%</td><td>A+</td><td>B+/A−</td></tr><tr><td>60–74%</td><td>A</td><td>B</td></tr><tr><td>50–59%</td><td>B+</td><td>C</td></tr><tr><td>&lt;50%</td><td>Fail/Pass</td><td>D/F</td></tr></table>`,
+      'Related':relatedPills(['cgpato','toCGPA','grade','marks'])
+    }
+  };
+
+  case'cgpato':return{id:'cgpato',title:'CGPA to Percentage Calculator',subtitle:'10-Point Scale Conversion',
+    html:`<div class="form-grid">
+      <div class="field"><label>CGPA (out of 10)</label><div class="input-wrap"><span class="input-prefix">GPA</span><input type="number" id="cgpa-val" value="8.5" step="0.01" min="0" max="10"></div></div>
+      <div class="field"><label>University Formula</label><div class="input-wrap"><select id="cgpa-formula"><option value="9.5">VTU / Most Universities (×9.5)</option><option value="9.0">Anna University (×9.0)</option><option value="10">CBSE (×9.5 for ≥8)</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doCGPAto()">⚡ Convert to Percentage</button></div>
+    <div class="result-grid" id="cgpa-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">Most Universities: Percentage = CGPA × 9.5\nAnna University:  Percentage = CGPA × 9.0\nCBSE (10th/12th): Percentage = (CGPA × 9.5) for ≥8</div>`,
+      'Related':relatedPills(['toCGPA','percentage','grade','semgpa'])
+    }
+  };
+
+  case'toCGPA':return{id:'toCGPA',title:'Percentage to CGPA',subtitle:'Convert % to 10-Point CGPA',
+    html:`<div class="form-grid">
+      <div class="field"><label>Percentage (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="tocgpa-pct" value="80"></div></div>
+      <div class="field"><label>Scale</label><div class="input-wrap"><select id="tocgpa-scale"><option value="9.5">÷ 9.5 (VTU / Most)</option><option value="9.0">÷ 9.0 (Anna Univ)</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doToCGPA()">⚡ Convert to CGPA</button></div>
+    <div class="result-grid" id="tocgpa-r"></div>`,
+    info:{
+      'Related':relatedPills(['cgpato','percentage','semgpa','cgpa'])
+    }
+  };
+
+  case'marks':return{id:'marks',title:'Marks Calculator',subtitle:'Total & Average Marks',
+    html:`<div style="margin-bottom:12px;"><label style="font-size:11px;color:var(--text-dim);letter-spacing:0.8px;text-transform:uppercase;">Number of Subjects</label><div class="input-wrap" style="max-width:180px;margin-top:6px;"><span class="input-prefix">#</span><input type="number" id="marks-n" value="6" min="1" max="20" oninput="buildMarksFields()"></div></div>
+    <div id="marks-fields" class="form-grid"></div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doMarks()">⚡ Calculate Total</button></div>
+    <div class="result-grid" id="marks-r"></div>`,
+    onOpen:()=>setTimeout(buildMarksFields,100),
+    info:{
+      'Related':relatedPills(['percentage','grade','cgpato','semgpa'])
+    }
+  };
+
+  case'grade':return{id:'grade',title:'Grade Calculator',subtitle:'Weighted Grade Calculation',
+    html:`<div class="form-grid">
+      <div class="field"><label>Marks Obtained</label><div class="input-wrap"><span class="input-prefix">M</span><input type="number" id="grade-marks" value="78"></div></div>
+      <div class="field"><label>Total Marks</label><div class="input-wrap"><span class="input-prefix">/</span><input type="number" id="grade-total" value="100"></div></div>
+      <div class="field"><label>Grading System</label><div class="input-wrap"><select id="grade-sys"><option value="india">India (O/A+/A/B+/B/C/F)</option><option value="us">US (A/B/C/D/F)</option><option value="uk">UK (First/2:1/2:2/Third/Fail)</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doGrade()">⚡ Get Grade</button></div>
+    <div class="result-grid" id="grade-r"></div>`,
+    info:{
+      'Comparison':`<table class="compare-table"><tr><th>India Grade</th><th>%</th><th>US Grade</th><th>UK Class</th></tr><tr><td>O (Outstanding)</td><td>≥90</td><td>A</td><td>First</td></tr><tr><td>A+</td><td>80–89</td><td>A−/B+</td><td>First</td></tr><tr><td>A</td><td>70–79</td><td>B</td><td>2:1</td></tr><tr><td>B+</td><td>60–69</td><td>C+</td><td>2:2</td></tr><tr><td>B</td><td>55–59</td><td>C</td><td>Third</td></tr><tr><td>C</td><td>50–54</td><td>D</td><td>Pass</td></tr><tr><td>F</td><td>&lt;50</td><td>F</td><td>Fail</td></tr></table>`,
+      'Related':relatedPills(['percentage','marks','cgpato','gpa'])
+    }
+  };
+
+  case'scientific':return{id:'scientific',title:'Scientific Calculator',subtitle:'Advanced Math Operations',
+    html:`<div style="background:var(--dark3);border:1px solid var(--dark4);border-radius:12px;padding:16px;font-family:monospace;">
+      <div id="sci-display" style="background:var(--dark);border:1px solid var(--dark4);border-radius:8px;padding:12px;font-size:20px;text-align:right;margin-bottom:12px;min-height:48px;color:var(--gold);word-break:break-all;">0</div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;">
+        ${['sin','cos','tan','log','ln','√','x²','x³','1/x','π','e','(',')','^','C','7','8','9','÷','←','4','5','6','×','%','1','2','3','−','+/-','0','.','=','+',''].map(k=>`<button onclick="sciKey('${k}')" style="padding:10px 4px;background:${k==='='?'var(--gold)':'var(--dark4)'};color:${k==='='?'var(--dark)':'var(--text)'};border:none;border-radius:7px;font-family:monospace;font-size:13px;cursor:pointer;transition:all 0.15s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">${k||''}</button>`).join('')}
+      </div>
+    </div>`,
+    onOpen:()=>{window.sciExpr='';},
+    info:{
+      'How to Use':`<p>Click buttons to build your expression. Supports sin/cos/tan (in degrees), log (base 10), ln (natural log), √ (square root), π and e constants.</p>`,
+      'Related':relatedPills(['matrix','gpa','percentage','unit'])
+    }
+  };
+
+  case'matrix':return{id:'matrix',title:'Matrix Calculator',subtitle:'2×2 & 3×3 Matrix Operations',
+    html:`<div class="form-grid">
+      <div class="field" style="grid-column:1/-1"><label>Matrix Size</label><div class="input-wrap" style="max-width:180px"><select id="mat-size" onchange="buildMatrix()"><option value="2">2 × 2</option><option value="3" selected>3 × 3</option></select></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-bottom:16px;">
+      <div><div style="font-size:11px;color:var(--gold);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">Matrix A</div><div id="mat-a-grid"></div></div>
+      <div style="font-size:24px;color:var(--text-dim);text-align:center;padding:0 8px;"></div>
+      <div><div style="font-size:11px;color:var(--gold);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">Matrix B</div><div id="mat-b-grid"></div></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+      <button class="calc-box-btn" style="flex:1;min-width:100px;padding:10px 8px;font-size:13px;" onclick="doMatrix('add')">A + B</button>
+      <button class="calc-box-btn" style="flex:1;min-width:100px;padding:10px 8px;font-size:13px;" onclick="doMatrix('sub')">A − B</button>
+      <button class="calc-box-btn" style="flex:1;min-width:100px;padding:10px 8px;font-size:13px;" onclick="doMatrix('mul')">A × B</button>
+      <button class="calc-box-btn" style="flex:1;min-width:100px;padding:10px 8px;font-size:13px;" onclick="doMatrix('det')">det(A)</button>
+    </div>
+    <div id="mat-result" style="background:var(--dark3);border:1px solid var(--dark4);border-radius:10px;padding:14px;font-family:monospace;display:none;"></div>`,
+    onOpen:()=>setTimeout(buildMatrix,100),
+    info:{
+      'Related':relatedPills(['scientific','gpa','unit'])
+    }
+  };
+
+  case'gpa':return{id:'gpa',title:'GPA Calculator',subtitle:'4.0 Scale Conversion',
+    html:`<div class="form-grid">
+      <div class="field"><label>Percentage / Marks (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="gpa-pct" value="78"></div></div>
+      <div class="field"><label>GPA Scale</label><div class="input-wrap"><select id="gpa-scale"><option value="4">4.0 Scale (US)</option><option value="10">10 Point (India)</option><option value="5">5 Point</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doGPA()">⚡ Calculate GPA</button></div>
+    <div class="result-grid" id="gpa-r"></div>`,
+    info:{
+      'Comparison':`<table class="compare-table"><tr><th>%</th><th>Letter</th><th>4.0 GPA</th><th>10pt GPA</th></tr><tr><td>93–100</td><td>A+</td><td>4.0</td><td>10</td></tr><tr><td>90–92</td><td>A</td><td>4.0</td><td>9.5</td></tr><tr><td>87–89</td><td>A−</td><td>3.7</td><td>9</td></tr><tr><td>83–86</td><td>B+</td><td>3.3</td><td>8.5</td></tr><tr><td>80–82</td><td>B</td><td>3.0</td><td>8</td></tr><tr><td>77–79</td><td>B−</td><td>2.7</td><td>7.5</td></tr><tr><td>73–76</td><td>C+</td><td>2.3</td><td>7</td></tr><tr><td>70–72</td><td>C</td><td>2.0</td><td>6</td></tr><tr><td>&lt;70</td><td>D/F</td><td>&lt;2.0</td><td>&lt;5</td></tr></table>`,
+      'Related':relatedPills(['semgpa','cgpa','cgpato','percentage'])
+    }
+  };
+
+  case'attendance':return{id:'attendance',title:'Attendance Calculator',subtitle:'Minimum Attendance Checker',
+    html:`<div class="form-grid">
+      <div class="field"><label>Total Classes Held</label><div class="input-wrap"><span class="input-prefix">#</span><input type="number" id="att-total" value="100"></div></div>
+      <div class="field"><label>Classes Attended</label><div class="input-wrap"><span class="input-prefix">#</span><input type="number" id="att-attended" value="72"></div></div>
+      <div class="field"><label>Minimum Required (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="att-min" value="75"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doAttendance()">⚡ Check Attendance</button></div>
+    <div class="result-grid" id="att-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">Current % = (Classes Attended / Total Classes) × 100\n\nClasses needed to reach target %:\n  n = (target% × Total - Attended × 100) / (100 - target%)\n\nClasses you can skip:\n  s = Attended - (target% × Total / 100)</div>`,
+      'Related':relatedPills(['percentage','marks','grade','semgpa'])
+    }
+  };
+
+  case'unit':return{id:'unit',title:'Unit Converter',subtitle:'Length · Weight · Temperature · Volume',
+    html:`<div class="form-grid">
+      <div class="field"><label>Category</label><div class="input-wrap"><select id="unit-cat" onchange="updateUnitOptions()"><option value="length">Length</option><option value="weight">Weight</option><option value="temp">Temperature</option><option value="volume">Volume</option><option value="speed">Speed</option><option value="area">Area</option></select></div></div>
+      <div class="field"><label>Value</label><div class="input-wrap"><input type="number" id="unit-val" value="100"></div></div>
+      <div class="field"><label>From</label><div class="input-wrap"><select id="unit-from"></select></div></div>
+      <div class="field"><label>To</label><div class="input-wrap"><select id="unit-to"></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doUnit()">⚡ Convert Units</button></div>
+    <div class="result-grid" id="unit-r"></div>`,
+    onOpen:()=>setTimeout(updateUnitOptions,100),
+    info:{
+      'Related':relatedPills(['scientific','matrix','water','calorie'])
+    }
+  };
+
+  case'rankpredictor':return{id:'rankpredictor',title:'Rank Predictor',subtitle:'Estimate Rank from Score',
+    html:`<div class="form-grid">
+      <div class="field"><label>Your Score</label><div class="input-wrap"><span class="input-prefix">Score</span><input type="number" id="rp-score" value="150"></div></div>
+      <div class="field"><label>Total Marks</label><div class="input-wrap"><span class="input-prefix">/</span><input type="number" id="rp-total" value="300"></div></div>
+      <div class="field"><label>Total Candidates</label><div class="input-wrap"><span class="input-prefix">#</span><input type="number" id="rp-candidates" value="100000"></div></div>
+      <div class="field"><label>Exam</label><div class="input-wrap"><select id="rp-exam"><option>JEE Main</option><option>NEET</option><option>UPSC</option><option>CAT</option><option>Other</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doRankPredictor()">⚡ Predict Rank</button></div>
+    <div class="result-grid" id="rp-r"></div>`,
+    info:{
+      'How It Works':`<p>This is a statistical estimate. Actual rank depends on the specific score distribution of all candidates in that exam. Use official rank predictor tools from NTA/colleges for more accuracy.</p>`,
+      'Related':relatedPills(['cutoff','score','percentage'])
+    }
+  };
+
+  case'cutoff':return{id:'cutoff',title:'Cutoff Predictor',subtitle:'Can You Clear the Cutoff?',
+    html:`<div class="form-grid">
+      <div class="field"><label>Your Score / Percentage</label><div class="input-wrap"><span class="input-prefix">Score</span><input type="number" id="cut-score" value="85"></div></div>
+      <div class="field"><label>Expected Cutoff</label><div class="input-wrap"><span class="input-prefix">Cut</span><input type="number" id="cut-cutoff" value="80"></div></div>
+      <div class="field"><label>Category</label><div class="input-wrap"><select id="cut-cat"><option>General</option><option>OBC</option><option>SC</option><option>ST</option><option>EWS</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doCutoff()">⚡ Check Cutoff Status</button></div>
+    <div class="result-grid" id="cut-r"></div>`,
+    info:{
+      'Related':relatedPills(['rankpredictor','score','percentage','grade'])
+    }
+  };
+
+  case'score':return{id:'score',title:'Score Calculator',subtitle:'Weighted Score & Percentile',
+    html:`<div class="form-grid">
+      <div class="field"><label>Raw Score</label><div class="input-wrap"><span class="input-prefix">Score</span><input type="number" id="sc-raw" value="75"></div></div>
+      <div class="field"><label>Max Score</label><div class="input-wrap"><span class="input-prefix">/</span><input type="number" id="sc-max" value="100"></div></div>
+      <div class="field"><label>Negative Marking (per wrong)</label><div class="input-wrap"><span class="input-prefix">−</span><input type="number" id="sc-neg" value="0.33" step="0.01"></div></div>
+      <div class="field"><label>Wrong Answers</label><div class="input-wrap"><span class="input-prefix">#</span><input type="number" id="sc-wrong" value="5"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doScore()">⚡ Calculate Score</button></div>
+    <div class="result-grid" id="sc-r"></div>`,
+    info:{
+      'Related':relatedPills(['rankpredictor','cutoff','percentage','grade'])
+    }
+  };
+
+  case'semgpa':return{id:'semgpa',title:'Semester GPA Calculator',subtitle:'Weighted Average by Credits',
+    html:`<div style="margin-bottom:12px;"><label style="font-size:11px;color:var(--text-dim);letter-spacing:0.8px;text-transform:uppercase;">Number of Subjects</label><div class="input-wrap" style="max-width:180px;margin-top:6px;"><span class="input-prefix">#</span><input type="number" id="sgpa-n" value="6" min="1" max="15" oninput="buildSGPAFields()"></div></div>
+    <div id="sgpa-fields" class="form-grid"></div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doSGPA()">⚡ Calculate SGPA</button></div>
+    <div class="result-grid" id="sgpa-r"></div>`,
+    onOpen:()=>setTimeout(buildSGPAFields,100),
+    info:{
+      'Formula':`<div class="formula-box">SGPA = Σ(Grade Points × Credits) / Σ Credits\n\nGrade to Points Mapping:\n  O  = 10,  A+ = 9,  A = 8,  B+ = 7\n  B  = 6,   C  = 5,  F = 0</div>`,
+      'Related':relatedPills(['cgpa','backlog','gpa','cgpato'])
+    }
+  };
+
+  case'cgpa':return{id:'cgpa',title:'CGPA Calculator',subtitle:'Cumulative GPA Across Semesters',
+    html:`<div style="margin-bottom:12px;"><label style="font-size:11px;color:var(--text-dim);letter-spacing:0.8px;text-transform:uppercase;">Number of Semesters</label><div class="input-wrap" style="max-width:180px;margin-top:6px;"><span class="input-prefix">#</span><input type="number" id="cgpa-sem-n" value="4" min="1" max="10" oninput="buildCGPAFields()"></div></div>
+    <div id="cgpa-fields" class="form-grid"></div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doCGPACalc()">⚡ Calculate CGPA</button></div>
+    <div class="result-grid" id="cgpa-calc-r"></div>`,
+    onOpen:()=>setTimeout(buildCGPAFields,100),
+    info:{
+      'Related':relatedPills(['semgpa','cgpato','backlog','gpa'])
+    }
+  };
+
+  case'backlog':return{id:'backlog',title:'Backlog Impact Calculator',subtitle:'Effect of Backlogs on CGPA',
+    html:`<div class="form-grid">
+      <div class="field"><label>Current CGPA</label><div class="input-wrap"><span class="input-prefix">GPA</span><input type="number" id="bl-cgpa" value="7.5" step="0.01"></div></div>
+      <div class="field"><label>Total Credits Completed</label><div class="input-wrap"><span class="input-prefix">#</span><input type="number" id="bl-credits" value="120"></div></div>
+      <div class="field"><label>Number of Backlogs</label><div class="input-wrap"><span class="input-prefix">#</span><input type="number" id="bl-backlogs" value="2"></div></div>
+      <div class="field"><label>Credits per Backlog Subject</label><div class="input-wrap"><span class="input-prefix">#</span><input type="number" id="bl-backcredits" value="4"></div></div>
+      <div class="field"><label>Expected Grade After Clearing</label><div class="input-wrap"><select id="bl-grade"><option value="10">O (10)</option><option value="9">A+ (9)</option><option value="8" selected>A (8)</option><option value="7">B+ (7)</option><option value="6">B (6)</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doBacklog()">⚡ Calculate Impact</button></div>
+    <div class="result-grid" id="bl-r"></div>`,
+    info:{
+      'Related':relatedPills(['cgpa','semgpa','cgpato','grade'])
+    }
+  };
+
+  // ─── HIKE / SALARY ──────────────────────────
+  case'inhand':return{id:'inhand',title:'In-Hand Salary Calculator',subtitle:'India — Monthly Take-Home',
+    html:`<div class="form-grid">
+      <div class="field"><label>Annual CTC (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="ih-ctc" value="1200000"></div></div>
+      <div class="field"><label>Basic Salary (%  of CTC)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="ih-basic-pct" value="40"></div></div>
+      <div class="field"><label>HRA (% of Basic)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="ih-hra-pct" value="50"></div></div>
+      <div class="field"><label>Other Allowances (monthly ₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="ih-other" value="5000"></div></div>
+      <div class="field"><label>PF Contribution</label><div class="input-wrap"><select id="ih-pf"><option value="y">Yes (12% of Basic)</option><option value="n">No</option></select></div></div>
+      <div class="field"><label>Income Tax Regime</label><div class="input-wrap"><select id="ih-regime"><option value="new">New Regime</option><option value="old">Old Regime</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doInhand()">⚡ Calculate In-Hand</button></div>
+    <div class="result-grid" id="ih-r"></div>`,
+    info:{
+      'How It Works':`<p>In-hand salary = Gross Salary − PF − Income Tax − Professional Tax.</p><h4>Typical CTC Structure (India)</h4><table class="compare-table"><tr><th>Component</th><th>Typical %</th></tr><tr><td>Basic Salary</td><td>40–50%</td></tr><tr><td>HRA</td><td>40–50% of Basic</td></tr><tr><td>Special Allowance</td><td>Remaining</td></tr><tr><td>PF (Employee)</td><td>12% of Basic</td></tr><tr><td>Gratuity</td><td>4.81% of Basic</td></tr></table>`,
+      'Related':relatedPills(['ctc','hikecalc','newtax','oldtax','pf','hra'])
+    }
+  };
+
+  case'ctc':return{id:'ctc',title:'CTC Calculator',subtitle:'Cost to Company Breakdown',
+    html:`<div class="form-grid">
+      <div class="field"><label>Annual CTC (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="ctc-val" value="1200000"></div></div>
+      <div class="field"><label>Basic % of CTC</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="ctc-basic" value="40"></div></div>
+      <div class="field"><label>Variable Pay % of CTC</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="ctc-var" value="10"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doCTC()">⚡ Break Down CTC</button></div>
+    <div class="result-grid" id="ctc-r"></div>`,
+    info:{
+      'FAQ':`<h4>What is CTC?</h4><p>Cost to Company includes your salary + employer PF + gratuity + benefits. Your in-hand is always less than CTC.</p>`,
+      'Related':relatedPills(['inhand','hikecalc','pf','gratuity','newtax'])
+    }
+  };
+
+  case'hikecalc':return{id:'hikecalc',title:'Salary Hike Calculator',subtitle:'New Salary After Increment',
+    html:`<div class="form-grid">
+      <div class="field"><label>Current Annual CTC (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="hike-cur" value="1000000"></div></div>
+      <div class="field"><label>Hike Percentage (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="hike-pct" value="25" step="0.5"></div></div>
+      <div class="field"><label>Effective Month</label><div class="input-wrap"><select id="hike-month"><option>April</option><option>October</option><option>January</option><option>July</option><option>Other</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doHike()">⚡ Calculate New Salary</button></div>
+    <div class="result-grid" id="hike-r"></div>`,
+    info:{
+      'Comparison':`<table class="compare-table"><tr><th>Industry (India)</th><th>Avg Hike 2024</th></tr><tr><td>IT / Software</td><td>8–12%</td></tr><tr><td>Consulting</td><td>10–15%</td></tr><tr><td>Banking / BFSI</td><td>8–12%</td></tr><tr><td>Manufacturing</td><td>7–10%</td></tr><tr><td>Startup</td><td>15–30%+</td></tr></table>`,
+      'Related':relatedPills(['inhand','ctc','increment','promotionhike'])
+    }
+  };
+
+  case'increment':return{id:'increment',title:'Increment Calculator',subtitle:'Monthly & Annual Difference',
+    html:`<div class="form-grid">
+      <div class="field"><label>Current Monthly Salary</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="inc-cur" value="80000"></div></div>
+      <div class="field"><label>New Monthly Salary</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="inc-new" value="100000"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doIncrement()">⚡ Calculate Increment</button></div>
+    <div class="result-grid" id="inc-r"></div>`,
+    info:{
+      'Related':relatedPills(['hikecalc','ctc','bonus','promotionhike'])
+    }
+  };
+
+  case'bonus':return{id:'bonus',title:'Bonus Calculator',subtitle:'Performance Bonus & Tax Impact',
+    html:`<div class="form-grid">
+      <div class="field"><label>Annual CTC</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="bon-ctc" value="1200000"></div></div>
+      <div class="field"><label>Bonus Percentage</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="bon-pct" value="15" step="0.5"></div></div>
+      <div class="field"><label>Tax Slab (%)</label><div class="input-wrap"><select id="bon-tax"><option value="0">0% (below 7L - new regime)</option><option value="10">10%</option><option value="15" selected>15%</option><option value="20">20%</option><option value="30">30%</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doBonus()">⚡ Calculate Bonus</button></div>
+    <div class="result-grid" id="bon-r"></div>`,
+    info:{
+      'Related':relatedPills(['ctc','hikecalc','newtax','inhand'])
+    }
+  };
+
+  case'oldtax':return{id:'oldtax',title:'Old Tax Regime Calculator',subtitle:'India FY 2024-25',
+    html:`<div class="form-grid">
+      <div class="field"><label>Annual Income (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="otax-income" value="1200000"></div></div>
+      <div class="field"><label>80C Investments (max ₹1.5L)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="otax-80c" value="150000"></div></div>
+      <div class="field"><label>HRA Exemption</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="otax-hra" value="120000"></div></div>
+      <div class="field"><label>Other Deductions (80D etc.)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="otax-other" value="25000"></div></div>
+      <div class="field"><label>Age</label><div class="input-wrap"><select id="otax-age"><option value="below60">Below 60</option><option value="60to80">60–80</option><option value="above80">Above 80</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doOldTax()">⚡ Calculate Old Regime Tax</button></div>
+    <div class="result-grid" id="otax-r"></div>`,
+    info:{
+      'Comparison':`<table class="compare-table"><tr><th>Income Slab</th><th>Old Rate</th><th>New Rate</th></tr><tr><td>0–2.5L</td><td>0%</td><td>0%</td></tr><tr><td>2.5L–5L</td><td>5%</td><td>0–5%</td></tr><tr><td>5L–7.5L</td><td>20%</td><td>10%</td></tr><tr><td>7.5L–10L</td><td>20%</td><td>15%</td></tr><tr><td>10L–12.5L</td><td>30%</td><td>20%</td></tr><tr><td>12.5L–15L</td><td>30%</td><td>25%</td></tr><tr><td>&gt;15L</td><td>30%</td><td>30%</td></tr></table>`,
+      'FAQ':`<h4>Old vs New Regime — Which is better?</h4><p>Old regime benefits you if you have significant deductions (80C, HRA, home loan). New regime is simpler and better for those with fewer deductions. Use both calculators to compare.</p>`,
+      'Related':relatedPills(['newtax','incometax','hra','sec80c','inhand'])
+    }
+  };
+
+  case'newtax':return{id:'newtax',title:'New Tax Regime Calculator',subtitle:'India FY 2024-25 (Default)',
+    html:`<div class="form-grid">
+      <div class="field"><label>Annual Income (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="ntax-income" value="1200000"></div></div>
+      <div class="field"><label>Age</label><div class="input-wrap"><select id="ntax-age"><option value="below60">Below 60</option><option value="60to80">60–80</option><option value="above80">Above 80</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doNewTax()">⚡ Calculate New Regime Tax</button></div>
+    <div class="result-grid" id="ntax-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">Standard Deduction: ₹75,000\nTaxable Income = Gross Income - ₹75,000\n\nSlabs (New Regime FY2024-25):\n  0–3L:     0%\n  3L–7L:    5%\n  7L–10L:   10%\n  10L–12L:  15%\n  12L–15L:  20%\n  Above 15L: 30%\n\n+ 4% Health & Education Cess\n\n87A Rebate: Tax = 0 if taxable income ≤ ₹7L</div>`,
+      'Related':relatedPills(['oldtax','incometax','hra','sec80c','inhand'])
+    }
+  };
+
+  case'incometax':return{id:'incometax',title:'Income Tax Calculator',subtitle:'India · US · UK',
+    html:`<div class="form-grid">
+      <div class="field"><label>Annual Income</label><div class="input-wrap"><span class="input-prefix cur-symbol">${sym}</span><input type="number" id="itax-income" value="1200000"></div></div>
+      <div class="field"><label>Country / Regime</label><div class="input-wrap"><select id="itax-regime">
+        <option value="IN_NEW">🇮🇳 India — New Regime (2024-25)</option>
+        <option value="IN_OLD">🇮🇳 India — Old Regime</option>
+        <option value="US_SINGLE">🇺🇸 US — Single Filer</option>
+        <option value="US_MARRIED">🇺🇸 US — Married Filing Jointly</option>
+        <option value="UK">🇬🇧 UK — Standard</option>
+      </select></div></div>
+      <div class="field"><label>Deductions</label><div class="input-wrap"><span class="input-prefix cur-symbol">${sym}</span><input type="number" id="itax-ded" value="150000"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doIncomeTax()">⚡ Calculate Tax</button></div>
+    <div class="result-grid" id="itax-r"></div>`,
+    info:{
+      'Related':relatedPills(['newtax','oldtax','hra','sec80c','inhand'])
+    }
+  };
+
+  case'hra':return{id:'hra',title:'HRA Exemption Calculator',subtitle:'House Rent Allowance Tax Savings',
+    html:`<div class="form-grid">
+      <div class="field"><label>Basic Salary (Annual ₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="hra-basic" value="480000"></div></div>
+      <div class="field"><label>HRA Received (Annual ₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="hra-received" value="240000"></div></div>
+      <div class="field"><label>Rent Paid (Annual ₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="hra-rent" value="180000"></div></div>
+      <div class="field"><label>City</label><div class="input-wrap"><select id="hra-city"><option value="metro">Metro City (Mumbai/Delhi/Kolkata/Chennai)</option><option value="other">Other City</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doHRA()">⚡ Calculate HRA Exemption</button></div>
+    <div class="result-grid" id="hra-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">HRA Exemption = MINIMUM of:\n  1. Actual HRA received\n  2. Rent paid - 10% of Basic salary\n  3. 50% of Basic (Metro) OR 40% of Basic (Non-Metro)\n\nTaxable HRA = HRA Received - Exemption</div>`,
+      'Related':relatedPills(['oldtax','inhand','ctc','sec80c'])
+    }
+  };
+
+  case'sec80c':return{id:'sec80c',title:'80C Savings Calculator',subtitle:'Tax Savings under Section 80C',
+    html:`<div class="form-grid">
+      <div class="field"><label>Annual Income (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="s80c-income" value="1500000"></div></div>
+      <div class="field"><label>ELSS / Mutual Funds</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="s80c-elss" value="50000"></div></div>
+      <div class="field"><label>PPF Contribution</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="s80c-ppf" value="50000"></div></div>
+      <div class="field"><label>Life Insurance Premium</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="s80c-lic" value="30000"></div></div>
+      <div class="field"><label>Home Loan Principal (EMI)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="s80c-home" value="20000"></div></div>
+      <div class="field"><label>Other (FD, NSC, SCSS etc.)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="s80c-other" value="0"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doSec80C()">⚡ Calculate Tax Savings</button></div>
+    <div class="result-grid" id="s80c-r"></div>`,
+    info:{
+      'FAQ':`<h4>What is Section 80C?</h4><p>Section 80C allows a maximum deduction of ₹1.5 lakh from taxable income for specified investments. Only applicable in the Old Tax Regime.</p><h4>Key 80C Instruments</h4><ul><li>ELSS Mutual Funds (best returns, 3yr lock)</li><li>PPF (15yr, tax-free returns)</li><li>Life Insurance Premium</li><li>Home loan principal repayment</li><li>NSC, SCSS, FD (5yr tax saver)</li></ul>`,
+      'Related':relatedPills(['oldtax','newtax','hra','sip'])
+    }
+  };
+
+  case'pf':return{id:'pf',title:'PF Calculator',subtitle:'Provident Fund Monthly Deduction',
+    html:`<div class="form-grid">
+      <div class="field"><label>Basic + DA (Monthly ₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="pf-basic" value="40000"></div></div>
+      <div class="field"><label>Employee PF Rate</label><div class="input-wrap"><select id="pf-rate"><option value="12">12% (Standard)</option><option value="10">10% (Certain industries)</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doPF()">⚡ Calculate PF</button></div>
+    <div class="result-grid" id="pf-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">Employee PF = 12% of (Basic + DA)\nEmployer PF = 12% of (Basic + DA)\n  → 3.67% goes to PF account\n  → 8.33% goes to EPS (Pension)\n\nCurrent PF Interest Rate: 8.15% p.a.</div>`,
+      'Related':relatedPills(['epf','gratuity','nps','inhand'])
+    }
+  };
+
+  case'epf':return{id:'epf',title:'EPF Maturity Calculator',subtitle:'Employees Provident Fund',
+    html:`<div class="form-grid">
+      <div class="field"><label>Monthly Basic + DA (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="epf-basic" value="40000"></div></div>
+      <div class="field"><label>Current EPF Balance (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="epf-bal" value="200000"></div></div>
+      <div class="field"><label>Years Left to Retire</label><div class="input-wrap"><span class="input-prefix">Yr</span><input type="number" id="epf-yrs" value="25"></div></div>
+      <div class="field"><label>Expected Annual Salary Increment</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="epf-inc" value="8" step="0.5"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doEPF()">⚡ Calculate EPF Maturity</button></div>
+    <div class="result-grid" id="epf-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">Monthly contribution = Employee (12%) + Employer (3.67%)\n= 15.67% of Basic+DA\n\nInterest rate: 8.15% p.a. (compounded monthly)\n\nMaturity grows with salary hike every year</div>`,
+      'Related':relatedPills(['pf','gratuity','nps','retire'])
+    }
+  };
+
+  case'gratuity':return{id:'gratuity',title:'Gratuity Calculator',subtitle:'Payment of Gratuity Act 1972',
+    html:`<div class="form-grid">
+      <div class="field"><label>Last Drawn Monthly Basic + DA</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="grat-basic" value="40000"></div></div>
+      <div class="field"><label>Years of Service</label><div class="input-wrap"><span class="input-prefix">Yr</span><input type="number" id="grat-yrs" value="10" step="0.5"></div></div>
+      <div class="field"><label>Covered under Gratuity Act?</label><div class="input-wrap"><select id="grat-act"><option value="y">Yes (10+ employees)</option><option value="n">No</option></select></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doGratuity()">⚡ Calculate Gratuity</button></div>
+    <div class="result-grid" id="grat-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">Gratuity = (Last Basic+DA × 15 × Years) / 26\n\nMax gratuity: ₹20 lakh (tax-free)\nMinimum service required: 5 years\n26 = working days in a month</div>`,
+      'Related':relatedPills(['pf','epf','nps','leave'])
+    }
+  };
+
+  case'nps':return{id:'nps',title:'NPS Calculator',subtitle:'National Pension System',
+    html:`<div class="form-grid">
+      <div class="field"><label>Monthly Contribution (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="nps-monthly" value="5000"></div></div>
+      <div class="field"><label>Current Age</label><div class="input-wrap"><span class="input-prefix">Age</span><input type="number" id="nps-age" value="30"></div></div>
+      <div class="field"><label>Expected Annual Return (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="nps-return" value="10" step="0.5"></div></div>
+      <div class="field"><label>Annuity Rate at Retirement (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="nps-annuity" value="6"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doNPS()">⚡ Calculate NPS</button></div>
+    <div class="result-grid" id="nps-r"></div>`,
+    info:{
+      'How It Works':`<p>At 60, you can withdraw 60% of corpus tax-free. The remaining 40% must be used to buy an annuity plan that provides monthly pension.</p><h4>Tax Benefits</h4><ul><li>80C: Up to ₹1.5L deduction</li><li>80CCD(1B): Additional ₹50K deduction</li><li>80CCD(2): Employer contribution (up to 10% of salary) fully deductible</li></ul>`,
+      'Related':relatedPills(['pf','epf','retire','sec80c'])
+    }
+  };
+
+  case'leave':return{id:'leave',title:'Leave Encashment Calculator',subtitle:'Annual Leave Payout',
+    html:`<div class="form-grid">
+      <div class="field"><label>Basic + DA (Monthly ₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="lv-basic" value="40000"></div></div>
+      <div class="field"><label>Leave Days Entitled (Annual)</label><div class="input-wrap"><span class="input-prefix">days</span><input type="number" id="lv-entitled" value="30"></div></div>
+      <div class="field"><label>Leave Days Used</label><div class="input-wrap"><span class="input-prefix">days</span><input type="number" id="lv-used" value="10"></div></div>
+      <div class="field"><label>Working Days per Month</label><div class="input-wrap"><span class="input-prefix">days</span><input type="number" id="lv-workdays" value="26"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doLeave()">⚡ Calculate Encashment</button></div>
+    <div class="result-grid" id="lv-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">Daily Rate = Monthly (Basic+DA) / Working Days\nLeave Balance = Entitled - Used\nEncashment Amount = Leave Balance × Daily Rate</div>`,
+      'Related':relatedPills(['gratuity','pf','bonus','inhand'])
+    }
+  };
+
+  case'promotionhike':return{id:'promotionhike',title:'Promotion Hike Calculator',subtitle:'New Level Salary & Benefits',
+    html:`<div class="form-grid">
+      <div class="field"><label>Current CTC (Annual ₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="ph-cur" value="1200000"></div></div>
+      <div class="field"><label>Promotion Hike (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="ph-pct" value="30"></div></div>
+      <div class="field"><label>Additional Variable Bonus (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="ph-bonus" value="15"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doPromotionHike()">⚡ Calculate Promotion Package</button></div>
+    <div class="result-grid" id="ph-r"></div>`,
+    info:{
+      'Comparison':`<table class="compare-table"><tr><th>Level Jump</th><th>Typical Hike</th></tr><tr><td>Associate → Senior</td><td>20–35%</td></tr><tr><td>Senior → Lead</td><td>25–40%</td></tr><tr><td>Lead → Manager</td><td>30–50%</td></tr><tr><td>Manager → Sr Manager</td><td>20–35%</td></tr></table>`,
+      'Related':relatedPills(['hikecalc','ctc','bonus','increment'])
+    }
+  };
+
+  case'freelance':return{id:'freelance',title:'Freelance Rate Calculator',subtitle:'Project & Hourly Rate Estimator',
+    html:`<div class="form-grid">
+      <div class="field"><label>Desired Monthly Income (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="fl-income" value="100000"></div></div>
+      <div class="field"><label>Billable Hours per Month</label><div class="input-wrap"><span class="input-prefix">hrs</span><input type="number" id="fl-hours" value="80"></div></div>
+      <div class="field"><label>Non-billable Overhead (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="fl-overhead" value="20"></div></div>
+      <div class="field"><label>Tax Rate (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="fl-tax" value="30"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doFreelance()">⚡ Calculate My Rate</button></div>
+    <div class="result-grid" id="fl-r"></div>`,
+    info:{
+      'How to Price Yourself':`<p>Add overhead and tax to your desired income, then divide by billable hours.</p><table class="compare-table"><tr><th>Skill</th><th>Typical Range (India)</th></tr><tr><td>Web Dev (React)</td><td>₹1,500–4,000/hr</td></tr><tr><td>UI/UX Design</td><td>₹1,200–3,000/hr</td></tr><tr><td>Content Writing</td><td>₹500–1,500/hr</td></tr><tr><td>Video Editing</td><td>₹800–2,500/hr</td></tr><tr><td>Data Science</td><td>₹2,000–5,000/hr</td></tr></table>`,
+      'Related':relatedPills(['hourly','ctc','incometax','newtax'])
+    }
+  };
+
+  case'hourly':return{id:'hourly',title:'Hourly Rate Calculator',subtitle:'Annual Salary to Hourly Rate',
+    html:`<div class="form-grid">
+      <div class="field"><label>Annual CTC / Salary</label><div class="input-wrap"><span class="input-prefix cur-symbol">${sym}</span><input type="number" id="hr-annual" value="1200000"></div></div>
+      <div class="field"><label>Working Weeks per Year</label><div class="input-wrap"><span class="input-prefix">wks</span><input type="number" id="hr-weeks" value="50"></div></div>
+      <div class="field"><label>Hours per Week</label><div class="input-wrap"><span class="input-prefix">hrs</span><input type="number" id="hr-hpw" value="45"></div></div>
+    </div>
+    <div class="action-row"><button class="calc-box-btn" onclick="doHourly()">⚡ Calculate Hourly Rate</button></div>
+    <div class="result-grid" id="hr-r"></div>`,
+    info:{
+      'Formula':`<div class="formula-box">Hourly Rate = Annual Salary / (Weeks × Hours per Week)</div>`,
+      'Related':relatedPills(['freelance','ctc','inhand','increment'])
+    }
+  };
+
+  default: return {title:'Calculator',subtitle:'',html:'<p style="color:var(--text-dim)">Coming soon.</p>'};
+  } // end switch
+}
+
+// =============================================
+// CALCULATION FUNCTIONS
+// =============================================
+window.doEMI=function(){
+  const P=+document.getElementById('emi-amount').value,r=+document.getElementById('emi-rate').value/12/100,n=+document.getElementById('emi-tenure').value*12;
+  const emi=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1),total=emi*n;
+  showResults('emi-r',[{label:'Monthly EMI',value:fmt(emi),h:true,c:'gold'},{label:'Total Payment',value:fmt(total),c:'red'},{label:'Total Interest',value:fmt(total-P),c:'red'},{label:'Principal',value:fmt(P)}]);
+};
+window.doSIP=function(){
+  const m=+document.getElementById('sip-amount').value,r=+document.getElementById('sip-return').value/100,yr=+document.getElementById('sip-tenure').value,type=document.getElementById('sip-type').value;
+  let mat,inv;if(type==='sip'){const rm=r/12,n=yr*12;mat=m*((Math.pow(1+rm,n)-1)/rm)*(1+rm);inv=m*n;}else{mat=m*Math.pow(1+r,yr);inv=m;}
+  showResults('sip-r',[{label:'Maturity Value',value:fmt(mat),h:true,c:'green'},{label:'Invested',value:fmt(inv)},{label:'Gains',value:fmt(mat-inv),c:'green'},{label:'Multiplier',value:(mat/inv).toFixed(2)+'x'}]);
+};
+window.doFD=function(){
+  const P=+document.getElementById('fd-principal').value,r=+document.getElementById('fd-rate').value/100,t=+document.getElementById('fd-tenure').value,n=+document.getElementById('fd-comp').value;
+  const mat=P*Math.pow(1+r/n,n*t);
+  showResults('fd-r',[{label:'Maturity Amount',value:fmt(mat),h:true,c:'green'},{label:'Interest Earned',value:fmt(mat-P),c:'green'},{label:'Principal',value:fmt(P)},{label:'Effective Rate',value:((Math.pow(1+r/n,n)-1)*100).toFixed(2)+'%'}]);
+};
+window.doRetire=function(){
+  const ca=+document.getElementById('ret-age').value,ra=+document.getElementById('ret-retire').value,exp=+document.getElementById('ret-exp').value,inf=+document.getElementById('ret-inf').value/100,roi=+document.getElementById('ret-roi').value/100,life=+document.getElementById('ret-life').value;
+  const yrs=ra-ca,ryrs=life-ra,futExp=exp*Math.pow(1+inf,yrs),rr=(roi-inf)/(1+inf),corpus=futExp*12*((1-Math.pow(1+rr,-ryrs))/rr),rm=roi/12,n=yrs*12,sip=corpus*rm/(Math.pow(1+rm,n)-1);
+  showResults('ret-r',[{label:'Corpus Needed',value:fmt(corpus),h:true,c:'gold'},{label:'Monthly SIP',value:fmt(sip),c:'green'},{label:'Future Monthly Exp',value:fmt(futExp)},{label:'Years to Retire',value:yrs+' yrs'}]);
+};
+window.doCurrency=function(){
+  const amt=+document.getElementById('cur-amount').value,from=document.getElementById('cur-from').value,to=document.getElementById('cur-to').value,rate=(FX[to]||1)/(FX[from]||1),conv=amt*rate;
+  showResults('cur-r',[{label:amt+' '+from+' =',value:conv.toLocaleString('en-US',{maximumFractionDigits:2})+' '+to,h:true,c:'gold'},{label:'Rate',value:'1 '+from+' = '+rate.toFixed(4)+' '+to},{label:'Inverse',value:'1 '+to+' = '+(1/rate).toFixed(4)+' '+from}]);
+};
+
+// Health
+window.doBMI=function(){
+  const w=+document.getElementById('bmi-w').value,h=+document.getElementById('bmi-h').value/100,bmi=w/(h*h);
+  const cat=bmi<18.5?'Underweight':bmi<25?'Normal Weight':bmi<30?'Overweight':bmi<35?'Obese I':bmi<40?'Obese II':'Obese III';
+  showResults('bmi-r',[{label:'Your BMI',value:bmi.toFixed(1),h:true,c:'gold'},{label:'Category',value:cat},{label:'Healthy Range',value:'18.5–24.9'},{label:'Ideal Weight',value:fmtRaw(22*h*h,1)+' kg'}]);
+};
+window.doBodyFat=function(){
+  const g=document.getElementById('bf-gender').value,ht=+document.getElementById('bf-height').value,neck=+document.getElementById('bf-neck').value,waist=+document.getElementById('bf-waist').value;
+  let bf;
+  if(g==='male'){bf=495/(1.0324-0.19077*Math.log10(waist-neck)+0.15456*Math.log10(ht))-450;}
+  else{const hip=+document.getElementById('bf-hip').value;bf=495/(1.29579-0.35004*Math.log10(waist+hip-neck)+0.22100*Math.log10(ht))-450;}
+  const cat=g==='male'?(bf<6?'Essential':bf<14?'Athlete':bf<18?'Fitness':bf<25?'Average':'Obese'):(bf<14?'Essential':bf<21?'Athlete':bf<25?'Fitness':bf<32?'Average':'Obese');
+  showResults('bf-r',[{label:'Body Fat %',value:bf.toFixed(1)+'%',h:true,c:'gold'},{label:'Category',value:cat},{label:'Fat Mass',value:fmtRaw((bf/100)*document.getElementById('bmi-w')?.value||70,1)+' kg est.'},{label:'Lean Mass',value:'~'+(100-bf).toFixed(1)+'%'}]);
+};
+window.toggleBFFields=function(){const g=document.getElementById('bf-gender');if(g)document.getElementById('bf-hip-field').style.display=g.value==='female'?'block':'none';};
+window.doIdealWeight=function(){
+  const h=+document.getElementById('iw-height').value,g=document.getElementById('iw-gender').value,hIn=h/2.54-60;
+  const devine=g==='Male'?50+2.3*hIn:45.5+2.3*hIn,hamwi=g==='Male'?48+2.7*hIn:45.5+2.2*hIn,bmiM=Math.sqrt((h/100)*(h/100)*22);
+  showResults('iw-r',[{label:'Devine Formula',value:devine.toFixed(1)+' kg',h:true,c:'gold'},{label:'Hamwi Formula',value:hamwi.toFixed(1)+' kg'},{label:'BMI Method (22)',value:bmiM.toFixed(1)+' kg'},{label:'Average',value:((devine+hamwi+bmiM)/3).toFixed(1)+' kg'}]);
+};
+window.doBMR=function(){
+  const w=+document.getElementById('bmr-w').value,h=+document.getElementById('bmr-h').value,a=+document.getElementById('bmr-age').value,g=document.getElementById('bmr-gender').value;
+  const bmr=g==='Male'?(10*w)+(6.25*h)-(5*a)+5:(10*w)+(6.25*h)-(5*a)-161;
+  showResults('bmr-r',[{label:'BMR (Daily)',value:Math.round(bmr)+' kcal',h:true,c:'gold'},{label:'Sedentary TDEE',value:Math.round(bmr*1.2)+' kcal'},{label:'Moderate TDEE',value:Math.round(bmr*1.55)+' kcal'},{label:'Active TDEE',value:Math.round(bmr*1.725)+' kcal'}]);
+};
+window.doTDEE=function(){
+  const w=+document.getElementById('tdee-w').value,h=+document.getElementById('tdee-h').value,a=+document.getElementById('tdee-age').value,g=document.getElementById('tdee-gender').value,act=+document.getElementById('tdee-act').value;
+  const bmr=g==='Male'?(10*w)+(6.25*h)-(5*a)+5:(10*w)+(6.25*h)-(5*a)-161,tdee=bmr*act;
+  showResults('tdee-r',[{label:'TDEE (Maintain)',value:Math.round(tdee)+' kcal',h:true,c:'gold'},{label:'Lose Weight',value:Math.round(tdee-500)+' kcal',c:'red'},{label:'Gain Muscle',value:Math.round(tdee+300)+' kcal',c:'green'},{label:'BMR',value:Math.round(bmr)+' kcal'}]);
+};
+window.doCalorie=function(){
+  const w=+document.getElementById('cal-w').value,h=+document.getElementById('cal-h').value,a=+document.getElementById('cal-age').value,g=document.getElementById('cal-gender').value,act=+document.getElementById('cal-act').value,goal=+document.getElementById('cal-goal').value;
+  const bmr=g==='Male'?(10*w)+(6.25*h)-(5*a)+5:(10*w)+(6.25*h)-(5*a)-161,target=bmr*act+goal;
+  showResults('cal-r',[{label:'Target Calories',value:Math.round(target)+' kcal',h:true,c:'gold'},{label:'BMR',value:Math.round(bmr)+' kcal'},{label:'TDEE',value:Math.round(bmr*act)+' kcal'},{label:'Carbs (~50%)',value:Math.round(target*0.5/4)+' g'}]);
+};
+window.doWater=function(){
+  const w=+document.getElementById('wat-w').value,act=+document.getElementById('wat-act').value,cli=+document.getElementById('wat-climate').value;
+  const base=w*0.033,total=base+act+cli;
+  showResults('wat-r',[{label:'Daily Water Intake',value:total.toFixed(2)+' L',h:true,c:'blue'},{label:'In Glasses (250ml)',value:Math.round(total/0.25)+' glasses'},{label:'Base Need',value:base.toFixed(2)+' L'},{label:'Hourly',value:(total/16).toFixed(2)+' L/hr'}]);
+};
+window.doProtein=function(){
+  const w=+document.getElementById('prot-w').value,f=+document.getElementById('prot-goal').value,protein=w*f;
+  showResults('prot-r',[{label:'Daily Protein',value:Math.round(protein)+' g',h:true,c:'gold'},{label:'Per Meal (5 meals)',value:Math.round(protein/5)+' g'},{label:'In Calories',value:Math.round(protein*4)+' kcal'},{label:'Per Body Weight',value:f+' g/kg'}]);
+};
+window.doPregnancy=function(){
+  const lmp=document.getElementById('preg-lmp').value,cycle=+document.getElementById('preg-cycle').value;
+  if(!lmp)return;
+  const due=new Date(lmp);due.setDate(due.getDate()+280+(cycle-28));
+  const today=new Date(),diff=Math.floor((today-new Date(lmp))/(1000*60*60*24)),weeks=Math.floor(diff/7),days=diff%7;
+  showResults('preg-r',[{label:'Due Date',value:due.toDateString(),h:true,c:'gold'},{label:'Current Week',value:weeks+'w '+days+'d'},{label:'Weeks Remaining',value:Math.max(0,40-weeks)+' weeks'},{label:'Trimester',value:weeks<13?'1st':weeks<27?'2nd':'3rd'}]);
+};
+window.doOvulation=function(){
+  const lmp=document.getElementById('ovul-lmp').value,cycle=+document.getElementById('ovul-cycle').value;
+  if(!lmp)return;
+  const ov=new Date(lmp);ov.setDate(ov.getDate()+cycle-14);
+  const win_start=new Date(ov);win_start.setDate(win_start.getDate()-5);
+  const win_end=new Date(ov);win_end.setDate(win_end.getDate()+1);
+  showResults('ovul-r',[{label:'Ovulation Day',value:ov.toDateString(),h:true,c:'gold'},{label:'Fertile Window Start',value:win_start.toDateString()},{label:'Fertile Window End',value:win_end.toDateString()},{label:'Next Period',value:new Date(new Date(lmp).getTime()+cycle*86400000).toDateString()}]);
+};
+window.doHeartRate=function(){
+  const age=+document.getElementById('hr-age').value,rhr=+document.getElementById('hr-resting').value,maxHR=220-age;
+  const z=p=>Math.round((maxHR-rhr)*p/100+rhr);
+  showResults('hr-r',[{label:'Max Heart Rate',value:maxHR+' bpm',h:true,c:'red'},{label:'Zone 2 – Fat Burn',value:z(60)+'–'+z(70)+' bpm'},{label:'Zone 3 – Aerobic',value:z(70)+'–'+z(80)+' bpm'},{label:'Zone 4 – Threshold',value:z(80)+'–'+z(90)+' bpm'}]);
+};
+window.doBP=function(){
+  const sys=+document.getElementById('bp-sys').value,dia=+document.getElementById('bp-dia').value;
+  let cat,color;
+  if(sys<120&&dia<80){cat='✅ Normal';color='green';}
+  else if(sys<130&&dia<80){cat='⚠️ Elevated';color='gold';}
+  else if(sys<140||dia<90){cat='🟡 Stage 1 Hypertension';color='gold';}
+  else if(sys<180&&dia<120){cat='🔴 Stage 2 Hypertension';color='red';}
+  else{cat='🚨 Hypertensive Crisis';color='red';}
+  showResults('bp-r',[{label:'Blood Pressure',value:sys+'/'+dia+' mmHg',h:true},{label:'Category',value:cat,c:color},{label:'Systolic',value:sys+' mmHg'},{label:'Diastolic',value:dia+' mmHg'}]);
+};
+window.doDiabetes=function(){
+  let score=0;
+  const age=+document.getElementById('diab-age').value,bmi=+document.getElementById('diab-bmi').value;
+  if(age>=40)score+=1;if(age>=50)score+=1;if(bmi>=25)score+=1;if(bmi>=30)score+=1;
+  score+=+document.getElementById('diab-fam').value;score+=+document.getElementById('diab-act').value;score+=+document.getElementById('diab-bp').value;
+  const risk=score<=2?'Low Risk':score<=4?'Moderate Risk':score<=6?'High Risk':'Very High Risk',c=score<=2?'green':score<=4?'gold':'red';
+  showResults('diab-r',[{label:'Risk Score',value:score+'/7',h:true,c:c},{label:'Risk Level',value:risk,c:c},{label:'Recommendation',value:score>=4?'Consult Doctor':'Maintain Lifestyle'}]);
+};
+window.doSleep=function(){
+  const wake=document.getElementById('sleep-wake').value,hrs=+document.getElementById('sleep-age').value;
+  const[wh,wm]=wake.split(':').map(Number);const wakeMs=wh*60+wm;
+  const bedtimes=[];for(let c=5;c>=2;c--){let bt=(wakeMs-c*90+15+1440)%1440;const bh=Math.floor(bt/60),bm=bt%60;bedtimes.push(`${String(bh).padStart(2,'0')}:${String(bm).padStart(2,'0')} (${c} cycles/${c*1.5}h)`);}
+  showResults('sleep-r',[{label:'Wake Up At',value:wake,h:true,c:'gold'},{label:'Best Bedtime 1',value:bedtimes[0]},{label:'Best Bedtime 2',value:bedtimes[1]},{label:'Best Bedtime 3',value:bedtimes[2]}]);
+};
+window.doAge=function(){
+  const dob=new Date(document.getElementById('age-dob').value),today=new Date(document.getElementById('age-today').value);
+  let y=today.getFullYear()-dob.getFullYear(),m=today.getMonth()-dob.getMonth(),d=today.getDate()-dob.getDate();
+  if(d<0){m--;d+=new Date(today.getFullYear(),today.getMonth(),0).getDate();}
+  if(m<0){y--;m+=12;}
+  const totalDays=Math.floor((today-dob)/86400000);
+  showResults('age-r',[{label:'Age',value:y+' years',h:true,c:'gold'},{label:'Months & Days',value:m+' mo '+d+' d'},{label:'Total Days',value:totalDays.toLocaleString()},{label:'Next Birthday',value:(()=>{const nb=new Date(today.getFullYear(),dob.getMonth(),dob.getDate());if(nb<=today)nb.setFullYear(nb.getFullYear()+1);return Math.floor((nb-today)/86400000)+' days'})()}]);
+};
+
+// Academic
+window.doPercentage=function(){
+  const m=+document.getElementById('pct-marks').value,t=+document.getElementById('pct-total').value,pct=(m/t)*100;
+  showResults('pct-r',[{label:'Percentage',value:pct.toFixed(2)+'%',h:true,c:'gold'},{label:'Marks',value:m+' / '+t},{label:'Grade (India)',value:pct>=90?'O':pct>=80?'A+':pct>=70?'A':pct>=60?'B+':pct>=50?'B':pct>=45?'C':'F'},{label:'Grade (US)',value:pct>=93?'A+':pct>=90?'A':pct>=87?'A−':pct>=83?'B+':pct>=80?'B':pct>=77?'B−':pct>=73?'C+':pct>=70?'C':'F'}]);
+};
+window.doCGPAto=function(){
+  const c=+document.getElementById('cgpa-val').value,f=+document.getElementById('cgpa-formula').value,pct=c*f;
+  showResults('cgpa-r',[{label:'Percentage',value:pct.toFixed(2)+'%',h:true,c:'gold'},{label:'CGPA',value:c+' / 10'},{label:'Multiplier Used',value:'×'+f},{label:'Grade',value:pct>=75?'First Class with Distinction':pct>=60?'First Class':pct>=50?'Second Class':'Pass'}]);
+};
+window.doToCGPA=function(){
+  const p=+document.getElementById('tocgpa-pct').value,s=+document.getElementById('tocgpa-scale').value;
+  showResults('tocgpa-r',[{label:'CGPA',value:(p/s).toFixed(2),h:true,c:'gold'},{label:'Percentage',value:p+'%'},{label:'Scale Used',value:'÷'+s}]);
+};
+window.buildMarksFields=function(){
+  const n=+document.getElementById('marks-n').value;let html='';
+  for(let i=1;i<=n;i++)html+=`<div class="field"><label>Subject ${i} Marks</label><div class="input-wrap"><span class="input-prefix">M</span><input type="number" id="mark-${i}" value="80" min="0" max="100"></div></div>`;
+  document.getElementById('marks-fields').innerHTML=html;
+};
+window.doMarks=function(){
+  const n=+document.getElementById('marks-n').value;let total=0,max=n*100;
+  for(let i=1;i<=n;i++)total+=+document.getElementById('mark-'+i).value;
+  showResults('marks-r',[{label:'Total Marks',value:total+' / '+max,h:true,c:'gold'},{label:'Average',value:(total/n).toFixed(1)+' / 100'},{label:'Percentage',value:((total/max)*100).toFixed(2)+'%'},{label:'Subjects',value:n}]);
+};
+window.doGrade=function(){
+  const m=+document.getElementById('grade-marks').value,t=+document.getElementById('grade-total').value,sys=document.getElementById('grade-sys').value,pct=(m/t)*100;
+  let grade;
+  if(sys==='india')grade=pct>=90?'O (Outstanding)':pct>=80?'A+ (Excellent)':pct>=70?'A (Very Good)':pct>=60?'B+ (Good)':pct>=55?'B':pct>=50?'C':pct>=45?'P (Pass)':'F (Fail)';
+  else if(sys==='us')grade=pct>=93?'A+':pct>=90?'A':pct>=87?'A−':pct>=83?'B+':pct>=80?'B':pct>=77?'B−':pct>=73?'C+':pct>=70?'C':pct>=67?'D+':'F';
+  else grade=pct>=70?'First Class':pct>=60?'2:1':pct>=50?'2:2':pct>=40?'Third':'Fail';
+  showResults('grade-r',[{label:'Grade',value:grade,h:true,c:'gold'},{label:'Percentage',value:pct.toFixed(2)+'%'},{label:'Marks',value:m+' / '+t}]);
+};
+
+// Scientific calc
+let sciExpr='';
+window.sciKey=function(k){
+  const d=document.getElementById('sci-display');
+  if(!d)return;
+  if(k==='C'){sciExpr='';d.textContent='0';return;}
+  if(k==='←'){sciExpr=sciExpr.slice(0,-1);d.textContent=sciExpr||'0';return;}
+  if(k==='='){
+    try{
+      let e=sciExpr.replace(/π/g,'Math.PI').replace(/e(?!x)/g,'Math.E').replace(/√/g,'Math.sqrt').replace(/sin/g,'Math.sin').replace(/cos/g,'Math.cos').replace(/tan/g,'Math.tan').replace(/log/g,'Math.log10').replace(/ln/g,'Math.log').replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-').replace(/\^/g,'**').replace(/x²/g,'**2').replace(/x³/g,'**3').replace(/1\/x/g,'1/').replace(/\+\/-/g,'*-1');
+      const r=eval(e);d.textContent=parseFloat(r.toFixed(10)).toString();sciExpr=d.textContent;
+    }catch{d.textContent='Error';sciExpr='';}
+    return;
+  }
+  const map={'×':'×','÷':'÷','−':'−','√':'√(','sin':'sin(','cos':'cos(','tan':'tan(','log':'log(','ln':'ln(','x²':'²','x³':'³','1/x':'1/(','π':'π','e':'e','+/-':'+/-'};
+  sciExpr+=(map[k]||k);d.textContent=sciExpr;
+};
+
+// Matrix
+window.buildMatrix=function(){
+  const n=+document.getElementById('mat-size').value;
+  ['a','b'].forEach(m=>{
+    let g='';
+    for(let i=0;i<n;i++){g+='<div style="display:flex;gap:4px;margin-bottom:4px;">';for(let j=0;j<n;j++)g+=`<input type="number" id="mat-${m}-${i}-${j}" value="${i===j?1:0}" style="width:52px;padding:6px;background:var(--dark4);border:1px solid var(--dark);color:var(--text);border-radius:6px;text-align:center;font-size:13px;">`;g+='</div>';}
+    document.getElementById('mat-'+m+'-grid').innerHTML=g;
+  });
+};
+window.doMatrix=function(op){
+  const n=+document.getElementById('mat-size').value;
+  const get=(m,i,j)=>+(document.getElementById(`mat-${m}-${i}-${j}`)?.value||0);
+  const A=Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>get('a',i,j)));
+  const B=Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>get('b',i,j)));
+  let R,title;
+  if(op==='add'){R=A.map((r,i)=>r.map((v,j)=>v+B[i][j]));title='A + B';}
+  else if(op==='sub'){R=A.map((r,i)=>r.map((v,j)=>v-B[i][j]));title='A − B';}
+  else if(op==='mul'){R=Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>A[i].reduce((s,_,k)=>s+A[i][k]*B[k][j],0)));title='A × B';}
+  else if(op==='det'){
+    if(n===2){const d=A[0][0]*A[1][1]-A[0][1]*A[1][0];document.getElementById('mat-result').style.display='block';document.getElementById('mat-result').innerHTML=`<span style="color:var(--gold)">det(A) = ${d}</span>`;return;}
+    else{const d=A[0][0]*(A[1][1]*A[2][2]-A[1][2]*A[2][1])-A[0][1]*(A[1][0]*A[2][2]-A[1][2]*A[2][0])+A[0][2]*(A[1][0]*A[2][1]-A[1][1]*A[2][0]);document.getElementById('mat-result').style.display='block';document.getElementById('mat-result').innerHTML=`<span style="color:var(--gold)">det(A) = ${d}</span>`;return;}
+  }
+  const html=R.map(r=>`[${r.map(v=>v.toFixed?parseFloat(v.toFixed(3)):v).join(', ')}]`).join('\n');
+  document.getElementById('mat-result').style.display='block';document.getElementById('mat-result').innerHTML=`<span style="color:var(--gold)">${title} =</span>\n${html}`;
+};
+window.doGPA=function(){
+  const pct=+document.getElementById('gpa-pct').value,scale=+document.getElementById('gpa-scale').value;
+  let gpa;
+  if(scale===4)gpa=pct>=93?4.0:pct>=90?4.0:pct>=87?3.7:pct>=83?3.3:pct>=80?3.0:pct>=77?2.7:pct>=73?2.3:pct>=70?2.0:pct>=67?1.7:pct>=65?1.3:pct>=60?1.0:0;
+  else if(scale===10)gpa=pct>=90?10:pct>=85?9.5:pct>=80?9:pct>=75?8.5:pct>=70?8:pct>=65?7.5:pct>=60?7:pct>=55?6:pct>=50?5:0;
+  else gpa=(pct/100)*5;
+  showResults('gpa-r',[{label:'GPA',value:gpa.toFixed(2)+' / '+scale,h:true,c:'gold'},{label:'Percentage',value:pct+'%'},{label:'Scale',value:scale+'.0'}]);
+};
+window.doAttendance=function(){
+  const total=+document.getElementById('att-total').value,att=+document.getElementById('att-attended').value,min=+document.getElementById('att-min').value;
+  const pct=(att/total)*100,needed=Math.max(0,Math.ceil((min*total/100-att)/(1-min/100))),canSkip=Math.floor(att-min*total/100);
+  showResults('att-r',[{label:'Current Attendance',value:pct.toFixed(2)+'%',h:true,c:pct>=min?'green':'red'},{label:'Status',value:pct>=min?'✅ Safe':'❌ Short',c:pct>=min?'green':'red'},{label:canSkip>=0?'Classes Can Skip':'Classes to Attend',value:Math.abs(canSkip>=0?canSkip:needed)},{label:'Required Min',value:min+'%'}]);
+};
+
+// Unit Converter
+const UNIT_DATA={length:{m:1,km:0.001,cm:100,mm:1000,mi:0.000621371,ft:3.28084,inch:39.3701,yard:1.09361},weight:{kg:1,g:1000,mg:1000000,lb:2.20462,oz:35.274,ton:0.001},temp:{},volume:{L:1,mL:1000,gallon:0.264172,pint:2.11338,cup:4.22675,tbsp:67.628,tsp:202.884,floz:33.814},speed:{mps:1,'km/h':3.6,mph:2.23694,knot:1.94384},area:{sqm:1,sqkm:0.000001,sqft:10.7639,sqin:1550.0031,sqmile:0.000000386102,acre:0.000247105,hectare:0.0001}};
+window.updateUnitOptions=function(){
+  const cat=document.getElementById('unit-cat').value;
+  const opts=cat==='temp'?['°C','°F','K']:Object.keys(UNIT_DATA[cat]||{});
+  ['unit-from','unit-to'].forEach((id,idx)=>{const s=document.getElementById(id);s.innerHTML=opts.map((u,i)=>`<option value="${u}"${i===idx?'selected':''}>${u}</option>`).join('');});
+};
+window.doUnit=function(){
+  const cat=document.getElementById('unit-cat').value,val=+document.getElementById('unit-val').value,from=document.getElementById('unit-from').value,to=document.getElementById('unit-to').value;
+  let result;
+  if(cat==='temp'){
+    let cel=from==='°C'?val:from==='°F'?(val-32)*5/9:val-273.15;
+    result=to==='°C'?cel:to==='°F'?cel*9/5+32:cel+273.15;
+  }else{const d=UNIT_DATA[cat];result=val/d[from]*d[to];}
+  showResults('unit-r',[{label:'Result',value:parseFloat(result.toFixed(6))+' '+to,h:true,c:'gold'},{label:'Input',value:val+' '+from},{label:'Factor',value:(result/val).toFixed(6)}]);
+};
+
+window.doRankPredictor=function(){
+  const score=+document.getElementById('rp-score').value,total=+document.getElementById('rp-total').value,cands=+document.getElementById('rp-candidates').value;
+  const pct=(score/total)*100,estRank=Math.round(cands*(1-pct/100)*0.8);
+  showResults('rp-r',[{label:'Estimated Rank',value:estRank.toLocaleString(),h:true,c:'gold'},{label:'Percentile',value:pct.toFixed(2)+'%'},{label:'Score',value:score+'/'+total},{label:'Note',value:'Estimate Only'}]);
+};
+window.doCutoff=function(){
+  const score=+document.getElementById('cut-score').value,cutoff=+document.getElementById('cut-cutoff').value,diff=score-cutoff;
+  showResults('cut-r',[{label:'Status',value:score>=cutoff?'✅ Cleared':'❌ Below Cutoff',h:true,c:score>=cutoff?'green':'red'},{label:'Your Score',value:score},{label:'Cutoff',value:cutoff},{label:'Margin',value:(diff>=0?'+':'')+diff}]);
+};
+window.doScore=function(){
+  const raw=+document.getElementById('sc-raw').value,max=+document.getElementById('sc-max').value,neg=+document.getElementById('sc-neg').value,wrong=+document.getElementById('sc-wrong').value;
+  const adj=raw-neg*wrong,pct=(adj/max)*100;
+  showResults('sc-r',[{label:'Adjusted Score',value:adj.toFixed(2),h:true,c:'gold'},{label:'Percentage',value:pct.toFixed(2)+'%'},{label:'Deduction',value:'-'+(neg*wrong).toFixed(2)},{label:'Raw Score',value:raw}]);
+};
+window.buildSGPAFields=function(){
+  const n=+document.getElementById('sgpa-n').value;let html='';
+  const grades=['O(10)','A+(9)','A(8)','B+(7)','B(6)','C(5)','F(0)'];
+  for(let i=1;i<=n;i++)html+=`<div class="field"><label>Subject ${i}</label><div style="display:flex;gap:4px;"><div class="input-wrap" style="flex:1"><span class="input-prefix">Cr</span><input type="number" id="sgpa-cr-${i}" value="4" min="1" max="6"></div><div class="input-wrap" style="flex:1"><select id="sgpa-gr-${i}">${grades.map(g=>`<option value="${g.match(/\d+/)[0]}">${g}</option>`).join('')}</select></div></div></div>`;
+  document.getElementById('sgpa-fields').innerHTML=html;
+};
+window.doSGPA=function(){
+  const n=+document.getElementById('sgpa-n').value;let tw=0,ts=0;
+  for(let i=1;i<=n;i++){const cr=+document.getElementById('sgpa-cr-'+i).value,gr=+document.getElementById('sgpa-gr-'+i).value;tw+=cr;ts+=cr*gr;}
+  const sgpa=ts/tw;showResults('sgpa-r',[{label:'SGPA',value:sgpa.toFixed(2),h:true,c:'gold'},{label:'Total Credits',value:tw},{label:'Total Points',value:ts},{label:'Percentage',value:(sgpa*9.5).toFixed(2)+'%'}]);
+};
+window.buildCGPAFields=function(){
+  const n=+document.getElementById('cgpa-sem-n').value;let html='';
+  for(let i=1;i<=n;i++)html+=`<div class="field"><label>Semester ${i} SGPA</label><div class="input-wrap"><span class="input-prefix">GPA</span><input type="number" id="cgpa-s-${i}" value="${(7+i*0.1).toFixed(1)}" step="0.01" min="0" max="10"></div></div>`;
+  document.getElementById('cgpa-fields').innerHTML=html;
+};
+window.doCGPACalc=function(){
+  const n=+document.getElementById('cgpa-sem-n').value;let total=0;
+  for(let i=1;i<=n;i++)total+=+document.getElementById('cgpa-s-'+i).value;
+  const cgpa=total/n;showResults('cgpa-calc-r',[{label:'CGPA',value:cgpa.toFixed(2),h:true,c:'gold'},{label:'Semesters',value:n},{label:'Percentage',value:(cgpa*9.5).toFixed(2)+'%'},{label:'Grade',value:cgpa>=9?'Outstanding':cgpa>=8?'Excellent':cgpa>=7?'Very Good':cgpa>=6?'Good':'Average'}]);
+};
+window.doBacklog=function(){
+  const cur=+document.getElementById('bl-cgpa').value,credits=+document.getElementById('bl-credits').value,backlogs=+document.getElementById('bl-backlogs').value,bc=+document.getElementById('bl-backcredits').value,grade=+document.getElementById('bl-grade').value;
+  const newTotal=credits+backlogs*bc,newSum=cur*credits+grade*backlogs*bc,newCGPA=newSum/newTotal;
+  showResults('bl-r',[{label:'New CGPA',value:newCGPA.toFixed(2),h:true,c:newCGPA>=cur?'green':'red'},{label:'Current CGPA',value:cur},{label:'Change',value:(newCGPA>=cur?'+':'')+(newCGPA-cur).toFixed(2)},{label:'Total Credits',value:newTotal}]);
+};
+
+// Hike/Salary
+window.doInhand=function(){
+  const ctc=+document.getElementById('ih-ctc').value,basicPct=+document.getElementById('ih-basic-pct').value,hraPct=+document.getElementById('ih-hra-pct').value,other=+document.getElementById('ih-other').value,pf=document.getElementById('ih-pf').value,regime=document.getElementById('ih-regime').value;
+  const basic=ctc*basicPct/100/12,hra=basic*hraPct/100,pfDed=pf==='y'?basic*0.12:0;
+  const gross=basic+hra+other,annIncome=ctc;
+  let tax=0;
+  if(regime==='new'){let ti=Math.max(0,annIncome-75000);if(ti<=300000)tax=0;else if(ti<=600000)tax=(ti-300000)*0.05;else if(ti<=900000)tax=15000+(ti-600000)*0.10;else if(ti<=1200000)tax=45000+(ti-900000)*0.15;else if(ti<=1500000)tax=90000+(ti-1200000)*0.20;else tax=150000+(ti-1500000)*0.30;if(ti<=700000)tax=0;tax*=1.04;}
+  else{let ti=Math.max(0,annIncome*basicPct/100*12*hraPct/100*0.5);tax=Math.max(0,annIncome-250000)*0.20*1.04;}
+  const inhand=gross-pfDed-tax/12-200;// 200 = approx pro tax
+  showResults('ih-r',[{label:'Monthly In-Hand',value:fmt(inhand),h:true,c:'green'},{label:'Gross Monthly',value:fmt(gross)},{label:'PF Deduction',value:fmt(pfDed)},{label:'Approx Tax/mo',value:fmt(tax/12)}]);
+};
+window.doCTC=function(){
+  const ctc=+document.getElementById('ctc-val').value,basicPct=+document.getElementById('ctc-basic').value,varPct=+document.getElementById('ctc-var').value;
+  const basic=ctc*basicPct/100,variable=ctc*varPct/100,hra=basic*0.5,pf=basic*0.12,gratuity=basic*0.0481,fixed=ctc-variable;
+  showResults('ctc-r',[{label:'Annual CTC',value:fmt(ctc),h:true,c:'gold'},{label:'Fixed Pay',value:fmt(fixed)},{label:'Variable Pay',value:fmt(variable)},{label:'Monthly Basic',value:fmt(basic/12)},{label:'Monthly HRA',value:fmt(hra/12)},{label:'Employer PF',value:fmt(pf)}]);
+};
+window.doHike=function(){
+  const cur=+document.getElementById('hike-cur').value,pct=+document.getElementById('hike-pct').value;
+  const newCtc=cur*(1+pct/100),diff=newCtc-cur;
+  showResults('hike-r',[{label:'New Annual CTC',value:fmt(newCtc),h:true,c:'green'},{label:'Increase',value:fmt(diff),c:'green'},{label:'Monthly Increase',value:fmt(diff/12),c:'green'},{label:'Hike %',value:pct+'%'}]);
+};
+window.doIncrement=function(){
+  const cur=+document.getElementById('inc-cur').value,nw=+document.getElementById('inc-new').value,diff=nw-cur,pct=((nw-cur)/cur)*100;
+  showResults('inc-r',[{label:'Monthly Increase',value:fmt(diff),h:true,c:'green'},{label:'Annual Increase',value:fmt(diff*12),c:'green'},{label:'Hike Percentage',value:pct.toFixed(2)+'%'},{label:'New Monthly',value:fmt(nw)}]);
+};
+window.doBonus=function(){
+  const ctc=+document.getElementById('bon-ctc').value,pct=+document.getElementById('bon-pct').value,tax=+document.getElementById('bon-tax').value;
+  const gross=ctc*pct/100,taxAmt=gross*tax/100,net=gross-taxAmt;
+  showResults('bon-r',[{label:'Gross Bonus',value:fmt(gross),h:true,c:'gold'},{label:'Tax Deduction',value:fmt(taxAmt),c:'red'},{label:'Net Bonus',value:fmt(net),c:'green'},{label:'Monthly Equiv.',value:fmt(gross/12)}]);
+};
+window.doOldTax=function(){
+  const income=+document.getElementById('otax-income').value,d80c=Math.min(+document.getElementById('otax-80c').value,150000),hra=+document.getElementById('otax-hra').value,other=+document.getElementById('otax-other').value,age=document.getElementById('otax-age').value;
+  const ti=Math.max(0,income-d80c-hra-other-50000);
+  let tax=0;
+  const exempt=age==='below60'?250000:age==='60to80'?300000:500000;
+  if(ti>exempt){
+    if(ti>1000000)tax=112500+(ti-1000000)*0.30;
+    else if(ti>500000)tax=12500+(ti-500000)*0.20;
+    else tax=(ti-exempt)*0.05;
+  }
+  if(ti<=500000)tax=Math.max(0,tax-12500);
+  tax*=1.04;
+  const savings=income*0.30*1.04-tax;
+  showResults('otax-r',[{label:'Tax Payable',value:fmt(tax),h:true,c:'red'},{label:'Take-Home/yr',value:fmt(income-tax),c:'green'},{label:'Monthly Take-Home',value:fmt((income-tax)/12),c:'green'},{label:'Total Deductions',value:fmt(d80c+hra+other+50000)}]);
+};
+window.doNewTax=function(){
+  const income=+document.getElementById('ntax-income').value;
+  let ti=Math.max(0,income-75000),tax=0;
+  if(ti<=300000)tax=0;else if(ti<=600000)tax=(ti-300000)*0.05;else if(ti<=900000)tax=15000+(ti-600000)*0.10;else if(ti<=1200000)tax=45000+(ti-900000)*0.15;else if(ti<=1500000)tax=90000+(ti-1200000)*0.20;else tax=150000+(ti-1500000)*0.30;
+  if(ti<=700000)tax=0;tax*=1.04;
+  showResults('ntax-r',[{label:'Tax Payable',value:fmt(tax),h:true,c:'red'},{label:'Take-Home/yr',value:fmt(income-tax),c:'green'},{label:'Monthly Take-Home',value:fmt((income-tax)/12),c:'green'},{label:'Effective Rate',value:((tax/income)*100).toFixed(2)+'%'}]);
+};
+window.doIncomeTax=function(){
+  const income=+document.getElementById('itax-income').value,regime=document.getElementById('itax-regime').value,ded=+document.getElementById('itax-ded').value;
+  let tax=0,ti=income;
+  if(regime==='IN_NEW'){ti=Math.max(0,income-75000);if(ti<=300000)tax=0;else if(ti<=600000)tax=(ti-300000)*0.05;else if(ti<=900000)tax=15000+(ti-600000)*0.10;else if(ti<=1200000)tax=45000+(ti-900000)*0.15;else if(ti<=1500000)tax=90000+(ti-1200000)*0.20;else tax=150000+(ti-1500000)*0.30;if(ti<=700000)tax=0;tax*=1.04;}
+  else if(regime==='IN_OLD'){ti=Math.max(0,income-ded-50000);if(ti<=250000)tax=0;else if(ti<=500000)tax=(ti-250000)*0.05;else if(ti<=1000000)tax=12500+(ti-500000)*0.20;else tax=112500+(ti-1000000)*0.30;if(ti<=500000)tax=Math.max(0,tax-12500);tax*=1.04;}
+  else if(regime==='US_SINGLE'){ti=Math.max(0,income-14600);const B=[[11600,.10],[47150,.12],[100525,.22],[191950,.24],[243725,.32],[609350,.35],[Infinity,.37]];let p=0;for(const[l,r]of B){if(ti<=l){tax+=(ti-p)*r;break;}tax+=(l-p)*r;p=l;}}
+  else if(regime==='US_MARRIED'){ti=Math.max(0,income-29200);const B=[[23200,.10],[94300,.12],[201050,.22],[383900,.24],[487450,.32],[731200,.35],[Infinity,.37]];let p=0;for(const[l,r]of B){if(ti<=l){tax+=(ti-p)*r;break;}tax+=(l-p)*r;p=l;}}
+  else{ti=Math.max(0,income-12570);if(ti<=37700)tax=ti*0.20;else if(ti<=125140)tax=7540+(ti-37700)*0.40;else tax=40372+(ti-125140)*0.45;}
+  showResults('itax-r',[{label:'Tax Payable',value:fmt(tax),h:true,c:'red'},{label:'Take-Home/yr',value:fmt(income-tax),c:'green'},{label:'Monthly',value:fmt((income-tax)/12),c:'green'},{label:'Rate',value:((tax/income)*100).toFixed(1)+'%'}]);
+};
+window.doHRA=function(){
+  const basic=+document.getElementById('hra-basic').value,recv=+document.getElementById('hra-received').value,rent=+document.getElementById('hra-rent').value,city=document.getElementById('hra-city').value;
+  const ex1=recv,ex2=rent-0.1*basic,ex3=city==='metro'?0.5*basic:0.4*basic,exempt=Math.max(0,Math.min(ex1,ex2,ex3)),taxable=recv-exempt;
+  showResults('hra-r',[{label:'HRA Exemption',value:fmt(exempt),h:true,c:'green'},{label:'Taxable HRA',value:fmt(taxable),c:'red'},{label:'Tax Saved (30%)',value:fmt(exempt*0.30)},{label:'Rent - 10% Basic',value:fmt(ex2)}]);
+};
+window.doSec80C=function(){
+  const income=+document.getElementById('s80c-income').value,elss=+document.getElementById('s80c-elss').value,ppf=+document.getElementById('s80c-ppf').value,lic=+document.getElementById('s80c-lic').value,home=+document.getElementById('s80c-home').value*12,other=+document.getElementById('s80c-other').value;
+  const total80c=Math.min(150000,elss+ppf+lic+home+other),savings=total80c*0.30*1.04;
+  showResults('s80c-r',[{label:'80C Deduction',value:fmt(total80c),h:true,c:'gold'},{label:'Tax Saved (30%)',value:fmt(savings),c:'green'},{label:'Remaining Limit',value:fmt(150000-total80c)},{label:'Total Invested',value:fmt(elss+ppf+lic+home+other)}]);
+};
+window.doPF=function(){
+  const basic=+document.getElementById('pf-basic').value,rate=+document.getElementById('pf-rate').value/100;
+  const empPF=basic*rate,empPFshare=basic*0.0367,eps=basic*0.0833,totalPF=empPF*2;
+  showResults('pf-r',[{label:'Your PF (Monthly)',value:fmt(empPF),h:true,c:'gold'},{label:"Employer's PF Share",value:fmt(empPFshare)},{label:'EPS (Pension)',value:fmt(eps)},{label:'Total Monthly',value:fmt(empPF+empPFshare+eps)}]);
+};
+window.doEPF=function(){
+  const basic=+document.getElementById('epf-basic').value,bal=+document.getElementById('epf-bal').value,yrs=+document.getElementById('epf-yrs').value,inc=+document.getElementById('epf-inc').value/100;
+  const rate=8.15/100/12;let corpus=bal,monthlyBasic=basic;
+  for(let y=0;y<yrs;y++){const monthly=monthlyBasic*0.1567;for(let m=0;m<12;m++){corpus=(corpus+monthly)*(1+rate);} monthlyBasic*=(1+inc);}
+  showResults('epf-r',[{label:'EPF at Retirement',value:fmt(corpus),h:true,c:'green'},{label:'Current Balance',value:fmt(bal)},{label:'Years to Retire',value:yrs},{label:'Growth',value:((corpus/bal-1)*100).toFixed(0)+'%'}]);
+};
+window.doGratuity=function(){
+  const basic=+document.getElementById('grat-basic').value,yrs=+document.getElementById('grat-yrs').value;
+  const g=basic*15*yrs/26,tax=Math.max(0,g-2000000)*0.30;
+  showResults('grat-r',[{label:'Gratuity Amount',value:fmt(g),h:true,c:'gold'},{label:'Tax-Free Limit',value:fmt(2000000)},{label:'Taxable Amount',value:fmt(Math.max(0,g-2000000)),c:'red'},{label:'Net Amount',value:fmt(g-tax),c:'green'}]);
+};
+window.doNPS=function(){
+  const monthly=+document.getElementById('nps-monthly').value,age=+document.getElementById('nps-age').value,ret=+document.getElementById('nps-return').value/100,ann=+document.getElementById('nps-annuity').value/100;
+  const yrs=60-age,n=yrs*12,rm=ret/12,corpus=monthly*((Math.pow(1+rm,n)-1)/rm)*(1+rm),annuityCorpus=corpus*0.4,monthlyPension=annuityCorpus*ann/12;
+  showResults('nps-r',[{label:'Corpus at 60',value:fmt(corpus),h:true,c:'gold'},{label:'Lump Sum (60%)',value:fmt(corpus*0.6),c:'green'},{label:'Monthly Pension',value:fmt(monthlyPension)},{label:'Total Invested',value:fmt(monthly*n)}]);
+};
+window.doLeave=function(){
+  const basic=+document.getElementById('lv-basic').value,ent=+document.getElementById('lv-entitled').value,used=+document.getElementById('lv-used').value,wd=+document.getElementById('lv-workdays').value;
+  const balance=ent-used,dailyRate=basic/wd,encashment=balance*dailyRate;
+  showResults('lv-r',[{label:'Leave Balance',value:balance+' days',h:true,c:'gold'},{label:'Encashment Value',value:fmt(encashment),c:'green'},{label:'Daily Rate',value:fmt(dailyRate)},{label:'Taxable Amount',value:fmt(Math.max(0,encashment-300000)),c:'red'}]);
+};
+window.doPromotionHike=function(){
+  const cur=+document.getElementById('ph-cur').value,hike=+document.getElementById('ph-pct').value,bonus=+document.getElementById('ph-bonus').value;
+  const newBase=cur*(1+hike/100),totalBonus=newBase*bonus/100,total=newBase+totalBonus;
+  showResults('ph-r',[{label:'New Base CTC',value:fmt(newBase),h:true,c:'gold'},{label:'Total Package',value:fmt(total),c:'green'},{label:'Variable Bonus',value:fmt(totalBonus)},{label:'Total Hike',value:((total/cur-1)*100).toFixed(1)+'%'}]);
+};
+window.doFreelance=function(){
+  const income=+document.getElementById('fl-income').value,hours=+document.getElementById('fl-hours').value,overhead=+document.getElementById('fl-overhead').value/100,tax=+document.getElementById('fl-tax').value/100;
+  const needed=income*(1+overhead)/(1-tax),hourly=needed/hours;
+  showResults('fl-r',[{label:'Minimum Hourly Rate',value:fmt(hourly),h:true,c:'gold'},{label:'Monthly Billings Needed',value:fmt(needed)},{label:'Daily Rate (8hr)',value:fmt(hourly*8)},{label:'Annual Revenue',value:fmt(needed*12)}]);
+};
+window.doHourly=function(){
+  const ann=+document.getElementById('hr-annual').value,wks=+document.getElementById('hr-weeks').value,hpw=+document.getElementById('hr-hpw').value;
+  const hourly=ann/(wks*hpw),daily=hourly*8,monthly=ann/12;
+  showResults('hr-r',[{label:'Hourly Rate',value:fmt(hourly),h:true,c:'gold'},{label:'Daily Rate (8hr)',value:fmt(daily)},{label:'Monthly Salary',value:fmt(monthly)},{label:'Annual Salary',value:fmt(ann)}]);
+};
+
+// =============================================
+// INIT
+// =============================================
+window.onload=function(){
+  populateCountries();
+  const detected=detectCountry();
+  const sel=document.getElementById('country-select');
+  for(let i=0;i<sel.options.length;i++)if(sel.options[i].value===detected){sel.selectedIndex=i;break;}
+  applyRegion(detected);
+  createTabs();
+  document.getElementById('main-content').innerHTML=financeHTML()+healthHTML()+academicHTML()+hikeHTML();
+};
 </script>
-
 </body>
 </html>
