@@ -6,7 +6,7 @@
 <title>Finance, Health, Academic &amp; Salary Calculators | 1Utility</title>
 
 <!-- Security Headers -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; connect-src 'self' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://api.frankfurter.app;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; connect-src 'self' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://open.er-api.com;">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()">
@@ -429,24 +429,22 @@ function onCountryChange(){
 // =============================================
 async function fetchLiveRates() {
   try {
-    const res = await fetch('https://api.frankfurter.app/latest?from=USD');
-    if (!res.ok) throw new Error('API error');
-    const data = await res.json();
-    
-    liveFX = { USD: 1, ...data.rates };
-    lastRatesUpdate = new Date();
-    
-    // Update currency converter info if it's open
-    const curInfo = document.querySelector('#cur-r');
-    if (curInfo) {
-      // Will be updated on next calculation
-    }
-    
-    console.log('%c[1Utility] Live exchange rates updated successfully', 'color:#2ECC8A');
-  } catch (e) {
-    console.warn('%c[1Utility] Could not fetch live rates, using fallback', 'color:#E05A5A', e);
-    liveFX = { ...FX }; // fallback
-    lastRatesUpdate = new Date(Date.now() - 86400000); // pretend old
+    const response = await fetch(
+      'https://open.er-api.com/v6/latest/USD'
+    );
+
+    const data = await response.json();
+
+    liveFX = data.rates;
+
+  } catch (err) {
+
+    console.warn(
+      '[1Utility] Currency API unavailable, using fallback',
+      err
+    );
+
+    liveFX = {...FX};
   }
 }
 
