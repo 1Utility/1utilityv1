@@ -6,13 +6,13 @@
 <title>Finance, Health, Academic &amp; Salary Calculators | 1Utility</title>
 
 <!-- Security Headers -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; connect-src 'self' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://open.er-api.com;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; connect-src 'self' https://www.googletagmanager.com https://analytics.google.com https://www.google.com https://pagead2.googlesyndication.com https://open.er-api.com;">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()">
 
 <!-- SEO Meta Tags -->
-<meta name="description" content="Free online calculators for Finance (EMI, SIP, FD, Tax), Health (BMI, Calories, BMR), Academic (CGPA, GPA, Percentage), and Salary/Hike tools. Accurate, fast, mobile-friendly.">
+<meta name="description" content="Free online calculators for Finance (EMI, SIP, FD), Health (BMI, TDEE), Academic (CGPA), and Salary tools. Fast, accurate & mobile-friendly.">
 <meta name="keywords" content="finance calculator, EMI calculator, SIP calculator, BMI calculator, CGPA calculator, salary calculator, tax calculator, HRA calculator, PF calculator, India calculators, free online tools, 1utility">
 <meta property="og:title" content="Finance, Health, Academic &amp; Salary Calculators | 1Utility">
 <meta property="og:description" content="Free online calculators for Finance, Health, Academic, and Salary tools. Accurate and easy to use.">
@@ -303,7 +303,7 @@ footer a{color:var(--gold);text-decoration:none;}
     <p>We’d love to hear from you!</p>
     
     <h4>Get in Touch</h4>
-    <p><strong>Email:</strong> <a href="mailto:gameconnectflash@gmail.com" style="color:#C9A84C;">gameconnectflash@gmail.com</a></p>
+    <p><strong>Email:</strong> <a href="#" onclick="showEmail()" style="color:#C9A84C;">Click to email us</a></p>
     <p><strong>Feedback & Suggestions:</strong> We welcome your ideas to improve 1Utility.</p>
     
     <h4>Business / Partnership</h4>
@@ -616,6 +616,219 @@ function academicHTML(){return`<div class="calc-card" id="card-academic"><div cl
 function hikeHTML(){return`<div class="calc-card" id="card-hike"><div class="card-title">Salary / Hike Calculators</div><div class="card-desc">Salary, tax & career tools</div><div class="hike-grid">${buildGrid(HIKE_CALCS,'openCalc')}</div></div>`;}
 
 // =============================================
+// FINANCE CALCULATORS SEO DATA (for ?calc= routing + SEO)
+// =============================================
+const FINANCE_SEO = {
+  emi: {
+    title: "EMI Calculator - Calculate Home, Car & Personal Loan EMI | 1Utility",
+    metaDescription: "Free EMI Calculator to calculate monthly EMI for Home Loan, Car Loan, Personal Loan. Get accurate EMI, total interest, and repayment schedule instantly.",
+    longContent: `<h3 style="color:#C9A84C; margin-top:20px;">What is an EMI Calculator?</h3>
+<p>An EMI (Equated Monthly Installment) Calculator is a powerful financial tool that helps you determine the fixed monthly payment you need to make towards your loan. Whether you're planning to buy a home, car, or need a personal loan, this calculator gives you complete clarity on your repayment schedule.</p>
+<p>Our EMI calculator uses the standard reducing balance method and provides instant results including monthly EMI, total interest payable, and total amount payable over the loan tenure. It supports different loan types like Home Loan, Car Loan, Personal Loan, and Education Loan with customizable interest rates and tenures.</p>
+<h4 style="color:#C9A84C;">How Does EMI Work?</h4>
+<p>In the initial years of your loan, a major portion of your EMI goes towards paying the interest, while only a small part reduces the principal. As time progresses, the interest component decreases and the principal repayment increases. This is known as the reducing balance method.</p>
+<h4 style="color:#C9A84C;">Benefits of Using Our EMI Calculator</h4>
+<ul>
+<li>Plan your budget accurately before taking any loan</li>
+<li>Compare different loan offers from banks easily</li>
+<li>Understand the impact of tenure and interest rate on EMI</li>
+<li>Make informed decisions about prepayment and loan tenure</li>
+</ul>`,
+    faq: [
+      {q: "What is EMI?", a: "EMI stands for Equated Monthly Installment. It is the fixed amount you pay every month to repay your loan including both principal and interest."},
+      {q: "How is EMI calculated?", a: "EMI is calculated using the formula: EMI = P × r × (1+r)ⁿ / ((1+r)ⁿ - 1), where P is principal, r is monthly interest rate, and n is number of months."},
+      {q: "Can I reduce my EMI?", a: "Yes. You can reduce EMI by increasing the loan tenure, making a higher down payment, or negotiating a lower interest rate with the lender."},
+      {q: "Is prepayment beneficial?", a: "Yes, prepayment reduces the principal amount, which lowers the total interest paid. However, some banks charge prepayment penalties."}
+    ]
+  },
+  sip: {
+    title: "SIP Calculator - Calculate Mutual Fund SIP Returns | 1Utility",
+    metaDescription: "Free SIP Calculator to estimate your mutual fund returns. Calculate maturity amount, wealth gained, and required monthly investment for your financial goals.",
+    longContent: `<h3 style="color:#C9A84C; margin-top:20px;">What is a SIP Calculator?</h3>
+<p>A SIP (Systematic Investment Plan) Calculator helps you estimate the future value of your regular monthly investments in mutual funds. It is one of the most popular tools for long-term wealth creation through the power of compounding.</p>
+<p>Our SIP calculator allows you to input your monthly investment amount, expected annual return, and investment period to get accurate projections of your maturity amount, total invested capital, and wealth gained over time. It also supports lump sum investment calculations.</p>
+<h4 style="color:#C9A84C;">Why Should You Start SIP Early?</h4>
+<p>The biggest advantage of starting SIP early is the power of compounding. Even small monthly investments can grow into a significant corpus over 15-20 years. Starting just 5 years earlier can make a massive difference in your final wealth.</p>
+<h4 style="color:#C9A84C;">Key Features of Our SIP Calculator</h4>
+<ul>
+<li>Calculate both SIP and Lump Sum investments</li>
+<li>Get detailed breakup of invested amount vs gains</li>
+<li>Visualize wealth multiplier over different time periods</li>
+<li>Compare different return scenarios</li>
+</ul>`,
+    faq: [
+      {q: "What is SIP?", a: "SIP stands for Systematic Investment Plan. It allows you to invest a fixed amount regularly (usually monthly) in mutual funds at regular intervals."},
+      {q: "What is a good SIP return rate?", a: "Historically, equity mutual funds in India have delivered 12-15% CAGR over long periods. However, past performance doesn't guarantee future returns."},
+      {q: "Can I stop SIP anytime?", a: "Yes, you can pause or stop your SIP anytime. There is no lock-in period for most mutual funds (except ELSS which has 3 years lock-in)."},
+      {q: "Is SIP better than lump sum?", a: "SIP reduces timing risk through rupee cost averaging. Lump sum works better when markets are low. Many experts recommend a combination of both."}
+    ]
+  },
+  fd: {
+    title: "Fixed Deposit Calculator - Calculate FD Maturity & Interest | 1Utility",
+    metaDescription: "Free FD Calculator to calculate maturity amount and interest earned on Fixed Deposits. Compare quarterly, monthly, and annual compounding options.",
+    longContent: `<h3 style="color:#C9A84C; margin-top:20px;">What is a Fixed Deposit Calculator?</h3>
+<p>A Fixed Deposit (FD) Calculator helps you calculate the maturity amount and interest earned on your fixed deposit investments. It is one of the safest investment options in India, especially for conservative investors and senior citizens.</p>
+<p>Our FD calculator supports different compounding frequencies (Quarterly, Monthly, Half-Yearly, Annually) and provides accurate maturity projections based on the principal amount, interest rate, and tenure you choose.</p>
+<h4 style="color:#C9A84C;">How FD Interest is Calculated</h4>
+<p>Fixed deposits use compound interest. The interest is added back to the principal at regular intervals (compounding frequency), and future interest is calculated on the increased amount. Quarterly compounding is most common in Indian banks.</p>
+<h4 style="color:#C9A84C;">FD vs Other Safe Investments</h4>
+<ul>
+<li>FDs offer guaranteed returns unlike mutual funds</li>
+<li>Better than savings account interest rates</li>
+<li>Tax-saving FDs available with 5-year lock-in</li>
+<li>Senior citizens usually get 0.5% extra interest rate</li>
+</ul>`,
+    faq: [
+      {q: "What is the safest tenure for FD?", a: "It depends on your liquidity needs. For emergency funds, shorter tenures (1-2 years) are better. For long-term goals, 3-5 year FDs usually offer better rates."},
+      {q: "Is FD interest taxable?", a: "Yes. Interest earned on FD is added to your income and taxed as per your income tax slab. TDS is deducted if interest exceeds ₹40,000 per year (₹50,000 for seniors)."},
+      {q: "Can I break FD before maturity?", a: "Yes, but you will usually get a lower interest rate (1% less than the original rate) and may have to pay a penalty in some banks."},
+      {q: "What is FD laddering?", a: "FD laddering means splitting your investment across multiple FDs with different maturity dates. This provides liquidity while taking advantage of different interest rates."}
+    ]
+  },
+  retire: {
+    title: "Retirement Calculator - Plan Your Retirement Corpus | 1Utility",
+    metaDescription: "Free Retirement Planner to calculate how much corpus you need for retirement. Estimate monthly SIP required and plan your golden years effectively.",
+    longContent: `<h3 style="color:#C9A84C; margin-top:20px;">What is a Retirement Calculator?</h3>
+<p>A Retirement Calculator helps you estimate how much money you will need after retirement and how much you should invest every month to build that corpus. It considers inflation, expected returns, and your life expectancy after retirement.</p>
+<p>Our Retirement Planner calculates your future monthly expenses after adjusting for inflation, estimates the total corpus required, and tells you exactly how much monthly SIP you need to invest to achieve your retirement goal.</p>
+<h4 style="color:#C9A84C;">Why Retirement Planning is Important</h4>
+<p>With increasing life expectancy and rising inflation, relying only on EPF or pension may not be enough. Starting early gives your money more time to grow through compounding. Even starting 10 years late can significantly increase your monthly investment requirement.</p>
+<h4 style="color:#C9A84C;">Key Factors in Retirement Planning</h4>
+<ul>
+<li>Current monthly expenses and lifestyle</li>
+<li>Expected inflation rate (usually 6% in India)</li>
+<li>Expected investment returns (8-12% for equity)</li>
+<li>Years left until retirement</li>
+<li>Life expectancy after retirement</li>
+</ul>`,
+    faq: [
+      {q: "How much should I save for retirement?", a: "A common rule is to save at least 15-20% of your income from age 25. The earlier you start, the less percentage you need to save due to compounding."},
+      {q: "What is a good retirement corpus?", a: "It depends on your lifestyle. A good thumb rule is 25-30 times your annual expenses. For someone spending ₹50,000/month today, a corpus of ₹3-4 Cr may be needed after 25-30 years."},
+      {q: "Where should I invest for retirement?", a: "Best options include NPS (tax benefits + low cost), Equity Mutual Funds, PPF, EPF, and a mix of debt instruments closer to retirement."},
+      {q: "Can I retire early?", a: "Yes, with proper planning using the FIRE (Financial Independence, Retire Early) approach. It requires higher savings rate (40-50%) and disciplined investing."}
+    ]
+  },
+  currency: {
+    title: "Currency Converter - Live Exchange Rates | 1Utility",
+    metaDescription: "Free Currency Converter with live exchange rates. Convert USD, INR, EUR, GBP and 20+ currencies instantly with real-time mid-market rates.",
+    longContent: `<h3 style="color:#C9A84C; margin-top:20px;">What is a Currency Converter?</h3>
+<p>A Currency Converter helps you convert one currency into another using the latest exchange rates. Our converter uses real-time mid-market rates sourced from reliable financial data providers, giving you the most accurate conversion possible.</p>
+<p>Whether you're traveling abroad, sending money internationally, or comparing prices across countries, this tool gives you instant and accurate conversions between major global currencies including USD, INR, EUR, GBP, JPY, and many more.</p>
+<h4 style="color:#C9A84C;">Understanding Exchange Rates</h4>
+<p>Exchange rates fluctuate constantly based on economic factors, interest rates, inflation, and geopolitical events. The rate you see on our converter is the mid-market rate (also called interbank rate). Banks and money changers usually add a margin on top of this rate.</p>
+<h4 style="color:#C9A84C;">Tips for Better Currency Conversion</h4>
+<ul>
+<li>Compare rates from multiple sources before large transactions</li>
+<li>Use services like Wise or Revolut for better rates than banks</li>
+<li>Be aware of hidden fees and poor exchange margins</li>
+<li>Convert larger amounts at once to reduce percentage fees</li>
+</ul>`,
+    faq: [
+      {q: "What is mid-market rate?", a: "Mid-market rate is the real exchange rate used between banks and large financial institutions. It is the fairest rate without any markup."},
+      {q: "Why is bank rate different from this converter?", a: "Banks add a margin (spread) of 1-3% on the mid-market rate. This is how they make profit on currency exchange."},
+      {q: "How often are rates updated?", a: "Our rates are updated multiple times daily from reliable sources. You can also manually refresh the rates using the refresh button."},
+      {q: "Is this converter accurate for travel?", a: "It gives very accurate mid-market rates. For actual transactions, always check with your bank or forex provider for the final rate they will offer."}
+    ]
+  }
+};
+
+// =============================================
+// SEO & URL PARAMETER HANDLING FOR FINANCE CALCULATORS
+// =============================================
+function updatePageSEO(type) {
+  if (!FINANCE_SEO[type]) return;
+
+  const seo = FINANCE_SEO[type];
+  
+  // Update Page Title
+  document.title = seo.title;
+  
+  // Update Meta Description
+  let metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    metaDesc.setAttribute('content', seo.metaDescription);
+  }
+  
+  // Update Canonical URL
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) {
+    canonical.setAttribute('href', `https://1utility.net/?calc=${type}`);
+  } else {
+    // Create canonical if it doesn't exist
+    const link = document.createElement('link');
+    link.rel = 'canonical';
+    link.href = `https://1utility.net/?calc=${type}`;
+    document.head.appendChild(link);
+  }
+  
+  // Update Open Graph tags (optional but good for sharing)
+  let ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', seo.title);
+  
+  let ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.setAttribute('content', seo.metaDescription);
+}
+
+function injectSEOContent(type) {
+  if (!FINANCE_SEO[type]) return;
+  
+  const seo = FINANCE_SEO[type];
+  const modalBody = document.getElementById('modal-body');
+  if (!modalBody) return;
+
+  // Remove existing SEO content if present
+  const existingSEO = modalBody.querySelector('.seo-content-section');
+  if (existingSEO) existingSEO.remove();
+
+  // Create SEO content section
+  const seoSection = document.createElement('div');
+  seoSection.className = 'seo-content-section';
+  seoSection.style.cssText = 'margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--dark4);';
+  
+  let html = seo.longContent;
+  
+  // Add FAQ section
+  if (seo.faq && seo.faq.length > 0) {
+    html += `<div style="margin-top:30px;"><h3 style="color:#C9A84C;">Frequently Asked Questions</h3>`;
+    
+    seo.faq.forEach((item, index) => {
+      html += `
+        <div style="margin-bottom:16px;">
+          <h4 style="color:#F0EDE8; font-size:14px; margin-bottom:6px;">Q${index+1}. ${item.q}</h4>
+          <p style="color:#9A9490; font-size:13px; line-height:1.7;">${item.a}</p>
+        </div>
+      `;
+    });
+    
+    html += `</div>`;
+  }
+  
+  seoSection.innerHTML = html;
+  modalBody.appendChild(seoSection);
+}
+
+// Check for ?calc= parameter on page load
+function handleURLParameter() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const calcType = urlParams.get('calc');
+  
+  if (calcType && ['emi','sip','fd','retire','currency'].includes(calcType)) {
+    // Open the calculator
+    setTimeout(() => {
+      openCalc(calcType);
+      
+      // Update SEO
+      updatePageSEO(calcType);
+      
+      // Inject rich content + FAQ
+      setTimeout(() => {
+        injectSEOContent(calcType);
+      }, 300);
+    }, 800);
+  }
+}
+
+// =============================================
 // MODAL OPEN/CLOSE
 // =============================================
 function openCalc(type){
@@ -633,8 +846,27 @@ function openCalc(type){
     calculator_title: config.title
   });
 }
-function closeModal(){document.getElementById('calc-modal').classList.remove('active');}
+function closeModal(){
+  document.getElementById('calc-modal').classList.remove('active');
+  
+  // If it was opened via ?calc=, clean the URL when closing
+  if (window.location.search.includes('calc=')) {
+    const cleanUrl = window.location.pathname;
+    history.pushState({}, '', cleanUrl);
+    // Optionally reset title back to default
+    document.title = "Finance, Health, Academic & Salary Calculators | 1Utility";
+  }
+}
+
 document.getElementById('calc-modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+// Handle browser back/forward button
+window.addEventListener('popstate', function() {
+  const modal = document.getElementById('calc-modal');
+  if (modal.classList.contains('active')) {
+    modal.classList.remove('active');
+  }
+});
 
 function aiBox(label){
   return`<div class="action-row" style="grid-template-columns:1fr;">
@@ -2039,6 +2271,12 @@ function showContact() {
   document.getElementById('contact-modal').classList.add('active');
 }
 
+function showEmail() {
+  const user = 'gameconnectflash';
+  const domain = 'gmail.com';
+  window.location.href = 'mailto:' + user + '@' + domain;
+}
+
 // =============================================
 // GOOGLE ANALYTICS 4 EVENT TRACKING
 // =============================================
@@ -2117,6 +2355,9 @@ window.onload=function(){
   createTabs();
   document.getElementById('main-content').innerHTML=financeHTML()+healthHTML()+academicHTML()+hikeHTML();
   checkCookieConsent();
+  
+  // Handle direct URL access like ?calc=emi
+  handleURLParameter();
 };
 </script>
 </body>
