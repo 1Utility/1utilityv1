@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator - Home, Car & Personal Loan EMI | 1Utility</title>
+    <meta name="description" content="Free EMI Calculator for Home Loan, Car Loan, Personal Loan & Education Loan. Calculate monthly EMI, total interest and repayment schedule instantly.">
+    <meta name="keywords" content="EMI calculator, home loan EMI, car loan EMI, personal loan EMI, loan calculator">
+    
+    <!-- Google AdSense (Auto Ads) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PB96FHY2RG');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold:#C9A84C; --gold-light:#E8C96A; --gold-dim:rgba(201,168,76,0.13);
+            --dark:#0A0A0F; --dark2:#111118; --dark3:#1A1A24; --dark4:#22222F;
+            --text:#F0EDE8; --text-dim:#9A9490;
+        }
+        *{box-sizing:border-box;margin:0;padding:0;}
+        body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;padding:20px;}
+        .container{max-width:980px;margin:0 auto;}
+        .back-btn{display:inline-block;padding:12px 24px;background:var(--gold);color:#000;border-radius:50px;text-decoration:none;font-weight:700;margin-bottom:20px;}
+        h1{font-family:'Playfair Display',serif;font-size:42px;background:linear-gradient(135deg,#fff,var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;}
+        
+        .calc-card{background:var(--dark2);border:1px solid var(--dark4);border-radius:20px;padding:30px;margin:20px 0;}
+        .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+        .field label{display:block;font-size:13px;color:var(--text-dim);margin-bottom:8px;}
+        .input-wrap{background:var(--dark3);border:1.5px solid var(--dark4);border-radius:12px;display:flex;align-items:center;}
+        .input-prefix{padding:0 15px;color:var(--gold);font-weight:600;}
+        input,select{background:none;border:none;outline:none;color:var(--text);padding:14px;width:100%;font-size:16px;}
+        .calc-box-btn{width:100%;padding:18px;background:var(--gold);color:#000;border:none;border-radius:12px;font-size:18px;font-weight:700;cursor:pointer;margin:25px 0;}
+        
+        .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px;}
+        .result-box{background:var(--dark3);border:1px solid var(--dark4);border-radius:12px;padding:20px;text-align:center;}
+        .result-label{font-size:13px;color:var(--text-dim);text-transform:uppercase;}
+        .result-value{font-size:26px;font-weight:700;color:var(--gold);font-family:'Playfair Display',serif;}
+        
+        .info-section{margin-top:40px;border-top:1px solid var(--dark4);padding-top:30px;}
+        .info-panel{background:var(--dark3);padding:20px;border-radius:12px;margin:15px 0;line-height:1.7;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Back to Home</a>
+        <h1>EMI / Loan Calculator</h1>
+
+        <!-- Region -->
+        <div style="margin:20px auto;max-width:420px;">
+            <div style="background:var(--dark2);border:1.5px solid rgba(201,168,76,0.35);border-radius:14px;padding:10px 16px;display:flex;align-items:center;gap:10px;">
+                <label style="color:var(--gold);font-weight:600;">🌍 Region</label>
+                <span id="flag-preview" style="font-size:24px;">🇮🇳</span>
+                <select id="country-select" onchange="applyRegion(this.value)" style="background:none;border:none;color:var(--text);flex:1;font-size:15px;"></select>
+            </div>
+        </div>
+
+        <div class="calc-card">
+            <div class="form-grid">
+                <div class="field"><label>Loan Amount</label><div class="input-wrap"><span class="input-prefix cur-symbol">₹</span><input type="number" id="emi-amount" value="1000000"></div></div>
+                <div class="field"><label>Interest Rate (%/year)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="emi-rate" value="8.5" step="0.1"></div></div>
+                <div class="field"><label>Tenure (Years)</label><div class="input-wrap"><span class="input-prefix">Yr</span><input type="number" id="emi-tenure" value="20"></div></div>
+                <div class="field"><label>Loan Type</label><div class="input-wrap"><select id="emi-type"><option>Home Loan</option><option>Car Loan</option><option>Personal Loan</option><option>Education Loan</option></select></div></div>
+            </div>
+            <button class="calc-box-btn" onclick="doEMI()">⚡ Calculate EMI</button>
+            <div class="result-grid" id="emi-r"></div>
+        </div>
+
+        <!-- Rich Content -->
+        <div class="info-section">
+            <h2 style="color:var(--gold);">EMI Formula</h2>
+            <div class="info-panel">
+                <strong>EMI = [P × r × (1+r)^n] / [(1+r)^n - 1]</strong><br><br>
+                P = Principal Loan Amount<br>
+                r = Monthly Interest Rate<br>
+                n = Total Number of Months
+            </div>
+
+            <h2 style="color:var(--gold);">Example</h2>
+            <div class="info-panel">
+                Loan Amount: ₹50,00,000<br>
+                Interest Rate: 8.5%<br>
+                Tenure: 20 Years<br><br>
+                <strong>Monthly EMI: ₹43,391</strong><br>
+                Total Interest: ₹54,13,843
+            </div>
+
+            <h2 style="color:var(--gold);">How to Use</h2>
+            <div class="info-panel">
+                1. Enter your loan amount<br>
+                2. Enter the interest rate offered by the bank<br>
+                3. Select loan tenure in years<br>
+                4. Click on "Calculate EMI"
+            </div>
+
+            <h2 style="color:var(--gold);">Comparison</h2>
+            <div class="info-panel">
+                <strong>Home Loan:</strong> 8–9.5%<br>
+                <strong>Car Loan:</strong> 9.5–12%<br>
+                <strong>Personal Loan:</strong> 12–24%
+            </div>
+
+            <h2 style="color:var(--gold);">FAQ</h2>
+            <div class="info-panel">
+                <strong>Q. What is EMI?</strong><br>Equated Monthly Installment – fixed monthly payment towards loan.<br><br>
+                <strong>Q. Does longer tenure reduce EMI?</strong><br>Yes, but you pay more interest overall.<br><br>
+                <strong>Q. Can I prepay the loan?</strong><br>Yes, most banks allow prepayment which reduces total interest.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const COUNTRY_DATA = {
+            IN:{flag:"🇮🇳",symbol:"₹"}, US:{flag:"🇺🇸",symbol:"$"}, GB:{flag:"🇬🇧",symbol:"£"},
+            AE:{flag:"🇦🇪",symbol:"د.إ"}, SG:{flag:"🇸🇬",symbol:"S$"}, AU:{flag:"🇦🇺",symbol:"A$"},
+            JP:{flag:"🇯🇵",symbol:"¥"}, CN:{flag:"🇨🇳",symbol:"¥"}, DE:{flag:"🇩🇪",symbol:"€"},
+            FR:{flag:"🇫🇷",symbol:"€"}, CA:{flag:"🇨🇦",symbol:"CA$"}, BR:{flag:"🇧🇷",symbol:"R$"},
+            SA:{flag:"🇸🇦",symbol:"﷼"}, MY:{flag:"🇲🇾",symbol:"RM"}, ZA:{flag:"🇿🇦",symbol:"R"},
+            ID:{flag:"🇮🇩",symbol:"Rp"}, RU:{flag:"🇷🇺",symbol:"₽"}, MX:{flag:"🇲🇽",symbol:"$"},
+            NG:{flag:"🇳🇬",symbol:"₦"}, KE:{flag:"🇰🇪",symbol:"KSh"}
+        };
+
+        let currentRegion = 'IN';
+
+        function detectCountry() {
+            try {
+                const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                if (tz.includes("Kolkata")) return "IN";
+                if (tz.includes("New_York")) return "US";
+                return "IN";
+            } catch(e) { return "IN"; }
+        }
+
+        function applyRegion(code) {
+            currentRegion = code;
+            const d = COUNTRY_DATA[code] || COUNTRY_DATA.IN;
+            document.getElementById('flag-preview').textContent = d.flag;
+            document.querySelectorAll('.cur-symbol').forEach(el => el.textContent = d.symbol);
+        }
+
+        function populateCountries() {
+            const sel = document.getElementById('country-select');
+            Object.keys(COUNTRY_DATA).forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c;
+                opt.textContent = `${COUNTRY_DATA[c].flag} ${c} (${COUNTRY_DATA[c].symbol})`;
+                if (c === 'IN') opt.selected = true;
+                sel.appendChild(opt);
+            });
+        }
+
+        function fmt(n) {
+            const d = COUNTRY_DATA[currentRegion] || COUNTRY_DATA.IN;
+            return d.symbol + Math.round(n).toLocaleString('en-IN');
+        }
+
+        window.doEMI = function() {
+            const P = parseFloat(document.getElementById('emi-amount').value);
+            const rate = parseFloat(document.getElementById('emi-rate').value);
+            const years = parseFloat(document.getElementById('emi-tenure').value);
+
+            if (!P || !rate || !years) {
+                alert("Please fill all fields correctly");
+                return;
+            }
+
+            const r = rate / 12 / 100;
+            const n = years * 12;
+            const emi = P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+            const total = emi * n;
+            const interest = total - P;
+
+            document.getElementById('emi-r').innerHTML = `
+                <div class="result-box"><div class="result-label">Monthly EMI</div><div class="result-value">${fmt(emi)}</div></div>
+                <div class="result-box"><div class="result-label">Total Payment</div><div class="result-value">${fmt(total)}</div></div>
+                <div class="result-box"><div class="result-label">Total Interest</div><div class="result-value" style="color:#E05A5A">${fmt(interest)}</div></div>
+            `;
+        };
+
+        window.onload = function() {
+            populateCountries();
+            applyRegion(detectCountry());
+        };
+    </script>
+</body>
+</html>
