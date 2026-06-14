@@ -648,7 +648,34 @@ function buildGrid(calcs,clickFn){
   return html;
 }
 
-function financeHTML(){return`<div class="calc-card active" id="card-finance"><div class="card-title">Finance Calculators</div><div class="card-desc">Select a calculator below</div><div class="finance-grid">${buildGrid(FINANCE_CALCS,'openCalc')}</div></div>`;}
+function financeHTML(){
+  return `<div class="calc-card active" id="card-finance">
+    <div class="card-title">Finance Calculators</div>
+    <div class="card-desc">Click any calculator to open in dedicated page</div>
+    <div class="finance-grid">
+      <div class="calc-box-card" onclick="window.location.href='emi-cacualtor.html'">
+        <span class="icon">🏦</span>
+        <div class="ctitle">EMI / Loan</div>
+      </div>
+      <div class="calc-box-card" onclick="window.location.href='sip-calculator.html'">
+        <span class="icon">📈</span>
+        <div class="ctitle">SIP / Investment</div>
+      </div>
+      <div class="calc-box-card" onclick="window.location.href='fd-calculator.html'">
+        <span class="icon">🏛</span>
+        <div class="ctitle">Fixed Deposit</div>
+      </div>
+      <div class="calc-box-card" onclick="window.location.href='retire-calculator.html'">
+        <span class="icon">🌅</span>
+        <div class="ctitle">Retirement Planner</div>
+      </div>
+      <div class="calc-box-card" onclick="window.location.href='currency-converter.html'">
+        <span class="icon">💱</span>
+        <div class="ctitle">Currency Converter</div>
+      </div>
+    </div>
+  </div>`;
+}
 function healthHTML(){return`<div class="calc-card" id="card-health"><div class="card-title">Health Calculators</div><div class="card-desc">Body, fitness & wellness tools</div><div class="health-grid">${buildGrid(HEALTH_CALCS,'openCalc')}</div></div>`;}
 function academicHTML(){return`<div class="calc-card" id="card-academic"><div class="card-title">Academic Calculators</div><div class="card-desc">School, college & competitive exam tools</div><div class="academic-grid">${buildGrid(ACADEMIC_CALCS,'openCalc')}</div></div>`;}
 function hikeHTML(){return`<div class="calc-card" id="card-hike"><div class="card-title">Salary / Hike Calculators</div><div class="card-desc">Salary, tax & career tools</div><div class="hike-grid">${buildGrid(HIKE_CALCS,'openCalc')}</div></div>`;}
