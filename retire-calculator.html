@@ -1,183 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retirement Planner - Corpus & SIP Calculator | 1Utility</title>
-    <meta name="description" content="Free Retirement Planner. Calculate how much corpus you need for retirement and monthly SIP required. Plan your golden years.">
-    
-    <!-- Google AdSense Auto Ads -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PB96FHY2RG');
-    </script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --gold:#C9A84C; --gold-light:#E8C96A; --gold-dim:rgba(201,168,76,0.13);
-            --dark:#0A0A0F; --dark2:#111118; --dark3:#1A1A24; --dark4:#22222F;
-            --text:#F0EDE8; --text-dim:#9A9490;
-        }
-        *{box-sizing:border-box;margin:0;padding:0;}
-        body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;padding:20px;}
-        .container{max-width:980px;margin:0 auto;}
-        .back-btn{display:inline-block;padding:12px 24px;background:var(--gold);color:#000;border-radius:50px;text-decoration:none;font-weight:700;margin-bottom:20px;}
-        h1{font-family:'Playfair Display',serif;font-size:42px;background:linear-gradient(135deg,#fff,var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;}
-        
-        .calc-card{background:var(--dark2);border:1px solid var(--dark4);border-radius:20px;padding:30px;margin:20px 0;}
-        .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
-        .field label{display:block;font-size:13px;color:var(--text-dim);margin-bottom:8px;}
-        .input-wrap{background:var(--dark3);border:1.5px solid var(--dark4);border-radius:12px;display:flex;align-items:center;}
-        .input-prefix{padding:0 15px;color:var(--gold);font-weight:600;}
-        input,select{background:none;border:none;outline:none;color:var(--text);padding:14px;width:100%;font-size:16px;}
-        .calc-box-btn{width:100%;padding:18px;background:var(--gold);color:#000;border:none;border-radius:12px;font-size:18px;font-weight:700;cursor:pointer;margin:25px 0;}
-        
-        .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px;}
-        .result-box{background:var(--dark3);border:1px solid var(--dark4);border-radius:12px;padding:20px;text-align:center;}
-        .result-label{font-size:13px;color:var(--text-dim);text-transform:uppercase;}
-        .result-value{font-size:26px;font-weight:700;color:var(--gold);font-family:'Playfair Display',serif;}
-        
-        .info-section{margin-top:40px;border-top:1px solid var(--dark4);padding-top:30px;}
-        .info-panel{background:var(--dark3);padding:20px;border-radius:12px;margin:15px 0;line-height:1.7;}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retirement Calculator — Corpus & Monthly SIP Planner | 1Utility</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.google.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google.com https://*.gstatic.com https://*.googlesyndication.com https://*.doubleclick.net; frame-src 'self' https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net; connect-src 'self' https://www.googletagmanager.com https://analytics.google.com https://open.er-api.com https://*.google.com;">
+<meta name="description" content="Calculate the retirement corpus you'll need based on current expenses, inflation, and life expectancy, plus the monthly SIP required to reach it — free, instant.">
+<meta property="og:title" content="Retirement Calculator — Corpus & Monthly SIP Planner | 1Utility">
+<meta property="og:description" content="Calculate the retirement corpus you'll need based on current expenses, inflation, and life expectancy, plus the monthly SIP required to reach it — free, instant.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://1utility.net/retire-calculator.html">
+<link rel="canonical" href="https://1utility.net/retire-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23155EAB%22>1</text></svg>" type="image/svg+xml">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
+gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Retirement Planner", "description": "Calculate the retirement corpus you'll need based on current expenses, inflation, and life expectancy, plus the monthly SIP required to reach it \u2014 free, instant.", "url": "https://1utility.net/retire-calculator.html", "applicationCategory": "FinanceApplication", "operatingSystem": "Any (runs in browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does the corpus number look so large?", "acceptedAnswer": {"@type": "Answer", "text": "Because it has to cover potentially 20-30 years of inflated future expenses, not just one year. A corpus that looks enormous today is sized to last decades while still earning a return \u2014 most of it stays invested and keeps growing even as you draw from it."}}, {"@type": "Question", "name": "What return should I assume after retirement?", "acceptedAnswer": {"@type": "Answer", "text": "Most planners assume a more conservative post-retirement return than pre-retirement, since the priority shifts from growth to capital preservation \u2014 a mix of debt instruments and some equity exposure rather than an aggressive all-equity portfolio."}}, {"@type": "Question", "name": "Does this account for NPS, EPF, or existing investments?", "acceptedAnswer": {"@type": "Answer", "text": "No \u2014 this calculator shows the total corpus and SIP needed from scratch. If you already have EPF, NPS, or other investments building toward retirement, subtract their projected maturity value from the corpus figure to find your remaining gap."}}]}</script>
+<style>
+.subpage-wrap{position:relative;z-index:10;max-width:760px;margin:0 auto;padding:0 16px 70px;}
+.subpage-nav{display:flex;align-items:center;gap:8px;padding:18px 0 8px;font-size:12px;color:var(--text-muted);}
+.subpage-nav a{color:var(--gold);text-decoration:none;font-weight:600;}
+.subpage-hero{padding:8px 0 22px;}
+.subpage-h1{font-family:'Manrope',sans-serif;font-size:clamp(26px,5vw,34px);font-weight:800;color:var(--text);margin-bottom:10px;}
+.subpage-lead{font-size:14px;line-height:1.75;color:var(--text-dim);}
+.ad-slot{margin:22px 0;text-align:center;min-height:90px;}
+.ad-label{font-size:9px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.calc-panel{background:var(--dark2);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px;margin-bottom:8px;}
+.subpage-h2{font-family:'Manrope',sans-serif;font-size:19px;font-weight:800;color:var(--text);margin:28px 0 10px;}
+.subpage-body p{font-size:13.5px;line-height:1.8;color:var(--text-dim);margin-bottom:12px;}
+.related-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.related-row a{background:var(--dark3);border:1px solid var(--border);border-radius:20px;padding:7px 15px;font-size:12.5px;color:var(--text-dim);text-decoration:none;transition:all .15s;}
+.related-row a:hover{border-color:var(--border-gold);color:var(--gold);}
+</style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-btn">← Back to Home</a>
-        <h1>Retirement Planner</h1>
+<div class="announce-bar" id="announce-bar">
+  <span class="announce-text">📄 <strong>New:</strong> Free ATS-friendly Resume Builder — 15 templates by role, no sign-up.</span>
+  <a href="resume-builder.html" class="announce-cta">Try it free →</a>
+  <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
+</div>
+<div class="orb orb-1" aria-hidden="true"></div>
 
-        <!-- Region -->
-        <div style="margin:20px auto;max-width:420px;">
-            <div style="background:var(--dark2);border:1.5px solid rgba(201,168,76,0.35);border-radius:14px;padding:10px 16px;display:flex;align-items:center;gap:10px;">
-                <label style="color:var(--gold);font-weight:600;">🌍 Region</label>
-                <span id="flag-preview" style="font-size:24px;">🇮🇳</span>
-                <select id="country-select" onchange="applyRegion(this.value)" style="background:none;border:none;color:var(--text);flex:1;font-size:15px;"></select>
-            </div>
-        </div>
+<div id="cookie-banner">
+  <div class="cb-text">We use cookies for essential functionality, analytics (Google Analytics), and advertising (Google AdSense). <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>.</div>
+  <div class="cb-actions">
+    <button class="cb-reject" onclick="rejectCookies()">Reject Non-Essential</button>
+    <button class="cb-accept" onclick="acceptCookies()">Accept All</button>
+  </div>
+</div>
 
-        <div class="calc-card">
-            <div class="form-grid">
-                <div class="field"><label>Current Age</label><div class="input-wrap"><span class="input-prefix">Age</span><input type="number" id="ret-age" value="30"></div></div>
-                <div class="field"><label>Retirement Age</label><div class="input-wrap"><span class="input-prefix">Age</span><input type="number" id="ret-retire" value="60"></div></div>
-                <div class="field"><label>Monthly Expenses Now</label><div class="input-wrap"><span class="input-prefix cur-symbol">₹</span><input type="number" id="ret-exp" value="50000"></div></div>
-                <div class="field"><label>Expected Inflation (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="ret-inf" value="6" step="0.5"></div></div>
-                <div class="field"><label>Expected Return (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="ret-roi" value="10" step="0.5"></div></div>
-                <div class="field"><label>Life Expectancy</label><div class="input-wrap"><span class="input-prefix">Age</span><input type="number" id="ret-life" value="85"></div></div>
-            </div>
-            <button class="calc-box-btn" onclick="doRetire()">⚡ Plan My Retirement</button>
-            <div class="result-grid" id="ret-r"></div>
-        </div>
+<div class="overlay-modal" id="terms-modal"><div class="overlay-content">
+  <h3>Terms & Conditions — AI Advice</h3>
+  <h4>1. Informational Purpose Only</h4><p>AI financial advice by 1Utility is for general informational and educational purposes only.</p>
+  <h4>2. No Fiduciary Relationship</h4><p>Use of this tool does not create a financial advisor–client relationship.</p>
+  <h4>3. Accuracy Disclaimer</h4><p>Calculations are estimates based on inputs provided. Always consult a qualified professional.</p>
+  <button class="overlay-btn" onclick="document.getElementById('terms-modal').classList.remove('active')">I Understand</button>
+</div></div>
+<div class="overlay-modal" id="privacy-modal"><div class="overlay-content">
+  <h3>Privacy Policy</h3><p><strong>Last Updated: June 2026</strong></p>
+  <h4>1. Information We Collect</h4><p>We do not directly store personal information. All calculations are performed locally in your browser.</p>
+  <h4>2. Google Analytics & AdSense</h4><p>We use Google Analytics and Google AdSense, which may use cookies to show personalized ads. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+  <button class="overlay-btn" onclick="document.getElementById('privacy-modal').classList.remove('active')">Close</button>
+</div></div>
+<div class="overlay-modal" id="about-modal"><div class="overlay-content">
+  <h3>About 1Utility</h3><p>1Utility is a free collection of 40+ online calculators for finance, health, academics, and salary planning — no sign-up, calculations run locally in your browser.</p>
+  <button class="overlay-btn" onclick="document.getElementById('about-modal').classList.remove('active')">Close</button>
+</div></div>
+<div class="overlay-modal" id="contact-modal"><div class="overlay-content">
+  <h3>Contact Us</h3><p><strong>Email:</strong> <a href="#" onclick="showEmail()" style="color:var(--gold)">Click to email us</a></p>
+  <button class="overlay-btn" onclick="document.getElementById('contact-modal').classList.remove('active')">Close</button>
+</div></div>
 
-        <!-- Rich Content -->
-        <div class="info-section">
-            <h2 style="color:var(--gold);">Retirement Formula</h2>
-            <div class="info-panel">
-                Future Expenses = Current Expenses × (1 + Inflation)^Years<br><br>
-                Corpus Needed = Future Monthly Expense × 12 × Annuity Factor
-            </div>
+<div class="subpage-wrap">
+  <div class="subpage-nav"><a href="index.html">1Utility</a>&nbsp;›&nbsp;<a href="index.html?cat=finance">Finance</a>&nbsp;›&nbsp;<span>Retirement Planner</span></div>
 
-            <h2 style="color:var(--gold);">Example</h2>
-            <div class="info-panel">
-                Age 30 → Retire at 60<br>
-                Current Expenses: ₹50,000/month<br><br>
-                <strong>Corpus Needed: ~₹3.8 Crore</strong><br>
-                Monthly SIP Required: ~₹23,450 @ 10% return
-            </div>
+  <div class="subpage-hero">
+    <h1 class="subpage-h1">🌅 Retirement Planner</h1>
+    <p class="subpage-lead">Most retirement shortfalls happen because people plan around today's expenses and forget inflation will roughly double costs every 12 years. This calculator projects your future monthly expenses and works out the corpus — and the monthly SIP — needed to fund them.</p>
+  </div>
 
-            <h2 style="color:var(--gold);">How to Use</h2>
-            <div class="info-panel">
-                Enter your current age • Retirement age • Monthly expenses • Expected inflation & return
-            </div>
+  <div class="ad-slot"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7534121473149569" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
 
-            <h2 style="color:var(--gold);">FAQ</h2>
-            <div class="info-panel">
-                <strong>Q. How much corpus do I need?</strong><br>Generally 25–30 times your annual expenses.<br><br>
-                <strong>Q. Best retirement investments in India?</strong><br>NPS, PPF, EPF, Equity Mutual Funds.
-            </div>
-        </div>
-    </div>
+  <div class="calc-panel">
+    <div class="form-grid"><div class="field"><label>Current Age</label><div class="input-wrap"><span class="input-prefix">Age</span><input type="number" id="ret-age" value="30" min="18"></div></div><div class="field"><label>Retirement Age</label><div class="input-wrap"><span class="input-prefix">Age</span><input type="number" id="ret-retire" value="60"></div></div><div class="field"><label>Monthly Expenses Now</label><div class="input-wrap"><span class="input-prefix cur-symbol">₹</span><input type="number" id="ret-exp" value="50000"></div></div><div class="field"><label>Expected Inflation (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="ret-inf" value="6" step="0.5"></div></div><div class="field"><label>Expected Return (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="ret-roi" value="10" step="0.5"></div></div><div class="field"><label>Life Expectancy</label><div class="input-wrap"><span class="input-prefix">Age</span><input type="number" id="ret-life" value="85"></div></div></div><div class="action-row"><button class="calc-btn" onclick="doRetire()">⚡ Plan My Retirement</button></div><div class="result-grid" id="ret-r"></div>
+  </div>
 
-    <script>
-        const COUNTRY_DATA = {
-            IN:{flag:"🇮🇳",symbol:"₹"}, US:{flag:"🇺🇸",symbol:"$"}, GB:{flag:"🇬🇧",symbol:"£"},
-            AE:{flag:"🇦🇪",symbol:"د.إ"}, SG:{flag:"🇸🇬",symbol:"S$"}, AU:{flag:"🇦🇺",symbol:"A$"},
-            JP:{flag:"🇯🇵",symbol:"¥"}, CN:{flag:"🇨🇳",symbol:"¥"}, DE:{flag:"🇩🇪",symbol:"€"},
-            FR:{flag:"🇫🇷",symbol:"€"}, CA:{flag:"🇨🇦",symbol:"CA$"}, BR:{flag:"🇧🇷",symbol:"R$"},
-            SA:{flag:"🇸🇦",symbol:"﷼"}, MY:{flag:"🇲🇾",symbol:"RM"}, ZA:{flag:"🇿🇦",symbol:"R"},
-            ID:{flag:"🇮🇩",symbol:"Rp"}, RU:{flag:"🇷🇺",symbol:"₽"}, MX:{flag:"🇲🇽",symbol:"$"},
-            NG:{flag:"🇳🇬",symbol:"₦"}, KE:{flag:"🇰🇪",symbol:"KSh"}
-        };
+  <div class="ad-slot"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7534121473149569" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
 
-        let currentRegion = 'IN';
+  <div class="subpage-body">
+    
+<h2 class="subpage-h2">How the corpus is worked out</h2>
+<div class="formula-box">Future Monthly Expense = Current Expense × (1 + inflation)^years-to-retire
+Real Rate of Return = (return − inflation) / (1 + inflation)
+Corpus Needed = Future Expense × 12 × [(1 − (1+RealRate)^−retirement-years) / RealRate]</div>
+<p>The calculator first inflates your current monthly expense forward to the year you retire, then sizes a corpus large enough that, drawn down monthly at your expected post-retirement investment return, it lasts through your full retirement-years estimate without running out. It then reverse-engineers the monthly SIP needed between now and retirement to build that corpus.</p>
 
-        function detectCountry() {
-            try {
-                const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-                if (tz.includes("Kolkata")) return "IN";
-                if (tz.includes("New_York")) return "US";
-                return "IN";
-            } catch(e) { return "IN"; }
-        }
+<h2 class="subpage-h2">Why inflation breaks naive retirement plans</h2>
+<p>At 6% inflation, prices roughly double every 12 years. Someone spending ₹50,000/month today who retires in 30 years will need close to ₹2,87,000/month just to maintain the same lifestyle — not because they're spending more, but because money buys less. This is the single most common mistake in DIY retirement planning: using today's expense number for a calculation that spans decades.</p>
 
-        function applyRegion(code) {
-            currentRegion = code;
-            const d = COUNTRY_DATA[code] || COUNTRY_DATA.IN;
-            document.getElementById('flag-preview').textContent = d.flag;
-            document.querySelectorAll('.cur-symbol').forEach(el => el.textContent = d.symbol);
-        }
+  </div>
 
-        function populateCountries() {
-            const sel = document.getElementById('country-select');
-            Object.keys(COUNTRY_DATA).forEach(c => {
-                const opt = document.createElement('option');
-                opt.value = c;
-                opt.textContent = `${COUNTRY_DATA[c].flag} ${c} (${COUNTRY_DATA[c].symbol})`;
-                if (c === 'IN') opt.selected = true;
-                sel.appendChild(opt);
-            });
-        }
+  <h2 class="subpage-h2">Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">Why does the corpus number look so large?</div><div class="faq-a">Because it has to cover potentially 20-30 years of inflated future expenses, not just one year. A corpus that looks enormous today is sized to last decades while still earning a return — most of it stays invested and keeps growing even as you draw from it.</div></div>
+<div class="faq-item"><div class="faq-q">What return should I assume after retirement?</div><div class="faq-a">Most planners assume a more conservative post-retirement return than pre-retirement, since the priority shifts from growth to capital preservation — a mix of debt instruments and some equity exposure rather than an aggressive all-equity portfolio.</div></div>
+<div class="faq-item"><div class="faq-q">Does this account for NPS, EPF, or existing investments?</div><div class="faq-a">No — this calculator shows the total corpus and SIP needed from scratch. If you already have EPF, NPS, or other investments building toward retirement, subtract their projected maturity value from the corpus figure to find your remaining gap.</div></div>
 
-        function fmt(n) {
-            const d = COUNTRY_DATA[currentRegion] || COUNTRY_DATA.IN;
-            return d.symbol + Math.round(n).toLocaleString('en-IN');
-        }
+  <div class="ad-slot"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7534121473149569" data-ad-slot="3333333333" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
 
-        window.doRetire = function() {
-            const ca = +document.getElementById('ret-age').value;
-            const ra = +document.getElementById('ret-retire').value;
-            const exp = +document.getElementById('ret-exp').value;
-            const inf = +document.getElementById('ret-inf').value / 100;
-            const roi = +document.getElementById('ret-roi').value / 100;
-            const life = +document.getElementById('ret-life').value;
+  <h2 class="subpage-h2">Related Calculators</h2>
+  <div class="related-row"><a href="sip-calculator.html">SIP Calculator</a>
+<a href="fd-calculator.html">Fixed Deposit Calculator</a>
+<a href="emi-calculator.html">EMI Calculator</a>
+<a href="index.html">All Calculators</a></div>
+</div>
 
-            const yrs = ra - ca;
-            const ryrs = life - ra;
-            const futExp = exp * Math.pow(1 + inf, yrs);
-            const rr = (roi - inf) / (1 + inf);
-            const corpus = futExp * 12 * (1 - Math.pow(1 + rr, -ryrs)) / rr;
-            const rm = roi / 12;
-            const n = yrs * 12;
-            const sip = corpus * rm / (Math.pow(1 + rm, n) - 1);
+<footer>
+  <div class="footer-links">
+    <a href="index.html">All Calculators</a>
+    <a href="#" onclick="showAbout();return false;">About Us</a>
+    <a href="#" onclick="showContact();return false;">Contact Us</a>
+    <a href="#" onclick="showTerms();return false;">Terms & Conditions</a>
+    <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>
+  </div>
+  <div>1Utility.net — One Tool For All &nbsp;·&nbsp; Educational Purposes Only</div>
+</footer>
 
-            document.getElementById('ret-r').innerHTML = `
-                <div class="result-box"><div class="result-label">Corpus Needed</div><div class="result-value">${fmt(corpus)}</div></div>
-                <div class="result-box"><div class="result-label">Monthly SIP Required</div><div class="result-value">${fmt(sip)}</div></div>
-                <div class="result-box"><div class="result-label">Future Monthly Expense</div><div class="result-value">${fmt(futExp)}</div></div>
-            `;
-        };
+<script src="shared.js"></script>
+<script>
 
-        window.onload = function() {
-            populateCountries();
-            applyRegion(detectCountry());
-        };
-    </script>
+window.doRetire=function(){const ca=+document.getElementById('ret-age').value,ra=+document.getElementById('ret-retire').value,exp=+document.getElementById('ret-exp').value,inf=+document.getElementById('ret-inf').value/100,roi=+document.getElementById('ret-roi').value/100,life=+document.getElementById('ret-life').value;const yrs=ra-ca,ryrs=life-ra,futExp=exp*Math.pow(1+inf,yrs),rr=(roi-inf)/(1+inf),corpus=futExp*12*((1-Math.pow(1+rr,-ryrs))/rr),rm=roi/12,n=yrs*12,sip=corpus*rm/(Math.pow(1+rm,n)-1);showResults('ret-r',[{label:'Corpus Needed',value:fmt(corpus),h:true,c:'gold'},{label:'Monthly SIP Required',value:fmt(sip),c:'green'},{label:'Future Monthly Expense',value:fmt(futExp)},{label:'Years to Retire',value:yrs+' yrs'}]);};
+
+window.addEventListener('DOMContentLoaded', function(){
+  initRegion();
+  checkCookieConsent();
+  checkAnnouncement();
+  
+});
+</script>
 </body>
 </html>

@@ -1,195 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMI Calculator - Home, Car & Personal Loan EMI | 1Utility</title>
-    <meta name="description" content="Free EMI Calculator for Home Loan, Car Loan, Personal Loan & Education Loan. Calculate monthly EMI, total interest and repayment schedule instantly.">
-    <meta name="keywords" content="EMI calculator, home loan EMI, car loan EMI, personal loan EMI, loan calculator">
-    
-    <!-- Google AdSense (Auto Ads) -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PB96FHY2RG');
-    </script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --gold:#C9A84C; --gold-light:#E8C96A; --gold-dim:rgba(201,168,76,0.13);
-            --dark:#0A0A0F; --dark2:#111118; --dark3:#1A1A24; --dark4:#22222F;
-            --text:#F0EDE8; --text-dim:#9A9490;
-        }
-        *{box-sizing:border-box;margin:0;padding:0;}
-        body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;padding:20px;}
-        .container{max-width:980px;margin:0 auto;}
-        .back-btn{display:inline-block;padding:12px 24px;background:var(--gold);color:#000;border-radius:50px;text-decoration:none;font-weight:700;margin-bottom:20px;}
-        h1{font-family:'Playfair Display',serif;font-size:42px;background:linear-gradient(135deg,#fff,var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;}
-        
-        .calc-card{background:var(--dark2);border:1px solid var(--dark4);border-radius:20px;padding:30px;margin:20px 0;}
-        .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
-        .field label{display:block;font-size:13px;color:var(--text-dim);margin-bottom:8px;}
-        .input-wrap{background:var(--dark3);border:1.5px solid var(--dark4);border-radius:12px;display:flex;align-items:center;}
-        .input-prefix{padding:0 15px;color:var(--gold);font-weight:600;}
-        input,select{background:none;border:none;outline:none;color:var(--text);padding:14px;width:100%;font-size:16px;}
-        .calc-box-btn{width:100%;padding:18px;background:var(--gold);color:#000;border:none;border-radius:12px;font-size:18px;font-weight:700;cursor:pointer;margin:25px 0;}
-        
-        .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px;}
-        .result-box{background:var(--dark3);border:1px solid var(--dark4);border-radius:12px;padding:20px;text-align:center;}
-        .result-label{font-size:13px;color:var(--text-dim);text-transform:uppercase;}
-        .result-value{font-size:26px;font-weight:700;color:var(--gold);font-family:'Playfair Display',serif;}
-        
-        .info-section{margin-top:40px;border-top:1px solid var(--dark4);padding-top:30px;}
-        .info-panel{background:var(--dark3);padding:20px;border-radius:12px;margin:15px 0;line-height:1.7;}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMI Calculator — Home, Car & Personal Loan EMI Online | 1Utility</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.google.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google.com https://*.gstatic.com https://*.googlesyndication.com https://*.doubleclick.net; frame-src 'self' https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net; connect-src 'self' https://www.googletagmanager.com https://analytics.google.com https://open.er-api.com https://*.google.com;">
+<meta name="description" content="Calculate your monthly EMI for home, car, personal, or education loans. See total interest, total payment, and how tenure changes your EMI — free, instant, no sign-up.">
+<meta property="og:title" content="EMI Calculator — Home, Car & Personal Loan EMI Online | 1Utility">
+<meta property="og:description" content="Calculate your monthly EMI for home, car, personal, or education loans. See total interest, total payment, and how tenure changes your EMI — free, instant, no sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://1utility.net/emi-calculator.html">
+<link rel="canonical" href="https://1utility.net/emi-calculator.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23155EAB%22>1</text></svg>" type="image/svg+xml">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
+gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "EMI Calculator", "description": "Calculate your monthly EMI for home, car, personal, or education loans. See total interest, total payment, and how tenure changes your EMI \u2014 free, instant, no sign-up.", "url": "https://1utility.net/emi-calculator.html", "applicationCategory": "FinanceApplication", "operatingSystem": "Any (runs in browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does a longer tenure always mean a smaller EMI?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 stretching the same loan over more years lowers the monthly EMI, but increases the total interest you pay over the life of the loan. A shorter tenure means a higher EMI but a lower total cost."}}, {"@type": "Question", "name": "What's the difference between flat rate and reducing balance interest?", "acceptedAnswer": {"@type": "Answer", "text": "Almost all bank loans in India use the reducing balance method, where interest is charged only on the outstanding principal \u2014 which is what this calculator uses. Flat-rate loans (sometimes seen with informal lenders) charge interest on the original principal throughout, which works out more expensive even at the same quoted rate."}}, {"@type": "Question", "name": "Can I reduce my EMI after the loan starts?", "acceptedAnswer": {"@type": "Answer", "text": "Most lenders let you make partial prepayments, which you can apply either to reduce your EMI (keeping tenure the same) or to shorten the tenure (keeping EMI the same). Shortening the tenure usually saves more total interest."}}]}</script>
+<style>
+.subpage-wrap{position:relative;z-index:10;max-width:760px;margin:0 auto;padding:0 16px 70px;}
+.subpage-nav{display:flex;align-items:center;gap:8px;padding:18px 0 8px;font-size:12px;color:var(--text-muted);}
+.subpage-nav a{color:var(--gold);text-decoration:none;font-weight:600;}
+.subpage-hero{padding:8px 0 22px;}
+.subpage-h1{font-family:'Manrope',sans-serif;font-size:clamp(26px,5vw,34px);font-weight:800;color:var(--text);margin-bottom:10px;}
+.subpage-lead{font-size:14px;line-height:1.75;color:var(--text-dim);}
+.ad-slot{margin:22px 0;text-align:center;min-height:90px;}
+.ad-label{font-size:9px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.calc-panel{background:var(--dark2);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px;margin-bottom:8px;}
+.subpage-h2{font-family:'Manrope',sans-serif;font-size:19px;font-weight:800;color:var(--text);margin:28px 0 10px;}
+.subpage-body p{font-size:13.5px;line-height:1.8;color:var(--text-dim);margin-bottom:12px;}
+.related-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.related-row a{background:var(--dark3);border:1px solid var(--border);border-radius:20px;padding:7px 15px;font-size:12.5px;color:var(--text-dim);text-decoration:none;transition:all .15s;}
+.related-row a:hover{border-color:var(--border-gold);color:var(--gold);}
+</style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-btn">← Back to Home</a>
-        <h1>EMI / Loan Calculator</h1>
+<div class="announce-bar" id="announce-bar">
+  <span class="announce-text">📄 <strong>New:</strong> Free ATS-friendly Resume Builder — 15 templates by role, no sign-up.</span>
+  <a href="resume-builder.html" class="announce-cta">Try it free →</a>
+  <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
+</div>
+<div class="orb orb-1" aria-hidden="true"></div>
 
-        <!-- Region -->
-        <div style="margin:20px auto;max-width:420px;">
-            <div style="background:var(--dark2);border:1.5px solid rgba(201,168,76,0.35);border-radius:14px;padding:10px 16px;display:flex;align-items:center;gap:10px;">
-                <label style="color:var(--gold);font-weight:600;">🌍 Region</label>
-                <span id="flag-preview" style="font-size:24px;">🇮🇳</span>
-                <select id="country-select" onchange="applyRegion(this.value)" style="background:none;border:none;color:var(--text);flex:1;font-size:15px;"></select>
-            </div>
-        </div>
+<div id="cookie-banner">
+  <div class="cb-text">We use cookies for essential functionality, analytics (Google Analytics), and advertising (Google AdSense). <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>.</div>
+  <div class="cb-actions">
+    <button class="cb-reject" onclick="rejectCookies()">Reject Non-Essential</button>
+    <button class="cb-accept" onclick="acceptCookies()">Accept All</button>
+  </div>
+</div>
 
-        <div class="calc-card">
-            <div class="form-grid">
-                <div class="field"><label>Loan Amount</label><div class="input-wrap"><span class="input-prefix cur-symbol">₹</span><input type="number" id="emi-amount" value="1000000"></div></div>
-                <div class="field"><label>Interest Rate (%/year)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="emi-rate" value="8.5" step="0.1"></div></div>
-                <div class="field"><label>Tenure (Years)</label><div class="input-wrap"><span class="input-prefix">Yr</span><input type="number" id="emi-tenure" value="20"></div></div>
-                <div class="field"><label>Loan Type</label><div class="input-wrap"><select id="emi-type"><option>Home Loan</option><option>Car Loan</option><option>Personal Loan</option><option>Education Loan</option></select></div></div>
-            </div>
-            <button class="calc-box-btn" onclick="doEMI()">⚡ Calculate EMI</button>
-            <div class="result-grid" id="emi-r"></div>
-        </div>
+<div class="overlay-modal" id="terms-modal"><div class="overlay-content">
+  <h3>Terms & Conditions — AI Advice</h3>
+  <h4>1. Informational Purpose Only</h4><p>AI financial advice by 1Utility is for general informational and educational purposes only.</p>
+  <h4>2. No Fiduciary Relationship</h4><p>Use of this tool does not create a financial advisor–client relationship.</p>
+  <h4>3. Accuracy Disclaimer</h4><p>Calculations are estimates based on inputs provided. Always consult a qualified professional.</p>
+  <button class="overlay-btn" onclick="document.getElementById('terms-modal').classList.remove('active')">I Understand</button>
+</div></div>
+<div class="overlay-modal" id="privacy-modal"><div class="overlay-content">
+  <h3>Privacy Policy</h3><p><strong>Last Updated: June 2026</strong></p>
+  <h4>1. Information We Collect</h4><p>We do not directly store personal information. All calculations are performed locally in your browser.</p>
+  <h4>2. Google Analytics & AdSense</h4><p>We use Google Analytics and Google AdSense, which may use cookies to show personalized ads. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+  <button class="overlay-btn" onclick="document.getElementById('privacy-modal').classList.remove('active')">Close</button>
+</div></div>
+<div class="overlay-modal" id="about-modal"><div class="overlay-content">
+  <h3>About 1Utility</h3><p>1Utility is a free collection of 40+ online calculators for finance, health, academics, and salary planning — no sign-up, calculations run locally in your browser.</p>
+  <button class="overlay-btn" onclick="document.getElementById('about-modal').classList.remove('active')">Close</button>
+</div></div>
+<div class="overlay-modal" id="contact-modal"><div class="overlay-content">
+  <h3>Contact Us</h3><p><strong>Email:</strong> <a href="#" onclick="showEmail()" style="color:var(--gold)">Click to email us</a></p>
+  <button class="overlay-btn" onclick="document.getElementById('contact-modal').classList.remove('active')">Close</button>
+</div></div>
 
-        <!-- Rich Content -->
-        <div class="info-section">
-            <h2 style="color:var(--gold);">EMI Formula</h2>
-            <div class="info-panel">
-                <strong>EMI = [P × r × (1+r)^n] / [(1+r)^n - 1]</strong><br><br>
-                P = Principal Loan Amount<br>
-                r = Monthly Interest Rate<br>
-                n = Total Number of Months
-            </div>
+<div class="subpage-wrap">
+  <div class="subpage-nav"><a href="index.html">1Utility</a>&nbsp;›&nbsp;<a href="index.html?cat=finance">Finance</a>&nbsp;›&nbsp;<span>EMI Calculator</span></div>
 
-            <h2 style="color:var(--gold);">Example</h2>
-            <div class="info-panel">
-                Loan Amount: ₹50,00,000<br>
-                Interest Rate: 8.5%<br>
-                Tenure: 20 Years<br><br>
-                <strong>Monthly EMI: ₹43,391</strong><br>
-                Total Interest: ₹54,13,843
-            </div>
+  <div class="subpage-hero">
+    <h1 class="subpage-h1">🏦 EMI Calculator</h1>
+    <p class="subpage-lead">Work out the exact monthly installment on a home, car, personal, or education loan before you sign anything. Enter the loan amount, interest rate, and tenure to see your EMI, total interest, and total repayment.</p>
+  </div>
 
-            <h2 style="color:var(--gold);">How to Use</h2>
-            <div class="info-panel">
-                1. Enter your loan amount<br>
-                2. Enter the interest rate offered by the bank<br>
-                3. Select loan tenure in years<br>
-                4. Click on "Calculate EMI"
-            </div>
+  <div class="ad-slot"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7534121473149569" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
 
-            <h2 style="color:var(--gold);">Comparison</h2>
-            <div class="info-panel">
-                <strong>Home Loan:</strong> 8–9.5%<br>
-                <strong>Car Loan:</strong> 9.5–12%<br>
-                <strong>Personal Loan:</strong> 12–24%
-            </div>
+  <div class="calc-panel">
+    <div class="form-grid"><div class="field"><label>Loan Amount</label><div class="input-wrap"><span class="input-prefix cur-symbol">₹</span><input type="number" id="emi-amount" value="1000000"></div></div><div class="field"><label>Interest Rate (%/yr)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="emi-rate" value="8.5" step="0.1"></div></div><div class="field"><label>Tenure (Years)</label><div class="input-wrap"><span class="input-prefix">Yr</span><input type="number" id="emi-tenure" value="20" min="1" max="30"></div></div><div class="field"><label>Loan Type</label><div class="input-wrap"><select id="emi-type"><option>Home Loan</option><option>Car Loan</option><option>Personal Loan</option><option>Education Loan</option></select></div></div></div><div class="action-row"><button class="calc-btn" onclick="doEMI()">⚡ Calculate EMI</button></div><div class="result-grid" id="emi-r"></div>
+  </div>
 
-            <h2 style="color:var(--gold);">FAQ</h2>
-            <div class="info-panel">
-                <strong>Q. What is EMI?</strong><br>Equated Monthly Installment – fixed monthly payment towards loan.<br><br>
-                <strong>Q. Does longer tenure reduce EMI?</strong><br>Yes, but you pay more interest overall.<br><br>
-                <strong>Q. Can I prepay the loan?</strong><br>Yes, most banks allow prepayment which reduces total interest.
-            </div>
-        </div>
-    </div>
+  <div class="ad-slot"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7534121473149569" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
 
-    <script>
-        const COUNTRY_DATA = {
-            IN:{flag:"🇮🇳",symbol:"₹"}, US:{flag:"🇺🇸",symbol:"$"}, GB:{flag:"🇬🇧",symbol:"£"},
-            AE:{flag:"🇦🇪",symbol:"د.إ"}, SG:{flag:"🇸🇬",symbol:"S$"}, AU:{flag:"🇦🇺",symbol:"A$"},
-            JP:{flag:"🇯🇵",symbol:"¥"}, CN:{flag:"🇨🇳",symbol:"¥"}, DE:{flag:"🇩🇪",symbol:"€"},
-            FR:{flag:"🇫🇷",symbol:"€"}, CA:{flag:"🇨🇦",symbol:"CA$"}, BR:{flag:"🇧🇷",symbol:"R$"},
-            SA:{flag:"🇸🇦",symbol:"﷼"}, MY:{flag:"🇲🇾",symbol:"RM"}, ZA:{flag:"🇿🇦",symbol:"R"},
-            ID:{flag:"🇮🇩",symbol:"Rp"}, RU:{flag:"🇷🇺",symbol:"₽"}, MX:{flag:"🇲🇽",symbol:"$"},
-            NG:{flag:"🇳🇬",symbol:"₦"}, KE:{flag:"🇰🇪",symbol:"KSh"}
-        };
+  <div class="subpage-body">
+    
+<h2 class="subpage-h2">The formula behind your EMI</h2>
+<div class="formula-box">EMI = P × r × (1+r)ⁿ / ((1+r)ⁿ - 1)
 
-        let currentRegion = 'IN';
+P = Principal   r = Monthly interest rate (annual rate ÷ 12 ÷ 100)   n = Tenure in months</div>
+<p>Every EMI is a fixed monthly payment that blends principal repayment with interest. In the early months, a larger share of each EMI goes toward interest because the outstanding principal is highest; as the loan matures, more of each payment chips away at the principal itself. This is why paying off even one or two extra EMIs early in a long-tenure loan saves disproportionately more interest than doing it near the end.</p>
 
-        function detectCountry() {
-            try {
-                const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-                if (tz.includes("Kolkata")) return "IN";
-                if (tz.includes("New_York")) return "US";
-                return "IN";
-            } catch(e) { return "IN"; }
-        }
+<h2 class="subpage-h2">Typical interest rate ranges (India)</h2>
+<table class="compare-table"><tr><th>Loan Type</th><th>Typical Rate</th><th>EMI on ₹10L / 5yr</th></tr><tr><td>Home Loan</td><td>8.4% – 9.5%</td><td>≈ ₹20,607</td></tr><tr><td>Car Loan</td><td>9.5% – 12%</td><td>≈ ₹21,247</td></tr><tr><td>Personal Loan</td><td>12% – 24%</td><td>≈ ₹22,244</td></tr></table>
+<p>These are illustrative bands, not live bank rates — your lender's actual offer depends on your credit score, income, and existing obligations, so use this to sanity-check a quote rather than as a guarantee.</p>
 
-        function applyRegion(code) {
-            currentRegion = code;
-            const d = COUNTRY_DATA[code] || COUNTRY_DATA.IN;
-            document.getElementById('flag-preview').textContent = d.flag;
-            document.querySelectorAll('.cur-symbol').forEach(el => el.textContent = d.symbol);
-        }
+  </div>
 
-        function populateCountries() {
-            const sel = document.getElementById('country-select');
-            Object.keys(COUNTRY_DATA).forEach(c => {
-                const opt = document.createElement('option');
-                opt.value = c;
-                opt.textContent = `${COUNTRY_DATA[c].flag} ${c} (${COUNTRY_DATA[c].symbol})`;
-                if (c === 'IN') opt.selected = true;
-                sel.appendChild(opt);
-            });
-        }
+  <h2 class="subpage-h2">Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">Does a longer tenure always mean a smaller EMI?</div><div class="faq-a">Yes — stretching the same loan over more years lowers the monthly EMI, but increases the total interest you pay over the life of the loan. A shorter tenure means a higher EMI but a lower total cost.</div></div>
+<div class="faq-item"><div class="faq-q">What's the difference between flat rate and reducing balance interest?</div><div class="faq-a">Almost all bank loans in India use the reducing balance method, where interest is charged only on the outstanding principal — which is what this calculator uses. Flat-rate loans (sometimes seen with informal lenders) charge interest on the original principal throughout, which works out more expensive even at the same quoted rate.</div></div>
+<div class="faq-item"><div class="faq-q">Can I reduce my EMI after the loan starts?</div><div class="faq-a">Most lenders let you make partial prepayments, which you can apply either to reduce your EMI (keeping tenure the same) or to shorten the tenure (keeping EMI the same). Shortening the tenure usually saves more total interest.</div></div>
 
-        function fmt(n) {
-            const d = COUNTRY_DATA[currentRegion] || COUNTRY_DATA.IN;
-            return d.symbol + Math.round(n).toLocaleString('en-IN');
-        }
+  <div class="ad-slot"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7534121473149569" data-ad-slot="3333333333" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
 
-        window.doEMI = function() {
-            const P = parseFloat(document.getElementById('emi-amount').value);
-            const rate = parseFloat(document.getElementById('emi-rate').value);
-            const years = parseFloat(document.getElementById('emi-tenure').value);
+  <h2 class="subpage-h2">Related Calculators</h2>
+  <div class="related-row"><a href="sip-calculator.html">SIP Calculator</a>
+<a href="fd-calculator.html">Fixed Deposit Calculator</a>
+<a href="retire-calculator.html">Retirement Planner</a>
+<a href="index.html">All Calculators</a></div>
+</div>
 
-            if (!P || !rate || !years) {
-                alert("Please fill all fields correctly");
-                return;
-            }
+<footer>
+  <div class="footer-links">
+    <a href="index.html">All Calculators</a>
+    <a href="#" onclick="showAbout();return false;">About Us</a>
+    <a href="#" onclick="showContact();return false;">Contact Us</a>
+    <a href="#" onclick="showTerms();return false;">Terms & Conditions</a>
+    <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>
+  </div>
+  <div>1Utility.net — One Tool For All &nbsp;·&nbsp; Educational Purposes Only</div>
+</footer>
 
-            const r = rate / 12 / 100;
-            const n = years * 12;
-            const emi = P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
-            const total = emi * n;
-            const interest = total - P;
+<script src="shared.js"></script>
+<script>
 
-            document.getElementById('emi-r').innerHTML = `
-                <div class="result-box"><div class="result-label">Monthly EMI</div><div class="result-value">${fmt(emi)}</div></div>
-                <div class="result-box"><div class="result-label">Total Payment</div><div class="result-value">${fmt(total)}</div></div>
-                <div class="result-box"><div class="result-label">Total Interest</div><div class="result-value" style="color:#E05A5A">${fmt(interest)}</div></div>
-            `;
-        };
+window.doEMI=function(){const P=+document.getElementById('emi-amount').value,r=+document.getElementById('emi-rate').value/12/100,n=+document.getElementById('emi-tenure').value*12;const emi=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1),total=emi*n;showResults('emi-r',[{label:'Monthly EMI',value:fmt(emi),h:true,c:'gold'},{label:'Total Payment',value:fmt(total),c:'red'},{label:'Total Interest',value:fmt(total-P),c:'red'},{label:'Principal',value:fmt(P)}]);};
 
-        window.onload = function() {
-            populateCountries();
-            applyRegion(detectCountry());
-        };
-    </script>
+window.addEventListener('DOMContentLoaded', function(){
+  initRegion();
+  checkCookieConsent();
+  checkAnnouncement();
+  
+});
+</script>
 </body>
 </html>

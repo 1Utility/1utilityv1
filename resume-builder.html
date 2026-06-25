@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Resume Builder — 15 ATS-Friendly Templates | 1Utility</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.google.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google.com https://*.gstatic.com https://*.googlesyndication.com https://*.doubleclick.net; frame-src 'self' https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net; connect-src 'self' https://www.googletagmanager.com https://analytics.google.com https://*.google.com;">
+<meta name="description" content="Build an ATS-friendly resume free, with 15 templates by role and industry — Tech, Finance, Consulting, Healthcare, Academic, and more. No sign-up, download as PDF.">
+<meta property="og:title" content="Free Resume Builder — 15 ATS-Friendly Templates | 1Utility">
+<meta property="og:description" content="Build an ATS-friendly resume free, with 15 templates by role and industry. No sign-up, download as PDF.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://1utility.net/resume-builder.html">
+<link rel="canonical" href="https://1utility.net/resume-builder.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23155EAB%22>1</text></svg>" type="image/svg+xml">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
+gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Georgia&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="resume-styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"1Utility Free Resume Builder","description":"Free ATS-friendly resume builder with 15 templates by role and industry.","url":"https://1utility.net/resume-builder.html","applicationCategory":"BusinessApplication","operatingSystem":"Any (runs in browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>
+.subpage-wrap{position:relative;z-index:10;max-width:1100px;margin:0 auto;padding:0 16px 70px;}
+.subpage-nav{display:flex;align-items:center;gap:8px;padding:18px 0 8px;font-size:12px;color:var(--text-muted);}
+.subpage-nav a{color:var(--gold);text-decoration:none;font-weight:600;}
+.subpage-hero{padding:8px 0 22px;}
+.subpage-h1{font-family:'Manrope',sans-serif;font-size:clamp(26px,5vw,34px);font-weight:800;color:var(--text);margin-bottom:10px;}
+.subpage-lead{font-size:14px;line-height:1.75;color:var(--text-dim);max-width:680px;}
+.subpage-h2{font-family:'Manrope',sans-serif;font-size:19px;font-weight:800;color:var(--text);margin:28px 0 10px;}
+.ad-slot{margin:22px 0;text-align:center;min-height:90px;}
+.ad-label{font-size:9px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+
+/* WIZARD */
+.rb-steps{display:flex;gap:8px;background:var(--dark2);border:1px solid var(--border);border-radius:var(--r-lg);padding:8px;margin-bottom:20px;}
+.rb-step-btn{flex:1;padding:12px;background:none;border:none;border-radius:12px;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--text-muted);cursor:pointer;transition:all .2s;}
+.rb-step-btn.active{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#fff;}
+.rb-panel{display:none;}
+.rb-panel.active{display:block;animation:panelIn .3s cubic-bezier(.22,1,.36,1);}
+
+/* TEMPLATE GALLERY */
+.rb-cat-label{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin:22px 0 10px;}
+.rb-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;}
+.rb-card{background:var(--dark2);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:all .2s;}
+.rb-card:hover{border-color:var(--border-gold);transform:translateY(-3px);box-shadow:0 10px 30px rgba(21,94,171,0.1);}
+.rb-card.selected{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold-glow);}
+.rb-thumb{height:140px;overflow:hidden;background:#eee;position:relative;}
+.rb-thumb-inner{transform:scale(0.27);transform-origin:top left;width:780px;pointer-events:none;}
+.rb-card-info{padding:12px 14px;}
+.rb-card-name{font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px;}
+.rb-card-tag{font-size:11px;color:var(--text-dim);line-height:1.5;}
+
+/* FORM */
+.rb-form-section{background:var(--dark2);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;margin-bottom:14px;}
+.rb-form-section h3{font-family:'Manrope',sans-serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:12px;}
+.rb-repeat-item{background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:10px;position:relative;}
+.rb-remove-btn{position:absolute;top:10px;right:10px;background:var(--dark4);border:1px solid var(--border);color:var(--text-muted);border-radius:8px;width:26px;height:26px;cursor:pointer;font-size:13px;}
+.rb-add-btn{background:var(--dark3);border:1.5px dashed var(--border-gold);color:var(--gold);border-radius:10px;padding:10px;width:100%;cursor:pointer;font-weight:600;font-size:13px;}
+.rb-bullet-row{display:flex;gap:6px;margin-bottom:6px;}
+.rb-bullet-row input{flex:1;}
+
+/* PREVIEW STEP */
+.rb-preview-wrap{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start;}
+.rb-preview-scroll{background:#ddd;border-radius:var(--r-lg);padding:20px;overflow:auto;max-height:900px;}
+.rb-side-panel{background:var(--dark2);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;position:sticky;top:16px;}
+.rb-tip-box{background:var(--gold-dim);border:1px solid var(--border-gold);border-radius:12px;padding:14px;font-size:12.5px;color:var(--text-dim);line-height:1.6;margin-top:14px;}
+@media(max-width:880px){.rb-preview-wrap{grid-template-columns:1fr;}}
+
+.faq-item{border-top:1px solid var(--border);padding:14px 0;}
+.faq-item:first-of-type{border-top:none;}
+.faq-q{font-weight:600;font-size:13.5px;color:var(--text);margin-bottom:5px;}
+.faq-a{font-size:13px;line-height:1.7;color:var(--text-dim);}
+</style>
+</head>
+<body>
+<div class="orb orb-1" aria-hidden="true"></div>
+
+<div id="cookie-banner">
+  <div class="cb-text">We use cookies for essential functionality, analytics (Google Analytics), and advertising (Google AdSense). <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>.</div>
+  <div class="cb-actions"><button class="cb-reject" onclick="rejectCookies()">Reject Non-Essential</button><button class="cb-accept" onclick="acceptCookies()">Accept All</button></div>
+</div>
+<div class="overlay-modal" id="terms-modal"><div class="overlay-content"><h3>Terms & Conditions</h3><p>This resume builder is provided for free, general use. Your data is stored only in your browser (localStorage) and is never uploaded to any server.</p><button class="overlay-btn" onclick="document.getElementById('terms-modal').classList.remove('active')">Close</button></div></div>
+<div class="overlay-modal" id="privacy-modal"><div class="overlay-content"><h3>Privacy Policy</h3><p><strong>Your resume data never leaves your device.</strong> Everything you type is stored locally in your browser and used only to render your preview and PDF. We use Google Analytics and Google AdSense, which may use cookies — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p><button class="overlay-btn" onclick="document.getElementById('privacy-modal').classList.remove('active')">Close</button></div></div>
+<div class="overlay-modal" id="about-modal"><div class="overlay-content"><h3>About 1Utility</h3><p>1Utility is a free collection of 40+ calculators plus this resume builder — no sign-up, everything runs locally in your browser.</p><button class="overlay-btn" onclick="document.getElementById('about-modal').classList.remove('active')">Close</button></div></div>
+<div class="overlay-modal" id="contact-modal"><div class="overlay-content"><h3>Contact Us</h3><p><strong>Email:</strong> <a href="#" onclick="showEmail()" style="color:var(--gold)">Click to email us</a></p><button class="overlay-btn" onclick="document.getElementById('contact-modal').classList.remove('active')">Close</button></div></div>
+
+<div class="subpage-wrap">
+  <div class="subpage-nav"><a href="index.html">1Utility</a>&nbsp;›&nbsp;<span>Resume Builder</span></div>
+  <div class="subpage-hero">
+    <h1 class="subpage-h1">📄 Free Resume Builder</h1>
+    <p class="subpage-lead">Build an ATS-friendly resume in three steps — pick a template suited to your field, fill in your details once, and download a clean PDF. No sign-up, no watermark, nothing saved on a server: everything stays in your browser.</p>
+  </div>
+
+  <div class="ad-slot"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7534121473149569" data-ad-slot="4111111111" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+
+  <div class="rb-steps">
+    <button class="rb-step-btn active" id="step-btn-1" onclick="goStep(1)">1. Choose Template</button>
+    <button class="rb-step-btn" id="step-btn-2" onclick="goStep(2)">2. Your Details</button>
+    <button class="rb-step-btn" id="step-btn-3" onclick="goStep(3)">3. Preview & Download</button>
+  </div>
+
+  <!-- STEP 1: TEMPLATE GALLERY -->
+  <div class="rb-panel active" id="rb-step-1">
+    <div id="rb-gallery"></div>
+  </div>
+
+  <!-- STEP 2: FORM -->
+  <div class="rb-panel" id="rb-step-2">
+    <div class="rb-form-section">
+      <h3>Personal Info</h3>
+      <div class="form-grid">
+        <div class="field"><label>Full Name</label><div class="input-wrap"><input type="text" id="f-name" placeholder="Jane Doe" oninput="updateField('name',this.value)"></div></div>
+        <div class="field"><label>Title / Headline</label><div class="input-wrap"><input type="text" id="f-title" placeholder="Senior Software Engineer" oninput="updateField('title',this.value)"></div></div>
+        <div class="field"><label>Email</label><div class="input-wrap"><input type="text" id="f-email" placeholder="jane@email.com" oninput="updateField('email',this.value)"></div></div>
+        <div class="field"><label>Phone</label><div class="input-wrap"><input type="text" id="f-phone" placeholder="+91 98765 43210" oninput="updateField('phone',this.value)"></div></div>
+        <div class="field"><label>Location</label><div class="input-wrap"><input type="text" id="f-location" placeholder="Bengaluru, India" oninput="updateField('location',this.value)"></div></div>
+        <div class="field"><label>LinkedIn (optional)</label><div class="input-wrap"><input type="text" id="f-linkedin" placeholder="linkedin.com/in/janedoe" oninput="updateField('linkedin',this.value)"></div></div>
+        <div class="field"><label>Website / Portfolio (optional)</label><div class="input-wrap"><input type="text" id="f-website" placeholder="janedoe.dev" oninput="updateField('website',this.value)"></div></div>
+      </div>
+    </div>
+
+    <div class="rb-form-section">
+      <h3>Summary</h3>
+      <div class="input-wrap" style="height:auto;"><textarea id="f-summary" rows="3" style="background:none;border:none;outline:none;color:var(--text);font-family:'Inter',sans-serif;font-size:14px;padding:12px;width:100%;resize:vertical;" placeholder="2-3 sentences on your experience and what you're looking for next." oninput="updateField('summary',this.value)"></textarea></div>
+    </div>
+
+    <div class="rb-form-section">
+      <h3>Experience</h3>
+      <div id="rb-exp-list"></div>
+      <button class="rb-add-btn" onclick="addExp()">+ Add Experience</button>
+    </div>
+
+    <div class="rb-form-section">
+      <h3>Education</h3>
+      <div id="rb-edu-list"></div>
+      <button class="rb-add-btn" onclick="addEdu()">+ Add Education</button>
+    </div>
+
+    <div class="rb-form-section">
+      <h3>Skills</h3>
+      <div class="input-wrap"><input type="text" id="f-skills" placeholder="JavaScript, Python, SQL, Project Management" oninput="updateField('skills', this.value.split(',').map(s=>s.trim()))"></div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:6px;">Comma-separated</div>
+    </div>
+
+    <div class="rb-form-section">
+      <h3>Projects (optional)</h3>
+      <div id="rb-proj-list"></div>
+      <button class="rb-add-btn" onclick="addProj()">+ Add Project</button>
+    </div>
+
+    <div class="rb-form-section">
+      <h3>Certifications (optional)</h3>
+      <div id="rb-cert-list"></div>
+      <button class="rb-add-btn" onclick="addCert()">+ Add Certification</button>
+    </div>
+
+    <div class="action-row" style="grid-template-columns:1fr;"><button class="calc-btn" onclick="goStep(3)">⚡ Preview Resume →</button></div>
+  </div>
+
+  <!-- STEP 3: PREVIEW -->
+  <div class="rb-panel" id="rb-step-3">
+    <div class="rb-preview-wrap">
+      <div class="rb-preview-scroll"><div id="resume-print-area"></div></div>
+      <div class="rb-side-panel">
+        <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:4px;" id="rb-side-template-name"></div>
+        <div class="action-row" style="grid-template-columns:1fr;margin:14px 0;">
+          <button class="calc-btn" onclick="window.print()">⬇ Download as PDF</button>
+        </div>
+        <button onclick="goStep(1)" style="width:100%;background:var(--dark3);color:var(--gold);border:1px solid var(--border-gold);padding:10px;border-radius:10px;font-size:12.5px;font-weight:600;cursor:pointer;">↺ Change Template</button>
+        <div class="rb-tip-box" id="rb-tip-box"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7534121473149569" data-ad-slot="4222222222" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+
+  <h2 class="subpage-h2">Getting Past the ATS</h2>
+  <div class="subpage-body" style="font-size:13.5px;line-height:1.8;color:var(--text-dim);">
+    <p>An ATS (Applicant Tracking System) is software recruiters use to scan, store, and rank resumes before a human ever opens them. Most large companies use one, and a resume that an ATS can't parse correctly often never reaches a recruiter — regardless of how qualified the candidate is.</p>
+    <p><strong style="color:var(--text);">What ATS parsers struggle with:</strong> text inside images or graphics, content in tables used purely for layout, headers/footers (some parsers skip them entirely), unusual fonts, and icon-only section labels with no text equivalent.</p>
+    <p><strong style="color:var(--text);">What works reliably:</strong> standard section headings ("Experience", "Education", "Skills"), reverse-chronological dates, plain bullet points, and keywords pulled directly from the job description's required skills and responsibilities.</p>
+    <p>Every template here is built from real text in a standard reading order — no text-in-image tricks, no layout tables. Sidebar-style templates (Tech, Marketing, Sales, HR) look more visually distinct but place contact/skills information in a side column; for roles where you suspect a stricter older ATS will be used, the single-column templates (Finance, Consulting, Government, Legal) are the safest choice.</p>
+  </div>
+
+  <h2 class="subpage-h2">Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">Is this resume builder actually free?</div><div class="faq-a">Yes — no payment, no sign-up, no watermark on the downloaded PDF. The site is supported by display advertising.</div></div>
+  <div class="faq-item"><div class="faq-q">Where is my resume data stored?</div><div class="faq-a">Only in your browser's local storage on this device. Nothing is uploaded to a server — close the tab and reopen it later and your draft will still be there, but it won't follow you to another device or browser.</div></div>
+  <div class="faq-item"><div class="faq-q">How do I download a PDF?</div><div class="faq-a">Click "Download as PDF" on the preview step — this opens your browser's print dialog. Choose "Save as PDF" as the destination/printer instead of an actual printer.</div></div>
+  <div class="faq-item"><div class="faq-q">Can I switch templates after entering my details?</div><div class="faq-a">Yes — your information is stored separately from the template choice, so switching templates on the preview step re-renders the same data in the new layout instantly.</div></div>
+  <div class="faq-item"><div class="faq-q">Do any templates claim to be preferred by specific companies?</div><div class="faq-a">No. Templates are organized by role/industry convention (e.g. the conservative single-column format common in finance recruiting), not by claimed endorsement from any named employer — no company certifies or endorses resume templates.</div></div>
+
+  <div class="ad-slot"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7534121473149569" data-ad-slot="4333333333" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">All Calculators</a>
+    <a href="#" onclick="showAbout();return false;">About Us</a>
+    <a href="#" onclick="showContact();return false;">Contact Us</a>
+    <a href="#" onclick="showTerms();return false;">Terms & Conditions</a>
+    <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>
+  </div>
+  <div>1Utility.net — One Tool For All &nbsp;·&nbsp; Educational Purposes Only</div>
+</footer>
+
+<script src="shared.js"></script>
+<script src="resume-engine.js"></script>
+<script>
+let resumeData={name:'',title:'',email:'',phone:'',location:'',linkedin:'',website:'',summary:'',experience:[],education:[],skills:[],projects:[],certifications:[]};
+let selectedTemplate='tech';
+
+function saveLocal(){try{localStorage.setItem('resumeDraft',JSON.stringify({resumeData,selectedTemplate}));}catch(e){}}
+function loadLocal(){try{const s=JSON.parse(localStorage.getItem('resumeDraft'));if(s){resumeData=Object.assign(resumeData,s.resumeData);selectedTemplate=s.selectedTemplate||selectedTemplate;}}catch(e){}}
+
+function updateField(key,val){resumeData[key]=val;saveLocal();renderPreview();}
+
+// ---- Experience ----
+function addExp(){resumeData.experience.push({role:'',company:'',location:'',start:'',end:'',current:false,bullets:['']});renderExpList();saveLocal();renderPreview();}
+function removeExp(i){resumeData.experience.splice(i,1);renderExpList();saveLocal();renderPreview();}
+function updateExp(i,field,val){resumeData.experience[i][field]=val;saveLocal();renderPreview();}
+function addBullet(i){resumeData.experience[i].bullets.push('');renderExpList();}
+function updateBullet(i,bi,val){resumeData.experience[i].bullets[bi]=val;saveLocal();renderPreview();}
+function removeBullet(i,bi){resumeData.experience[i].bullets.splice(bi,1);renderExpList();saveLocal();renderPreview();}
+function renderExpList(){
+  document.getElementById('rb-exp-list').innerHTML=resumeData.experience.map((e,i)=>`
+    <div class="rb-repeat-item">
+      <button class="rb-remove-btn" onclick="removeExp(${i})">✕</button>
+      <div class="form-grid">
+        <div class="field"><label>Role</label><div class="input-wrap"><input value="${escAttr(e.role)}" oninput="updateExp(${i},'role',this.value)"></div></div>
+        <div class="field"><label>Company</label><div class="input-wrap"><input value="${escAttr(e.company)}" oninput="updateExp(${i},'company',this.value)"></div></div>
+        <div class="field"><label>Location</label><div class="input-wrap"><input value="${escAttr(e.location)}" oninput="updateExp(${i},'location',this.value)"></div></div>
+        <div class="field"><label>Start</label><div class="input-wrap"><input value="${escAttr(e.start)}" placeholder="Jan 2021" oninput="updateExp(${i},'start',this.value)"></div></div>
+        <div class="field"><label>End</label><div class="input-wrap"><input value="${escAttr(e.end)}" placeholder="Present" oninput="updateExp(${i},'end',this.value)"></div></div>
+      </div>
+      <label style="display:block;font-size:10.5px;font-weight:600;color:var(--text-dim);letter-spacing:.8px;text-transform:uppercase;margin:10px 0 6px;">Bullet Points</label>
+      ${e.bullets.map((b,bi)=>`<div class="rb-bullet-row"><input class="input-wrap" style="padding:10px;background:var(--dark4);border:1px solid var(--border);border-radius:8px;color:var(--text);" value="${escAttr(b)}" oninput="updateBullet(${i},${bi},this.value)"><button onclick="removeBullet(${i},${bi})" style="background:var(--dark4);border:1px solid var(--border);border-radius:8px;color:var(--text-muted);width:34px;cursor:pointer;">✕</button></div>`).join('')}
+      <button onclick="addBullet(${i})" style="background:none;border:1px dashed var(--border-gold);color:var(--gold);border-radius:8px;padding:6px 10px;font-size:11.5px;cursor:pointer;margin-top:4px;">+ Add bullet</button>
+    </div>`).join('') || '<div style="font-size:12.5px;color:var(--text-muted);">No experience added yet.</div>';
+}
+
+// ---- Education ----
+function addEdu(){resumeData.education.push({degree:'',school:'',start:'',end:'',details:''});renderEduList();saveLocal();renderPreview();}
+function removeEdu(i){resumeData.education.splice(i,1);renderEduList();saveLocal();renderPreview();}
+function updateEdu(i,field,val){resumeData.education[i][field]=val;saveLocal();renderPreview();}
+function renderEduList(){
+  document.getElementById('rb-edu-list').innerHTML=resumeData.education.map((e,i)=>`
+    <div class="rb-repeat-item">
+      <button class="rb-remove-btn" onclick="removeEdu(${i})">✕</button>
+      <div class="form-grid">
+        <div class="field"><label>Degree</label><div class="input-wrap"><input value="${escAttr(e.degree)}" oninput="updateEdu(${i},'degree',this.value)"></div></div>
+        <div class="field"><label>School</label><div class="input-wrap"><input value="${escAttr(e.school)}" oninput="updateEdu(${i},'school',this.value)"></div></div>
+        <div class="field"><label>Start</label><div class="input-wrap"><input value="${escAttr(e.start)}" oninput="updateEdu(${i},'start',this.value)"></div></div>
+        <div class="field"><label>End</label><div class="input-wrap"><input value="${escAttr(e.end)}" oninput="updateEdu(${i},'end',this.value)"></div></div>
+        <div class="field" style="grid-column:1/-1"><label>Details (optional)</label><div class="input-wrap"><input value="${escAttr(e.details)}" oninput="updateEdu(${i},'details',this.value)"></div></div>
+      </div>
+    </div>`).join('') || '<div style="font-size:12.5px;color:var(--text-muted);">No education added yet.</div>';
+}
+
+// ---- Projects ----
+function addProj(){resumeData.projects.push({name:'',description:''});renderProjList();saveLocal();renderPreview();}
+function removeProj(i){resumeData.projects.splice(i,1);renderProjList();saveLocal();renderPreview();}
+function updateProj(i,field,val){resumeData.projects[i][field]=val;saveLocal();renderPreview();}
+function renderProjList(){
+  document.getElementById('rb-proj-list').innerHTML=resumeData.projects.map((p,i)=>`
+    <div class="rb-repeat-item">
+      <button class="rb-remove-btn" onclick="removeProj(${i})">✕</button>
+      <div class="form-grid">
+        <div class="field"><label>Name</label><div class="input-wrap"><input value="${escAttr(p.name)}" oninput="updateProj(${i},'name',this.value)"></div></div>
+        <div class="field" style="grid-column:1/-1"><label>Description</label><div class="input-wrap"><input value="${escAttr(p.description)}" oninput="updateProj(${i},'description',this.value)"></div></div>
+      </div>
+    </div>`).join('') || '<div style="font-size:12.5px;color:var(--text-muted);">No projects added yet.</div>';
+}
+
+// ---- Certifications ----
+function addCert(){resumeData.certifications.push({name:'',issuer:'',year:''});renderCertList();saveLocal();renderPreview();}
+function removeCert(i){resumeData.certifications.splice(i,1);renderCertList();saveLocal();renderPreview();}
+function updateCert(i,field,val){resumeData.certifications[i][field]=val;saveLocal();renderPreview();}
+function renderCertList(){
+  document.getElementById('rb-cert-list').innerHTML=resumeData.certifications.map((c,i)=>`
+    <div class="rb-repeat-item">
+      <button class="rb-remove-btn" onclick="removeCert(${i})">✕</button>
+      <div class="form-grid">
+        <div class="field"><label>Name</label><div class="input-wrap"><input value="${escAttr(c.name)}" oninput="updateCert(${i},'name',this.value)"></div></div>
+        <div class="field"><label>Issuer</label><div class="input-wrap"><input value="${escAttr(c.issuer)}" oninput="updateCert(${i},'issuer',this.value)"></div></div>
+        <div class="field"><label>Year</label><div class="input-wrap"><input value="${escAttr(c.year)}" oninput="updateCert(${i},'year',this.value)"></div></div>
+      </div>
+    </div>`).join('') || '<div style="font-size:12.5px;color:var(--text-muted);">No certifications added yet.</div>';
+}
+
+function escAttr(s){return (s||'').toString().replace(/&/g,'&amp;').replace(/"/g,'&quot;');}
+
+// ---- Template Gallery ----
+function renderGallery(){
+  const cats={};
+  RESUME_TEMPLATES.forEach(t=>{(cats[t.category]=cats[t.category]||[]).push(t);});
+  const sample={name:'Jane Doe',title:'Job Title',email:'jane@email.com',phone:'+91 98765 43210',location:'City, Country',summary:'Brief professional summary goes here, highlighting your experience and strengths.',experience:[{role:'Job Role',company:'Company Name',location:'City',start:'2021',end:'Present',bullets:['Key achievement with a measurable result','Another concrete accomplishment']}],education:[{degree:'Degree',school:'University',start:'2017',end:'2021'}],skills:['Skill One','Skill Two','Skill Three']};
+  let html='';
+  Object.keys(cats).forEach(cat=>{
+    html+=`<div class="rb-cat-label">${cat}</div><div class="rb-gallery">`;
+    html+=cats[cat].map(t=>`
+      <div class="rb-card${t.id===selectedTemplate?' selected':''}" onclick="selectTemplate('${t.id}')">
+        <div class="rb-thumb"><div class="rb-thumb-inner">${renderResume(sample,t.id)}</div></div>
+        <div class="rb-card-info"><div class="rb-card-name">${t.name}</div><div class="rb-card-tag">${t.tagline}</div></div>
+      </div>`).join('');
+    html+='</div>';
+  });
+  document.getElementById('rb-gallery').innerHTML=html;
+}
+function selectTemplate(id){selectedTemplate=id;saveLocal();renderGallery();renderPreview();goStep(2);}
+
+function renderPreview(){
+  document.getElementById('resume-print-area').innerHTML=renderResume(resumeData,selectedTemplate);
+  const t=getTemplate(selectedTemplate);
+  const nameEl=document.getElementById('rb-side-template-name');if(nameEl)nameEl.textContent=t.name;
+  const tipEl=document.getElementById('rb-tip-box');if(tipEl)tipEl.innerHTML=`<strong style="color:var(--text)">Tip for this template:</strong> ${t.tips}`;
+}
+
+function goStep(n){
+  [1,2,3].forEach(i=>{
+    document.getElementById('step-btn-'+i).classList.toggle('active',i===n);
+    document.getElementById('rb-step-'+i).classList.toggle('active',i===n);
+  });
+  if(n===3)renderPreview();
+  trackEvent('resume_builder_step',{step:n});
+}
+
+window.addEventListener('DOMContentLoaded',function(){
+  loadLocal();
+  renderGallery();
+  renderExpList();renderEduList();renderProjList();renderCertList();
+  document.getElementById('f-name').value=resumeData.name||'';
+  document.getElementById('f-title').value=resumeData.title||'';
+  document.getElementById('f-email').value=resumeData.email||'';
+  document.getElementById('f-phone').value=resumeData.phone||'';
+  document.getElementById('f-location').value=resumeData.location||'';
+  document.getElementById('f-linkedin').value=resumeData.linkedin||'';
+  document.getElementById('f-website').value=resumeData.website||'';
+  document.getElementById('f-summary').value=resumeData.summary||'';
+  document.getElementById('f-skills').value=(resumeData.skills||[]).join(', ');
+  renderPreview();
+  checkCookieConsent();
+});
+</script>
+</body>
+</html>
