@@ -15,7 +15,6 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
 gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="theme.css">
@@ -45,14 +44,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
 <div class="orb orb-1" aria-hidden="true"></div>
-
-<div id="cookie-banner">
-  <div class="cb-text">We use cookies for essential functionality, analytics (Google Analytics), and advertising (Google AdSense). <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>.</div>
-  <div class="cb-actions">
-    <button class="cb-reject" onclick="rejectCookies()">Reject Non-Essential</button>
-    <button class="cb-accept" onclick="acceptCookies()">Accept All</button>
-  </div>
-</div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
   <h3>Terms & Conditions — AI Advice</h3>
@@ -108,6 +99,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <a href="ideal-weight-calculator.html">Ideal Weight Calculator</a>
 <a href="tdee-calculator.html">TDEE Calculator</a>
 <a href="index.html">All Calculators</a></div>
+  
 </div>
 
 <footer>
@@ -127,7 +119,6 @@ window.toggleBFFields=function(){const g=document.getElementById('bf-gender');do
 window.doBodyFat=function(){const g=document.getElementById('bf-gender').value,ht=+document.getElementById('bf-height').value,neck=+document.getElementById('bf-neck').value,waist=+document.getElementById('bf-waist').value;let bf;if(g==='male'){bf=495/(1.0324-0.19077*Math.log10(waist-neck)+0.15456*Math.log10(ht))-450;}else{const hip=+document.getElementById('bf-hip').value;bf=495/(1.29579-0.35004*Math.log10(waist+hip-neck)+0.22100*Math.log10(ht))-450;}const cat=g==='male'?(bf<6?'Essential Fat':bf<14?'Athlete':bf<18?'Fitness':bf<25?'Average':'Obese'):(bf<14?'Essential Fat':bf<21?'Athlete':bf<25?'Fitness':bf<32?'Average':'Obese');showResults('bf-r',[{label:'Body Fat %',value:bf.toFixed(1)+'%',h:true,c:'gold'},{label:'Category',value:cat},{label:'Lean Mass',value:'~'+(100-bf).toFixed(1)+'%'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkCookieConsent();
   checkAnnouncement();
   toggleBFFields();
 });

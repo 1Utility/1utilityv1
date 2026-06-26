@@ -15,7 +15,6 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
 gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="theme.css">
@@ -45,14 +44,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
 <div class="orb orb-1" aria-hidden="true"></div>
-
-<div id="cookie-banner">
-  <div class="cb-text">We use cookies for essential functionality, analytics (Google Analytics), and advertising (Google AdSense). <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>.</div>
-  <div class="cb-actions">
-    <button class="cb-reject" onclick="rejectCookies()">Reject Non-Essential</button>
-    <button class="cb-accept" onclick="acceptCookies()">Accept All</button>
-  </div>
-</div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
   <h3>Terms & Conditions — AI Advice</h3>
@@ -106,6 +97,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <h2 class="subpage-h2">Related Calculators</h2>
   <div class="related-row"><a href="percentage-calculator.html">Percentage Calculator</a>
 <a href="index.html">All Calculators</a></div>
+  
 </div>
 
 <footer>
@@ -126,7 +118,6 @@ window.updateUnitOptions=function(){const cat=document.getElementById('unit-cat'
 window.doUnit=function(){const cat=document.getElementById('unit-cat').value,val=+document.getElementById('unit-val').value,from=document.getElementById('unit-from').value,to=document.getElementById('unit-to').value;let result;if(cat==='temp'){let cel=from==='°C'?val:from==='°F'?(val-32)*5/9:val-273.15;result=to==='°C'?cel:to==='°F'?cel*9/5+32:cel+273.15;}else{const d=UNIT_DATA[cat];result=val/d[from]*d[to];}showResults('unit-r',[{label:'Result',value:parseFloat(result.toFixed(6))+' '+to,h:true,c:'gold'},{label:'Input',value:val+' '+from},{label:'Factor',value:(result/val).toFixed(6)}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkCookieConsent();
   checkAnnouncement();
   updateUnitOptions();
 });

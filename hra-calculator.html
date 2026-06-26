@@ -15,7 +15,6 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
 gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="theme.css">
@@ -45,14 +44,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
 <div class="orb orb-1" aria-hidden="true"></div>
-
-<div id="cookie-banner">
-  <div class="cb-text">We use cookies for essential functionality, analytics (Google Analytics), and advertising (Google AdSense). <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>.</div>
-  <div class="cb-actions">
-    <button class="cb-reject" onclick="rejectCookies()">Reject Non-Essential</button>
-    <button class="cb-accept" onclick="acceptCookies()">Accept All</button>
-  </div>
-</div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
   <h3>Terms & Conditions — AI Advice</h3>
@@ -111,6 +102,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <a href="inhand-salary-calculator.html">In-Hand Salary</a>
 <a href="ctc-calculator.html">CTC Breakdown</a>
 <a href="index.html">All Calculators</a></div>
+  
 </div>
 
 <footer>
@@ -129,7 +121,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doHRA=function(){const basic=+document.getElementById('hra-basic').value,recv=+document.getElementById('hra-received').value,rent=+document.getElementById('hra-rent').value,city=document.getElementById('hra-city').value;const ex1=recv,ex2=rent-0.1*basic,ex3=city==='metro'?0.5*basic:0.4*basic,exempt=Math.max(0,Math.min(ex1,ex2,ex3)),taxable=recv-exempt;showResults('hra-r',[{label:'HRA Exemption',value:fmt(exempt),h:true,c:'green'},{label:'Taxable HRA',value:fmt(taxable),c:'red'},{label:'Tax Saved (30%)',value:fmt(exempt*0.30)},{label:'Rent−10% Basic',value:fmt(ex2)}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkCookieConsent();
   checkAnnouncement();
   
 });

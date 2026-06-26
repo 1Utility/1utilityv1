@@ -16,7 +16,6 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
 gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="theme.css">
@@ -77,15 +76,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <p style="margin-top:20px;font-size:13px;color:var(--text-muted);">We usually reply within 24–48 hours.</p>
   <button class="overlay-btn" onclick="document.getElementById('contact-modal').classList.remove('active')">Close</button>
 </div></div>
-
-<!-- COOKIE BANNER -->
-<div id="cookie-banner">
-  <div class="cb-text">We use cookies for essential functionality, analytics (Google Analytics), and advertising (Google AdSense). <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>.</div>
-  <div class="cb-actions">
-    <button class="cb-reject" onclick="rejectCookies()">Reject Non-Essential</button>
-    <button class="cb-accept" onclick="acceptCookies()">Accept All</button>
-  </div>
-</div>
 
 <!-- HEADER -->
 <header>
@@ -368,11 +358,6 @@ function showEmail(){window.location.href='mailto:gameconnectflash@gmail.com';}
 function checkAnnouncement(){const b=document.getElementById('announce-bar');if(b&&!localStorage.getItem('announceDismissed_resumebuilder'))b.style.display='flex';}
 function closeAnnouncement(){localStorage.setItem('announceDismissed_resumebuilder','1');const b=document.getElementById('announce-bar');if(b)b.style.display='none';}
 function trackEvent(name,params={}){if(typeof gtag==='function')gtag('event',name,params);}
-function showCookieBanner(){const b=document.getElementById('cookie-banner');if(b&&!localStorage.getItem('cookieConsent'))b.style.display='flex';}
-function updateConsent(state){if(typeof gtag==='function'){gtag('consent','update',{ad_storage:state,analytics_storage:state,ad_user_data:state,ad_personalization:state});}}
-function acceptCookies(){localStorage.setItem('cookieConsent','accepted');document.getElementById('cookie-banner').style.display='none';updateConsent('granted');}
-function rejectCookies(){localStorage.setItem('cookieConsent','rejected');document.getElementById('cookie-banner').style.display='none';updateConsent('denied');}
-function checkCookieConsent(){const c=localStorage.getItem('cookieConsent');if(c==='accepted')updateConsent('granted');else if(c==='rejected')updateConsent('denied');else setTimeout(showCookieBanner,2000);}
 function handleURLParameter(){
   const params=new URLSearchParams(window.location.search);
   const calcType=params.get('calc');
@@ -395,7 +380,6 @@ window.onload=function(){
   buildTicker();
   createTabs();
   document.getElementById('main-content').innerHTML=financeHTML()+healthHTML()+academicHTML()+hikeHTML();
-  checkCookieConsent();
   checkAnnouncement();
   handleURLParameter();
 };

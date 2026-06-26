@@ -15,7 +15,6 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
 gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="theme.css">
@@ -45,14 +44,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
 <div class="orb orb-1" aria-hidden="true"></div>
-
-<div id="cookie-banner">
-  <div class="cb-text">We use cookies for essential functionality, analytics (Google Analytics), and advertising (Google AdSense). <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>.</div>
-  <div class="cb-actions">
-    <button class="cb-reject" onclick="rejectCookies()">Reject Non-Essential</button>
-    <button class="cb-accept" onclick="acceptCookies()">Accept All</button>
-  </div>
-</div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
   <h3>Terms & Conditions — AI Advice</h3>
@@ -107,6 +98,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <div class="related-row"><a href="scientific-calculator.html">Scientific Calculator</a>
 <a href="unit-converter.html">Unit Converter</a>
 <a href="index.html">All Calculators</a></div>
+  
 </div>
 
 <footer>
@@ -126,7 +118,6 @@ window.buildMatrix=function(){const n=+document.getElementById('mat-size').value
 window.doMatrix=function(op){const n=+document.getElementById('mat-size').value;const get=(m,i,j)=>+(document.getElementById(`mat-${m}-${i}-${j}`)?.value||0);const A=Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>get('a',i,j)));const B=Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>get('b',i,j)));let R,title;if(op==='add'){R=A.map((r,i)=>r.map((v,j)=>v+B[i][j]));title='A + B';}else if(op==='sub'){R=A.map((r,i)=>r.map((v,j)=>v-B[i][j]));title='A − B';}else if(op==='mul'){R=Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>A[i].reduce((s,_,k)=>s+A[i][k]*B[k][j],0)));title='A × B';}else if(op==='det'){const det2=(M)=>M[0][0]*M[1][1]-M[0][1]*M[1][0];if(n===2){document.getElementById('mat-result').style.display='block';document.getElementById('mat-result').innerHTML=`<b>det(A) = ${det2(A)}</b>`;return;}const d=A[0][0]*(A[1][1]*A[2][2]-A[1][2]*A[2][1])-A[0][1]*(A[1][0]*A[2][2]-A[1][2]*A[2][0])+A[0][2]*(A[1][0]*A[2][1]-A[1][1]*A[2][0]);document.getElementById('mat-result').style.display='block';document.getElementById('mat-result').innerHTML=`<b>det(A) = ${d}</b>`;return;}const html=R.map(r=>`[ ${r.map(v=>parseFloat(v.toFixed(3))).join('  ')} ]`).join('\n');document.getElementById('mat-result').style.display='block';document.getElementById('mat-result').innerHTML=`<b>${title}</b>\n${html}`;};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkCookieConsent();
   checkAnnouncement();
   buildMatrix();
 });

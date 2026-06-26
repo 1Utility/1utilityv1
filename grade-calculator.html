@@ -15,7 +15,6 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
 gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="theme.css">
@@ -45,14 +44,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
 <div class="orb orb-1" aria-hidden="true"></div>
-
-<div id="cookie-banner">
-  <div class="cb-text">We use cookies for essential functionality, analytics (Google Analytics), and advertising (Google AdSense). <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>.</div>
-  <div class="cb-actions">
-    <button class="cb-reject" onclick="rejectCookies()">Reject Non-Essential</button>
-    <button class="cb-accept" onclick="acceptCookies()">Accept All</button>
-  </div>
-</div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
   <h3>Terms & Conditions — AI Advice</h3>
@@ -108,6 +99,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <a href="marks-calculator.html">Marks Calculator</a>
 <a href="gpa-calculator.html">GPA Calculator</a>
 <a href="index.html">All Calculators</a></div>
+  
 </div>
 
 <footer>
@@ -126,7 +118,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doGrade=function(){const m=+document.getElementById('grade-marks').value,t=+document.getElementById('grade-total').value,sys=document.getElementById('grade-sys').value,pct=(m/t)*100;let grade;if(sys==='india')grade=pct>=90?'O (Outstanding)':pct>=80?'A+ (Excellent)':pct>=70?'A (Very Good)':pct>=60?'B+ (Good)':pct>=55?'B':pct>=50?'C':pct>=45?'P (Pass)':'F (Fail)';else if(sys==='us')grade=pct>=93?'A+':pct>=90?'A':pct>=87?'A−':pct>=83?'B+':pct>=80?'B':pct>=77?'B−':pct>=73?'C+':pct>=70?'C':pct>=67?'D+':'F';else grade=pct>=70?'First Class':pct>=60?'2:1':pct>=50?'2:2':pct>=40?'Third':'Fail';showResults('grade-r',[{label:'Grade',value:grade,h:true,c:'gold'},{label:'Percentage',value:pct.toFixed(2)+'%'},{label:'Marks',value:m+' / '+t}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkCookieConsent();
   checkAnnouncement();
   
 });

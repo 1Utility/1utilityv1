@@ -15,7 +15,6 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
 gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="theme.css">
@@ -45,14 +44,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
 <div class="orb orb-1" aria-hidden="true"></div>
-
-<div id="cookie-banner">
-  <div class="cb-text">We use cookies for essential functionality, analytics (Google Analytics), and advertising (Google AdSense). <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>.</div>
-  <div class="cb-actions">
-    <button class="cb-reject" onclick="rejectCookies()">Reject Non-Essential</button>
-    <button class="cb-accept" onclick="acceptCookies()">Accept All</button>
-  </div>
-</div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
   <h3>Terms & Conditions — AI Advice</h3>
@@ -108,6 +99,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <a href="blood-pressure-calculator.html">Blood Pressure Check</a>
 <a href="calorie-calculator.html">Calorie Calculator</a>
 <a href="index.html">All Calculators</a></div>
+  
 </div>
 
 <footer>
@@ -126,7 +118,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doDiabetes=function(){let score=0;const age=+document.getElementById('diab-age').value,bmi=+document.getElementById('diab-bmi').value;if(age>=40)score++;if(age>=50)score++;if(bmi>=25)score++;if(bmi>=30)score++;score+=+document.getElementById('diab-fam').value;score+=+document.getElementById('diab-act').value;score+=+document.getElementById('diab-bp').value;const risk=score<=2?'Low Risk':score<=4?'Moderate Risk':score<=6?'High Risk':'Very High Risk',c=score<=2?'green':score<=4?'gold':'red';showResults('diab-r',[{label:'Risk Score',value:score+'/7',h:true,c:c},{label:'Risk Level',value:risk,c:c},{label:'Advice',value:score>=4?'Consult a Doctor':'Maintain Lifestyle'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkCookieConsent();
   checkAnnouncement();
   
 });

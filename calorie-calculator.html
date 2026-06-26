@@ -15,7 +15,6 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
 gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="theme.css">
@@ -45,14 +44,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
 <div class="orb orb-1" aria-hidden="true"></div>
-
-<div id="cookie-banner">
-  <div class="cb-text">We use cookies for essential functionality, analytics (Google Analytics), and advertising (Google AdSense). <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>.</div>
-  <div class="cb-actions">
-    <button class="cb-reject" onclick="rejectCookies()">Reject Non-Essential</button>
-    <button class="cb-accept" onclick="acceptCookies()">Accept All</button>
-  </div>
-</div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
   <h3>Terms & Conditions — AI Advice</h3>
@@ -108,6 +99,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <a href="bmr-calculator.html">BMR Calculator</a>
 <a href="protein-intake-calculator.html">Protein Intake</a>
 <a href="index.html">All Calculators</a></div>
+  
 </div>
 
 <footer>
@@ -126,7 +118,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doCalorie=function(){const w=+document.getElementById('cal-w').value,h=+document.getElementById('cal-h').value,a=+document.getElementById('cal-age').value,g=document.getElementById('cal-gender').value,act=+document.getElementById('cal-act').value,goal=+document.getElementById('cal-goal').value;const bmr=g==='Male'?(10*w)+(6.25*h)-(5*a)+5:(10*w)+(6.25*h)-(5*a)-161,target=bmr*act+goal;showResults('cal-r',[{label:'Target Calories',value:Math.round(target)+' kcal',h:true,c:'gold'},{label:'BMR',value:Math.round(bmr)+' kcal'},{label:'TDEE',value:Math.round(bmr*act)+' kcal'},{label:'Carbs (~50%)',value:Math.round(target*0.5/4)+' g'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkCookieConsent();
   checkAnnouncement();
   
 });

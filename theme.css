@@ -213,15 +213,6 @@ header{position:relative;z-index:10;text-align:center;padding:60px 20px 36px;}
 .overlay-content p{color:var(--text-dim);font-size:13px;line-height:1.7;margin-bottom:6px;}
 .overlay-btn{background:var(--gold);color:#fff;border:none;border-radius:10px;padding:11px 24px;font-family:'Inter',sans-serif;font-weight:700;font-size:14px;cursor:pointer;margin-top:16px;}
 
-/* COOKIE */
-#cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--dark2);border-top:1px solid var(--border-gold);padding:16px 20px;z-index:99999;display:none;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;}
-.cb-text{max-width:700px;color:var(--text);font-size:13.5px;line-height:1.5;}
-.cb-text a{color:var(--gold);text-decoration:underline;}
-.cb-actions{display:flex;gap:10px;flex-wrap:wrap;}
-.cb-reject{background:var(--dark3);color:var(--text);border:1px solid var(--border-gold);padding:10px 20px;border-radius:9px;cursor:pointer;font-weight:600;font-size:13px;font-family:'Inter',sans-serif;}
-.cb-accept{background:var(--gold);color:#fff;border:none;padding:10px 24px;border-radius:9px;cursor:pointer;font-weight:700;font-size:13px;font-family:'Inter',sans-serif;}
-.cb-accept:hover{box-shadow:0 4px 16px var(--gold-glow);}
-
 /* SITE FAQ — permanent, always-visible content (fixes thin-content) */
 .site-faq{position:relative;z-index:10;max-width:780px;margin:0 auto;padding:10px 16px 40px;}
 .faq-inner{background:var(--dark2);border:1px solid var(--border);border-radius:var(--r-xl);padding:28px 26px;}

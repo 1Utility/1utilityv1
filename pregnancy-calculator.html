@@ -15,7 +15,6 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
 gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="theme.css">
@@ -45,14 +44,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
 <div class="orb orb-1" aria-hidden="true"></div>
-
-<div id="cookie-banner">
-  <div class="cb-text">We use cookies for essential functionality, analytics (Google Analytics), and advertising (Google AdSense). <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>.</div>
-  <div class="cb-actions">
-    <button class="cb-reject" onclick="rejectCookies()">Reject Non-Essential</button>
-    <button class="cb-accept" onclick="acceptCookies()">Accept All</button>
-  </div>
-</div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
   <h3>Terms & Conditions — AI Advice</h3>
@@ -107,6 +98,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <div class="related-row"><a href="index.html">Ovulation Calculator</a>
 <a href="age-calculator.html">Age Calculator</a>
 <a href="index.html">All Calculators</a></div>
+  
 </div>
 
 <footer>
@@ -125,7 +117,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doPregnancy=function(){const lmp=document.getElementById('preg-lmp').value,cycle=+document.getElementById('preg-cycle').value;if(!lmp)return;const due=new Date(lmp);due.setDate(due.getDate()+280+(cycle-28));const today=new Date(),diff=Math.floor((today-new Date(lmp))/(1000*60*60*24)),weeks=Math.floor(diff/7),days=diff%7;showResults('preg-r',[{label:'Due Date',value:due.toDateString(),h:true,c:'gold'},{label:'Current Week',value:weeks+'w '+days+'d'},{label:'Weeks Remaining',value:Math.max(0,40-weeks)+' weeks'},{label:'Trimester',value:weeks<13?'1st':weeks<27?'2nd':'3rd'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkCookieConsent();
   checkAnnouncement();
   const d=new Date();d.setDate(d.getDate()-14);document.getElementById('preg-lmp').value=d.toISOString().split('T')[0];
 });

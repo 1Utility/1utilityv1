@@ -15,7 +15,6 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
 gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="theme.css">
@@ -45,14 +44,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
 <div class="orb orb-1" aria-hidden="true"></div>
-
-<div id="cookie-banner">
-  <div class="cb-text">We use cookies for essential functionality, analytics (Google Analytics), and advertising (Google AdSense). <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>.</div>
-  <div class="cb-actions">
-    <button class="cb-reject" onclick="rejectCookies()">Reject Non-Essential</button>
-    <button class="cb-accept" onclick="acceptCookies()">Accept All</button>
-  </div>
-</div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
   <h3>Terms & Conditions — AI Advice</h3>
@@ -107,6 +98,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <div class="related-row"><a href="pregnancy-calculator.html">Pregnancy Due Date</a>
 <a href="bmi-calculator.html">BMI Calculator</a>
 <a href="index.html">All Calculators</a></div>
+  
 </div>
 
 <footer>
@@ -125,7 +117,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doAge=function(){const dob=new Date(document.getElementById('age-dob').value),today=new Date(document.getElementById('age-today').value);let y=today.getFullYear()-dob.getFullYear(),m=today.getMonth()-dob.getMonth(),d=today.getDate()-dob.getDate();if(d<0){m--;d+=new Date(today.getFullYear(),today.getMonth(),0).getDate();}if(m<0){y--;m+=12;}const totalDays=Math.floor((today-dob)/86400000);const nb=new Date(today.getFullYear(),dob.getMonth(),dob.getDate());if(nb<=today)nb.setFullYear(nb.getFullYear()+1);showResults('age-r',[{label:'Age',value:y+' years',h:true,c:'gold'},{label:'Months & Days',value:m+' mo '+d+' d'},{label:'Total Days',value:totalDays.toLocaleString()},{label:'Next Birthday',value:Math.floor((nb-today)/86400000)+' days'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkCookieConsent();
   checkAnnouncement();
   document.getElementById('age-today').value=new Date().toISOString().split('T')[0];const d=new Date();d.setFullYear(d.getFullYear()-25);document.getElementById('age-dob').value=d.toISOString().split('T')[0];
 });

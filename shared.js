@@ -27,13 +27,6 @@ function showError(msg,containerId){const d=document.createElement('div');d.styl
 
 function trackEvent(name,params={}){if(typeof gtag==='function')gtag('event',name,params);}
 
-// COOKIE CONSENT — uses Google Consent Mode. The gtag/adsbygoogle scripts are already
-// loaded in <head> with a default-denied consent state; accept/reject just updates that state.
-function showCookieBanner(){const b=document.getElementById('cookie-banner');if(b&&!localStorage.getItem('cookieConsent'))b.style.display='flex';}
-function updateConsent(state){if(typeof gtag==='function'){gtag('consent','update',{ad_storage:state,analytics_storage:state,ad_user_data:state,ad_personalization:state});}}
-function acceptCookies(){localStorage.setItem('cookieConsent','accepted');const b=document.getElementById('cookie-banner');if(b)b.style.display='none';updateConsent('granted');}
-function rejectCookies(){localStorage.setItem('cookieConsent','rejected');const b=document.getElementById('cookie-banner');if(b)b.style.display='none';updateConsent('denied');}
-function checkCookieConsent(){const c=localStorage.getItem('cookieConsent');if(c==='accepted')updateConsent('granted');else if(c==='rejected')updateConsent('denied');else setTimeout(showCookieBanner,2000);}
 function showEmail(){window.location.href='mailto:gameconnectflash@gmail.com';}
 function checkAnnouncement(){const b=document.getElementById('announce-bar');if(b&&!localStorage.getItem('announceDismissed_resumebuilder'))b.style.display='flex';}
 function closeAnnouncement(){localStorage.setItem('announceDismissed_resumebuilder','1');const b=document.getElementById('announce-bar');if(b)b.style.display='none';}
