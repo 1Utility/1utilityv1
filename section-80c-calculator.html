@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doSec80C=function(){const income=+document.getElementById('s80c-income').value,elss=+document.getElementById('s80c-elss').value,ppf=+document.getElementById('s80c-ppf').value,lic=+document.getElementById('s80c-lic').value,home=+document.getElementById('s80c-home').value*12,other=+document.getElementById('s80c-other').value;const total80c=Math.min(150000,elss+ppf+lic+home+other),savings=total80c*0.30*1.04;showResults('s80c-r',[{label:'80C Deduction',value:fmt(total80c),h:true,c:'gold'},{label:'Tax Saved (30%)',value:fmt(savings),c:'green'},{label:'Remaining Limit',value:fmt(150000-total80c)},{label:'Total Invested',value:fmt(elss+ppf+lic+home+other)}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

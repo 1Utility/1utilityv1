@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -119,7 +120,6 @@ window.buildSGPAFields=function(){const n=+document.getElementById('sgpa-n').val
 window.doSGPA=function(){const n=+document.getElementById('sgpa-n').value;let tw=0,ts=0;for(let i=1;i<=n;i++){const cr=+document.getElementById('sgpa-cr-'+i).value,gr=+document.getElementById('sgpa-gr-'+i).value;tw+=cr;ts+=cr*gr;}const sgpa=ts/tw;showResults('sgpa-r',[{label:'SGPA',value:sgpa.toFixed(2),h:true,c:'gold'},{label:'Total Credits',value:tw},{label:'Total Points',value:ts},{label:'% (×9.5)',value:(sgpa*9.5).toFixed(2)+'%'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   buildSGPAFields();
 });
 </script>

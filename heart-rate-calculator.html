@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doHeartRate=function(){const age=+document.getElementById('hr-age').value,rhr=+document.getElementById('hr-resting').value,maxHR=220-age;const z=p=>Math.round((maxHR-rhr)*p/100+rhr);showResults('hr-r',[{label:'Max Heart Rate',value:maxHR+' bpm',h:true,c:'red'},{label:'Zone 2 — Fat Burn',value:z(60)+'–'+z(70)+' bpm'},{label:'Zone 3 — Aerobic',value:z(70)+'–'+z(80)+' bpm'},{label:'Zone 4 — Threshold',value:z(80)+'–'+z(90)+' bpm'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doCalorie=function(){const w=+document.getElementById('cal-w').value,h=+document.getElementById('cal-h').value,a=+document.getElementById('cal-age').value,g=document.getElementById('cal-gender').value,act=+document.getElementById('cal-act').value,goal=+document.getElementById('cal-goal').value;const bmr=g==='Male'?(10*w)+(6.25*h)-(5*a)+5:(10*w)+(6.25*h)-(5*a)-161,target=bmr*act+goal;showResults('cal-r',[{label:'Target Calories',value:Math.round(target)+' kcal',h:true,c:'gold'},{label:'BMR',value:Math.round(bmr)+' kcal'},{label:'TDEE',value:Math.round(bmr*act)+' kcal'},{label:'Carbs (~50%)',value:Math.round(target*0.5/4)+' g'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

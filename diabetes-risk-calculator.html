@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doDiabetes=function(){let score=0;const age=+document.getElementById('diab-age').value,bmi=+document.getElementById('diab-bmi').value;if(age>=40)score++;if(age>=50)score++;if(bmi>=25)score++;if(bmi>=30)score++;score+=+document.getElementById('diab-fam').value;score+=+document.getElementById('diab-act').value;score+=+document.getElementById('diab-bp').value;const risk=score<=2?'Low Risk':score<=4?'Moderate Risk':score<=6?'High Risk':'Very High Risk',c=score<=2?'green':score<=4?'gold':'red';showResults('diab-r',[{label:'Risk Score',value:score+'/7',h:true,c:c},{label:'Risk Level',value:risk,c:c},{label:'Advice',value:score>=4?'Consult a Doctor':'Maintain Lifestyle'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doPF=function(){const basic=+document.getElementById('pf-basic').value,rate=+document.getElementById('pf-rate').value/100;const empPF=basic*rate,empPFshare=basic*0.0367,eps=basic*0.0833;showResults('pf-r',[{label:'Your PF/Month',value:fmt(empPF),h:true,c:'gold'},{label:"Employer's Share",value:fmt(empPFshare)},{label:'EPS (Pension)',value:fmt(eps)},{label:'Total Monthly',value:fmt(empPF+empPFshare+eps)}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

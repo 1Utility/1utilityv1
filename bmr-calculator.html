@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ Female: (10 × weight) + (6.25 × height) − (5 × age) − 161</div><p>This is
 window.doBMR=function(){const w=+document.getElementById('bmr-w').value,h=+document.getElementById('bmr-h').value,a=+document.getElementById('bmr-age').value,g=document.getElementById('bmr-gender').value;const bmr=g==='Male'?(10*w)+(6.25*h)-(5*a)+5:(10*w)+(6.25*h)-(5*a)-161;showResults('bmr-r',[{label:'BMR (Daily)',value:Math.round(bmr)+' kcal',h:true,c:'gold'},{label:'Sedentary TDEE',value:Math.round(bmr*1.2)+' kcal'},{label:'Moderate TDEE',value:Math.round(bmr*1.55)+' kcal'},{label:'Active TDEE',value:Math.round(bmr*1.725)+' kcal'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

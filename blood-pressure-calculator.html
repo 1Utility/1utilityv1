@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doBP=function(){const sys=+document.getElementById('bp-sys').value,dia=+document.getElementById('bp-dia').value;let cat,color;if(sys<120&&dia<80){cat='✅ Normal';color='green';}else if(sys<130&&dia<80){cat='⚠️ Elevated';color='gold';}else if(sys<140||dia<90){cat='🟡 Stage 1 Hypertension';color='gold';}else if(sys<180&&dia<120){cat='🔴 Stage 2 Hypertension';color='red';}else{cat='🚨 Hypertensive Crisis';color='red';}showResults('bp-r',[{label:'Reading',value:sys+'/'+dia+' mmHg',h:true},{label:'Category',value:cat,c:color},{label:'Systolic',value:sys+' mmHg'},{label:'Diastolic',value:dia+' mmHg'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

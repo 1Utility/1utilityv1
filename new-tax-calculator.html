@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -120,7 +121,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doNewTax=function(){const income=+document.getElementById('ntax-income').value;let ti=Math.max(0,income-75000),tax=0;if(ti<=300000)tax=0;else if(ti<=600000)tax=(ti-300000)*0.05;else if(ti<=900000)tax=15000+(ti-600000)*0.10;else if(ti<=1200000)tax=45000+(ti-900000)*0.15;else if(ti<=1500000)tax=90000+(ti-1200000)*0.20;else tax=150000+(ti-1500000)*0.30;if(ti<=700000)tax=0;tax*=1.04;showResults('ntax-r',[{label:'Tax Payable',value:fmt(tax),h:true,c:'red'},{label:'Take-Home/yr',value:fmt(income-tax),c:'green'},{label:'Monthly',value:fmt((income-tax)/12),c:'green'},{label:'Effective Rate',value:((tax/income)*100).toFixed(2)+'%'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

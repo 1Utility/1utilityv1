@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -117,7 +118,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doToCGPA=function(){const p=+document.getElementById('tocgpa-pct').value,s=+document.getElementById('tocgpa-scale').value;showResults('tocgpa-r',[{label:'CGPA',value:(p/s).toFixed(2),h:true,c:'gold'},{label:'Percentage',value:p+'%'},{label:'Scale',value:'÷'+s}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -120,7 +121,6 @@ let sciExpr='';
 window.sciKey=function(k){const d=document.getElementById('sci-display');if(!d)return;if(k==='C'){sciExpr='';d.textContent='0';return;}if(k==='←'){sciExpr=sciExpr.slice(0,-1);d.textContent=sciExpr||'0';return;}if(k==='='){try{let e=sciExpr.replace(/π/g,'Math.PI').replace(/e(?!x)/g,'Math.E').replace(/√/g,'Math.sqrt').replace(/sin/g,'Math.sin').replace(/cos/g,'Math.cos').replace(/tan/g,'Math.tan').replace(/log/g,'Math.log10').replace(/ln/g,'Math.log').replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-').replace(/\^/g,'**').replace(/x²/g,'**2').replace(/x³/g,'**3').replace(/1\/x/g,'1/').replace(/\+\/-/g,'*-1');const r=eval(e);d.textContent=parseFloat(r.toFixed(10)).toString();sciExpr=d.textContent;}catch{d.textContent='Error';sciExpr='';}return;}const map={'×':'×','÷':'÷','−':'−','√':'√(','sin':'sin(','cos':'cos(','tan':'tan(','log':'log(','ln':'ln(','x²':'²','x³':'³','1/x':'1/(','π':'π','e':'e','+/-':'+/-'};sciExpr+=(map[k]||k);d.textContent=sciExpr;};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   renderSciKeys();
 });
 </script>

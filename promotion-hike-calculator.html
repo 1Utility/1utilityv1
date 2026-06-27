@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doPromotionHike=function(){const cur=+document.getElementById('ph-cur').value,hike=+document.getElementById('ph-pct').value,bonus=+document.getElementById('ph-bonus').value;const newBase=cur*(1+hike/100),totalBonus=newBase*bonus/100,total=newBase+totalBonus;showResults('ph-r',[{label:'New Base CTC',value:fmt(newBase),h:true,c:'gold'},{label:'Total Package',value:fmt(total),c:'green'},{label:'Variable Bonus',value:fmt(totalBonus)},{label:'Total Hike',value:((total/cur-1)*100).toFixed(1)+'%'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -120,7 +121,6 @@ Under 18.5 — Underweight   18.5–24.9 — Normal   25–29.9 — Overweight  
 window.doBMI=function(){const w=+document.getElementById('bmi-w').value,h=+document.getElementById('bmi-h').value/100,bmi=w/(h*h);const cat=bmi<18.5?'Underweight':bmi<25?'Normal Weight':bmi<30?'Overweight':bmi<35?'Obese I':bmi<40?'Obese II':'Obese III';showResults('bmi-r',[{label:'Your BMI',value:bmi.toFixed(1),h:true,c:'gold'},{label:'Category',value:cat},{label:'Healthy Range',value:'18.5–24.9'},{label:'Ideal Weight',value:fmtRaw(22*h*h,1)+' kg'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ window.buildMarksFields=function(){const n=+document.getElementById('marks-n').v
 window.doMarks=function(){const n=+document.getElementById('marks-n').value;let total=0,max=n*100;for(let i=1;i<=n;i++)total+=+document.getElementById('mark-'+i).value;showResults('marks-r',[{label:'Total',value:total+' / '+max,h:true,c:'gold'},{label:'Average',value:(total/n).toFixed(1)+' / 100'},{label:'Percentage',value:((total/max)*100).toFixed(2)+'%'},{label:'Subjects',value:n}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   buildMarksFields();
 });
 </script>

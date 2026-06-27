@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ window.updateUnitOptions=function(){const cat=document.getElementById('unit-cat'
 window.doUnit=function(){const cat=document.getElementById('unit-cat').value,val=+document.getElementById('unit-val').value,from=document.getElementById('unit-from').value,to=document.getElementById('unit-to').value;let result;if(cat==='temp'){let cel=from==='°C'?val:from==='°F'?(val-32)*5/9:val-273.15;result=to==='°C'?cel:to==='°F'?cel*9/5+32:cel+273.15;}else{const d=UNIT_DATA[cat];result=val/d[from]*d[to];}showResults('unit-r',[{label:'Result',value:parseFloat(result.toFixed(6))+' '+to,h:true,c:'gold'},{label:'Input',value:val+' '+from},{label:'Factor',value:(result/val).toFixed(6)}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   updateUnitOptions();
 });
 </script>

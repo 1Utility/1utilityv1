@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -117,7 +118,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doOvulation=function(){const lmp=document.getElementById('ovul-lmp').value,cycle=+document.getElementById('ovul-cycle').value;if(!lmp)return;const ov=new Date(lmp);ov.setDate(ov.getDate()+cycle-14);const ws=new Date(ov);ws.setDate(ws.getDate()-5);const we=new Date(ov);we.setDate(we.getDate()+1);showResults('ovul-r',[{label:'Ovulation Day',value:ov.toDateString(),h:true,c:'gold'},{label:'Fertile Window Start',value:ws.toDateString()},{label:'Fertile Window End',value:we.toDateString()},{label:'Next Period',value:new Date(new Date(lmp).getTime()+cycle*86400000).toDateString()}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   const d=new Date();d.setDate(d.getDate()-5);document.getElementById('ovul-lmp').value=d.toISOString().split('T')[0];
 });
 </script>

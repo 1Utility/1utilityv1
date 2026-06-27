@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doEPF=function(){const basic=+document.getElementById('epf-basic').value,bal=+document.getElementById('epf-bal').value,yrs=+document.getElementById('epf-yrs').value,inc=+document.getElementById('epf-inc').value/100;const rate=8.15/100/12;let corpus=bal,monthlyBasic=basic;for(let y=0;y<yrs;y++){const monthly=monthlyBasic*0.1567;for(let m=0;m<12;m++){corpus=(corpus+monthly)*(1+rate);}monthlyBasic*=(1+inc);}showResults('epf-r',[{label:'EPF at Retirement',value:fmt(corpus),h:true,c:'green'},{label:'Current Balance',value:fmt(bal)},{label:'Years',value:yrs},{label:'Growth',value:((corpus/bal-1)*100).toFixed(0)+'%'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

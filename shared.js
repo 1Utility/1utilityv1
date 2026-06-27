@@ -28,7 +28,6 @@ function showError(msg,containerId){const d=document.createElement('div');d.styl
 function trackEvent(name,params={}){if(typeof gtag==='function')gtag('event',name,params);}
 
 function showEmail(){window.location.href='mailto:gameconnectflash@gmail.com';}
-function checkAnnouncement(){const b=document.getElementById('announce-bar');if(b&&!localStorage.getItem('announceDismissed_resumebuilder'))b.style.display='flex';}
 function closeAnnouncement(){localStorage.setItem('announceDismissed_resumebuilder','1');const b=document.getElementById('announce-bar');if(b)b.style.display='none';}
 function showTerms(){const m=document.getElementById('terms-modal');if(m)m.classList.add('active');}
 function showPrivacy(){const m=document.getElementById('privacy-modal');if(m)m.classList.add('active');}

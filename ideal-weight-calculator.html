@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doIdealWeight=function(){const h=+document.getElementById('iw-height').value,g=document.getElementById('iw-gender').value,hIn=h/2.54-60;const devine=g==='Male'?50+2.3*hIn:45.5+2.3*hIn,hamwi=g==='Male'?48+2.7*hIn:45.5+2.2*hIn,bmiM=Math.sqrt((h/100)*(h/100)*22);showResults('iw-r',[{label:'Devine Formula',value:devine.toFixed(1)+' kg',h:true,c:'gold'},{label:'Hamwi Formula',value:hamwi.toFixed(1)+' kg'},{label:'BMI Method',value:bmiM.toFixed(1)+' kg'},{label:'Average',value:((devine+hamwi+bmiM)/3).toFixed(1)+' kg'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

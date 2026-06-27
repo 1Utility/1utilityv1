@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -121,7 +122,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doHRA=function(){const basic=+document.getElementById('hra-basic').value,recv=+document.getElementById('hra-received').value,rent=+document.getElementById('hra-rent').value,city=document.getElementById('hra-city').value;const ex1=recv,ex2=rent-0.1*basic,ex3=city==='metro'?0.5*basic:0.4*basic,exempt=Math.max(0,Math.min(ex1,ex2,ex3)),taxable=recv-exempt;showResults('hra-r',[{label:'HRA Exemption',value:fmt(exempt),h:true,c:'green'},{label:'Taxable HRA',value:fmt(taxable),c:'red'},{label:'Tax Saved (30%)',value:fmt(exempt*0.30)},{label:'Rent−10% Basic',value:fmt(ex2)}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

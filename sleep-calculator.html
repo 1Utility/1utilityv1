@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doSleep=function(){const wake=document.getElementById('sleep-wake').value;const[wh,wm]=wake.split(':').map(Number);const wakeMs=wh*60+wm;const bedtimes=[];for(let c=5;c>=2;c--){let bt=(wakeMs-c*90+15+1440)%1440;const bh=Math.floor(bt/60),bm=bt%60;bedtimes.push(`${String(bh).padStart(2,'0')}:${String(bm).padStart(2,'0')} (${c} cycles / ${c*1.5}h)`);}showResults('sleep-r',[{label:'Wake Up At',value:wake,h:true,c:'gold'},{label:'Best Bedtime 1',value:bedtimes[0]},{label:'Best Bedtime 2',value:bedtimes[1]},{label:'Best Bedtime 3',value:bedtimes[2]}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

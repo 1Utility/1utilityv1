@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doGrade=function(){const m=+document.getElementById('grade-marks').value,t=+document.getElementById('grade-total').value,sys=document.getElementById('grade-sys').value,pct=(m/t)*100;let grade;if(sys==='india')grade=pct>=90?'O (Outstanding)':pct>=80?'A+ (Excellent)':pct>=70?'A (Very Good)':pct>=60?'B+ (Good)':pct>=55?'B':pct>=50?'C':pct>=45?'P (Pass)':'F (Fail)';else if(sys==='us')grade=pct>=93?'A+':pct>=90?'A':pct>=87?'A−':pct>=83?'B+':pct>=80?'B':pct>=77?'B−':pct>=73?'C+':pct>=70?'C':pct>=67?'D+':'F';else grade=pct>=70?'First Class':pct>=60?'2:1':pct>=50?'2:2':pct>=40?'Third':'Fail';showResults('grade-r',[{label:'Grade',value:grade,h:true,c:'gold'},{label:'Percentage',value:pct.toFixed(2)+'%'},{label:'Marks',value:m+' / '+t}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

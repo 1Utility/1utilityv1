@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doInhand=function(){const ctc=+document.getElementById('ih-ctc').value,basicPct=+document.getElementById('ih-basic-pct').value,hraPct=+document.getElementById('ih-hra-pct').value,other=+document.getElementById('ih-other').value,pf=document.getElementById('ih-pf').value,regime=document.getElementById('ih-regime').value;const basic=ctc*basicPct/100/12,hra=basic*hraPct/100,pfDed=pf==='y'?basic*0.12:0;const gross=basic+hra+other;let tax=0;if(regime==='new'){let ti=Math.max(0,ctc-75000);if(ti<=300000)tax=0;else if(ti<=600000)tax=(ti-300000)*0.05;else if(ti<=900000)tax=15000+(ti-600000)*0.10;else if(ti<=1200000)tax=45000+(ti-900000)*0.15;else if(ti<=1500000)tax=90000+(ti-1200000)*0.20;else tax=150000+(ti-1500000)*0.30;if(ti<=700000)tax=0;tax*=1.04;}else{tax=Math.max(0,ctc-250000)*0.20*1.04;}const inhand=gross-pfDed-tax/12-200;showResults('ih-r',[{label:'Monthly In-Hand',value:fmt(inhand),h:true,c:'green'},{label:'Gross Monthly',value:fmt(gross)},{label:'PF Deduction',value:fmt(pfDed)},{label:'Tax/month',value:fmt(tax/12)}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

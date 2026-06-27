@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -117,7 +118,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doWater=function(){const w=+document.getElementById('wat-w').value,act=+document.getElementById('wat-act').value,cli=+document.getElementById('wat-climate').value;const base=w*0.033,total=base+act+cli;showResults('wat-r',[{label:'Daily Intake',value:total.toFixed(2)+' L',h:true,c:'blue'},{label:'Glasses (250ml)',value:Math.round(total/0.25)+' glasses'},{label:'Base Need',value:base.toFixed(2)+' L'},{label:'Per Hour',value:(total/16).toFixed(2)+' L'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doNPS=function(){const monthly=+document.getElementById('nps-monthly').value,age=+document.getElementById('nps-age').value,ret=+document.getElementById('nps-return').value/100,ann=+document.getElementById('nps-annuity').value/100;const yrs=60-age,n=yrs*12,rm=ret/12,corpus=monthly*((Math.pow(1+rm,n)-1)/rm)*(1+rm),monthlyPension=corpus*0.4*ann/12;showResults('nps-r',[{label:'Corpus at 60',value:fmt(corpus),h:true,c:'gold'},{label:'Lump Sum (60%)',value:fmt(corpus*0.6),c:'green'},{label:'Monthly Pension',value:fmt(monthlyPension)},{label:'Total Invested',value:fmt(monthly*n)}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

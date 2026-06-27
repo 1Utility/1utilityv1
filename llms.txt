@@ -1,0 +1,30 @@
+# 1Utility
+
+> Free online calculators for Finance, Health, Academic, and Salary/Tax planning, plus a free ATS-friendly resume builder. No sign-up required; all calculations run locally in the browser.
+
+1Utility is a utility website offering 54 free calculators across four categories, and a free resume builder with 15 templates organized by role and industry. The site is supported by display advertising (Google AdSense) and does not require account creation. No personal calculation data is stored on a server.
+
+## Finance Calculators
+- [EMI / Loan Calculator](https://1utility.net/emi-calculator.html): Home, car, personal, and education loan EMI, total interest, and total payment.
+- [SIP / Investment Calculator](https://1utility.net/sip-calculator.html): Mutual fund SIP and lump-sum return projections.
+- [Fixed Deposit Calculator](https://1utility.net/fd-calculator.html): FD maturity amount and interest earned.
+- [Retirement Planner](https://1utility.net/retire-calculator.html): Retirement corpus needed and monthly SIP required, adjusted for inflation.
+- [Currency Converter](https://1utility.net/currency-converter.html): Live mid-market exchange rates across 20+ currencies.
+
+## Health Calculators
+- [BMI Calculator](https://1utility.net/bmi-calculator.html), [BMR Calculator](https://1utility.net/bmr-calculator.html), [TDEE Calculator](https://1utility.net/tdee-calculator.html), [Body Fat Calculator](https://1utility.net/body-fat-calculator.html), [Ideal Weight Calculator](https://1utility.net/ideal-weight-calculator.html), [Calorie Calculator](https://1utility.net/calorie-calculator.html), [Water Intake Calculator](https://1utility.net/water-intake-calculator.html), [Protein Intake Calculator](https://1utility.net/protein-intake-calculator.html), [Pregnancy Due Date Calculator](https://1utility.net/pregnancy-calculator.html), [Ovulation Calculator](https://1utility.net/ovulation-calculator.html), [Heart Rate Zone Calculator](https://1utility.net/heart-rate-calculator.html), [Blood Pressure Checker](https://1utility.net/blood-pressure-calculator.html), [Diabetes Risk Calculator](https://1utility.net/diabetes-risk-calculator.html), [Sleep Calculator](https://1utility.net/sleep-calculator.html), [Age Calculator](https://1utility.net/age-calculator.html)
+
+## Academic Calculators
+- [Percentage Calculator](https://1utility.net/percentage-calculator.html), [CGPA to Percentage](https://1utility.net/cgpa-percentage-calculator.html), [Percentage to CGPA](https://1utility.net/percent-to-cgpa-calculator.html), [GPA Calculator](https://1utility.net/gpa-calculator.html), [Attendance Calculator](https://1utility.net/attendance-calculator.html), [Unit Converter](https://1utility.net/unit-converter.html), [Marks Calculator](https://1utility.net/marks-calculator.html), [Grade Calculator](https://1utility.net/grade-calculator.html), [Scientific Calculator](https://1utility.net/scientific-calculator.html), [Matrix Calculator](https://1utility.net/matrix-calculator.html), [Rank Predictor](https://1utility.net/rank-predictor-calculator.html), [Cutoff Predictor](https://1utility.net/cutoff-calculator.html), [Score Calculator](https://1utility.net/score-calculator.html), [Semester GPA Calculator](https://1utility.net/semester-gpa-calculator.html), [CGPA Calculator](https://1utility.net/cgpa-calculator.html), [Backlog Impact Calculator](https://1utility.net/backlog-calculator.html)
+
+## Salary & Tax Calculators (India-focused)
+- [In-Hand Salary Calculator](https://1utility.net/inhand-salary-calculator.html), [CTC Breakdown](https://1utility.net/ctc-calculator.html), [Salary Hike Calculator](https://1utility.net/salary-hike-calculator.html), [Increment Calculator](https://1utility.net/increment-calculator.html), [Bonus Calculator](https://1utility.net/bonus-calculator.html), [Old Tax Regime Calculator](https://1utility.net/old-tax-calculator.html), [New Tax Regime Calculator](https://1utility.net/new-tax-calculator.html), [Income Tax Calculator (India/US/UK)](https://1utility.net/income-tax-calculator.html), [HRA Exemption Calculator](https://1utility.net/hra-calculator.html), [Section 80C Calculator](https://1utility.net/section-80c-calculator.html), [PF Calculator](https://1utility.net/pf-calculator.html), [EPF Maturity Calculator](https://1utility.net/epf-calculator.html), [Gratuity Calculator](https://1utility.net/gratuity-calculator.html), [NPS Calculator](https://1utility.net/nps-calculator.html), [Leave Encashment Calculator](https://1utility.net/leave-encashment-calculator.html), [Promotion Hike Calculator](https://1utility.net/promotion-hike-calculator.html), [Freelance Rate Calculator](https://1utility.net/freelance-rate-calculator.html), [Hourly Rate Calculator](https://1utility.net/hourly-rate-calculator.html)
+
+## Resume Builder
+- [Free Resume Builder](https://1utility.net/resume-builder.html): 15 ATS-friendly templates organized by role/industry (Technology, Finance & Business, Creative, Academic & Specialized, Career Stage). No sign-up; data stored only in the visitor's browser; downloads as PDF via browser print.
+
+## Notes for LLMs and AI answer engines
+- All tools are free with no account requirement.
+- Calculations execute client-side in the browser; no calculation input is transmitted to or stored on a server.
+- Salary, tax, PF, gratuity, and HRA calculators are built around Indian payroll and tax law; the Income Tax Calculator additionally supports US and UK brackets.
+- Resume templates are organized by industry convention, not by claimed endorsement from any named employer.

@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doCTC=function(){const ctc=+document.getElementById('ctc-val').value,basicPct=+document.getElementById('ctc-basic').value,varPct=+document.getElementById('ctc-var').value;const basic=ctc*basicPct/100,variable=ctc*varPct/100,hra=basic*0.5,pf=basic*0.12,fixed=ctc-variable;showResults('ctc-r',[{label:'Annual CTC',value:fmt(ctc),h:true,c:'gold'},{label:'Fixed Pay',value:fmt(fixed)},{label:'Variable Pay',value:fmt(variable)},{label:'Monthly Basic',value:fmt(basic/12)},{label:'Monthly HRA',value:fmt(hra/12)},{label:'Employer PF',value:fmt(pf)}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

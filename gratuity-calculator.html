@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -119,7 +120,6 @@ Tax-free up to ₹20 lakh   ·   Minimum 5 years of continuous service required<
 window.doGratuity=function(){const basic=+document.getElementById('grat-basic').value,yrs=+document.getElementById('grat-yrs').value;const g=basic*15*yrs/26,tax=Math.max(0,g-2000000)*0.30;showResults('grat-r',[{label:'Gratuity',value:fmt(g),h:true,c:'gold'},{label:'Tax-Free Limit',value:fmt(2000000)},{label:'Taxable Amount',value:fmt(Math.max(0,g-2000000)),c:'red'},{label:'Net Amount',value:fmt(g-tax),c:'green'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

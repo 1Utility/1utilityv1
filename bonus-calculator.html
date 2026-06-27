@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doBonus=function(){const ctc=+document.getElementById('bon-ctc').value,pct=+document.getElementById('bon-pct').value,tax=+document.getElementById('bon-tax').value;const gross=ctc*pct/100,taxAmt=gross*tax/100,net=gross-taxAmt;showResults('bon-r',[{label:'Gross Bonus',value:fmt(gross),h:true,c:'gold'},{label:'Tax Deduction',value:fmt(taxAmt),c:'red'},{label:'Net Bonus',value:fmt(net),c:'green'},{label:'Monthly Equiv.',value:fmt(gross/12)}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

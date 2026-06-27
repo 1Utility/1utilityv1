@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doHourly=function(){const ann=+document.getElementById('hrr-annual').value,wks=+document.getElementById('hrr-weeks').value,hpw=+document.getElementById('hrr-hpw').value;const hourly=ann/(wks*hpw);showResults('hrr-r',[{label:'Hourly Rate',value:fmt(hourly),h:true,c:'gold'},{label:'Daily (8hr)',value:fmt(hourly*8)},{label:'Monthly',value:fmt(ann/12)},{label:'Annual',value:fmt(ann)}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

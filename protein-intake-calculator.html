@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doProtein=function(){const w=+document.getElementById('prot-w').value,f=+document.getElementById('prot-goal').value,protein=w*f;showResults('prot-r',[{label:'Daily Protein',value:Math.round(protein)+' g',h:true,c:'gold'},{label:'Per Meal (5)',value:Math.round(protein/5)+' g'},{label:'In Calories',value:Math.round(protein*4)+' kcal'},{label:'Factor',value:f+' g/kg'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

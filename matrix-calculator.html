@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -118,7 +119,6 @@ window.buildMatrix=function(){const n=+document.getElementById('mat-size').value
 window.doMatrix=function(op){const n=+document.getElementById('mat-size').value;const get=(m,i,j)=>+(document.getElementById(`mat-${m}-${i}-${j}`)?.value||0);const A=Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>get('a',i,j)));const B=Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>get('b',i,j)));let R,title;if(op==='add'){R=A.map((r,i)=>r.map((v,j)=>v+B[i][j]));title='A + B';}else if(op==='sub'){R=A.map((r,i)=>r.map((v,j)=>v-B[i][j]));title='A − B';}else if(op==='mul'){R=Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>A[i].reduce((s,_,k)=>s+A[i][k]*B[k][j],0)));title='A × B';}else if(op==='det'){const det2=(M)=>M[0][0]*M[1][1]-M[0][1]*M[1][0];if(n===2){document.getElementById('mat-result').style.display='block';document.getElementById('mat-result').innerHTML=`<b>det(A) = ${det2(A)}</b>`;return;}const d=A[0][0]*(A[1][1]*A[2][2]-A[1][2]*A[2][1])-A[0][1]*(A[1][0]*A[2][2]-A[1][2]*A[2][0])+A[0][2]*(A[1][0]*A[2][1]-A[1][1]*A[2][0]);document.getElementById('mat-result').style.display='block';document.getElementById('mat-result').innerHTML=`<b>det(A) = ${d}</b>`;return;}const html=R.map(r=>`[ ${r.map(v=>parseFloat(v.toFixed(3))).join('  ')} ]`).join('\n');document.getElementById('mat-result').style.display='block';document.getElementById('mat-result').innerHTML=`<b>${title}</b>\n${html}`;};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   buildMatrix();
 });
 </script>

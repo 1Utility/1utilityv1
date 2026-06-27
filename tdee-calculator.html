@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -117,7 +118,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doTDEE=function(){const w=+document.getElementById('tdee-w').value,h=+document.getElementById('tdee-h').value,a=+document.getElementById('tdee-age').value,g=document.getElementById('tdee-gender').value,act=+document.getElementById('tdee-act').value;const bmr=g==='Male'?(10*w)+(6.25*h)-(5*a)+5:(10*w)+(6.25*h)-(5*a)-161,tdee=bmr*act;showResults('tdee-r',[{label:'TDEE (Maintain)',value:Math.round(tdee)+' kcal',h:true,c:'gold'},{label:'Lose Weight',value:Math.round(tdee-500)+' kcal',c:'red'},{label:'Gain Muscle',value:Math.round(tdee+300)+' kcal',c:'green'},{label:'BMR',value:Math.round(bmr)+' kcal'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>

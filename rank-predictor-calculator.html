@@ -43,6 +43,7 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
   <a href="resume-builder.html" class="announce-cta">Try it free →</a>
   <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
 </div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
 <div class="orb orb-1" aria-hidden="true"></div>
 
 <div class="overlay-modal" id="terms-modal"><div class="overlay-content">
@@ -117,7 +118,6 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 window.doRankPredictor=function(){const score=+document.getElementById('rp-score').value,total=+document.getElementById('rp-total').value,cands=+document.getElementById('rp-candidates').value;const pct=(score/total)*100,estRank=Math.round(cands*(1-pct/100)*0.8);showResults('rp-r',[{label:'Est. Rank',value:estRank.toLocaleString(),h:true,c:'gold'},{label:'Percentile',value:pct.toFixed(2)+'%'},{label:'Score',value:score+'/'+total},{label:'Note',value:'Estimate Only'}]);};
 window.addEventListener('DOMContentLoaded', function(){
   initRegion();
-  checkAnnouncement();
   
 });
 </script>
