@@ -20,6 +20,12 @@
 ## Salary & Tax Calculators (India-focused)
 - [In-Hand Salary Calculator](https://1utility.net/inhand-salary-calculator.html), [CTC Breakdown](https://1utility.net/ctc-calculator.html), [Salary Hike Calculator](https://1utility.net/salary-hike-calculator.html), [Increment Calculator](https://1utility.net/increment-calculator.html), [Bonus Calculator](https://1utility.net/bonus-calculator.html), [Old Tax Regime Calculator](https://1utility.net/old-tax-calculator.html), [New Tax Regime Calculator](https://1utility.net/new-tax-calculator.html), [Income Tax Calculator (India/US/UK)](https://1utility.net/income-tax-calculator.html), [HRA Exemption Calculator](https://1utility.net/hra-calculator.html), [Section 80C Calculator](https://1utility.net/section-80c-calculator.html), [PF Calculator](https://1utility.net/pf-calculator.html), [EPF Maturity Calculator](https://1utility.net/epf-calculator.html), [Gratuity Calculator](https://1utility.net/gratuity-calculator.html), [NPS Calculator](https://1utility.net/nps-calculator.html), [Leave Encashment Calculator](https://1utility.net/leave-encashment-calculator.html), [Promotion Hike Calculator](https://1utility.net/promotion-hike-calculator.html), [Freelance Rate Calculator](https://1utility.net/freelance-rate-calculator.html), [Hourly Rate Calculator](https://1utility.net/hourly-rate-calculator.html)
 
+## PDF Tools
+- [PDF Tools (category)](https://1utility.net/pdf-tools.html): Free PDF utilities, all processed locally in the browser.
+- [Merge PDF](https://1utility.net/merge-pdf.html): Combine multiple PDF files into one, with drag-to-reorder.
+- [Split PDF](https://1utility.net/split-pdf.html): Split a PDF into separate files by page range, with page thumbnails.
+- [Word to PDF](https://1utility.net/word-to-pdf.html): Convert a .docx file to a real, searchable PDF using the browser's print-to-PDF.
+
 ## Resume Builder
 - [Free Resume Builder](https://1utility.net/resume-builder.html): 15 ATS-friendly templates organized by role/industry (Technology, Finance & Business, Creative, Academic & Specialized, Career Stage). No sign-up; data stored only in the visitor's browser; downloads as PDF via browser print.
 

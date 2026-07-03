@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Crypto Price Tracker — Top 100 Coins Free | 1Utility</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.google.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google.com https://*.gstatic.com https://*.googlesyndication.com https://*.doubleclick.net https://coin-images.coingecko.com https://assets.coingecko.com; frame-src 'self' https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net; connect-src 'self' https://api.coingecko.com https://www.googletagmanager.com https://analytics.google.com https://*.google.com;">
+<meta name="description" content="Free live crypto price tracker — top 100 coins by market cap, 24h change, and volume. Updates automatically, no sign-up, switch between USD and INR.">
+<meta property="og:title" content="Live Crypto Price Tracker — Top 100 Coins Free | 1Utility">
+<meta property="og:description" content="Free live crypto price tracker — top 100 coins by market cap, 24h change, and volume. No sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://1utility.net/crypto-tracker.html">
+<link rel="canonical" href="https://1utility.net/crypto-tracker.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23155EAB%22>1</text></svg>" type="image/svg+xml">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7534121473149569" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB96FHY2RG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Crypto Price Tracker","description":"Free live crypto price tracker for the top 100 coins by market cap.","url":"https://1utility.net/crypto-tracker.html","applicationCategory":"FinanceApplication","operatingSystem":"Any (runs in browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How often do prices update?","acceptedAnswer":{"@type":"Answer","text":"The tracker refreshes automatically every 60 seconds. The underlying data source itself typically updates every 1-5 minutes, so refreshing more often than that wouldn't show newer information anyway."}},
+{"@type":"Question","name":"Is this real-time trading data?","acceptedAnswer":{"@type":"Answer","text":"No — treat it as a close approximation for general awareness, not as a live trading terminal. For actual trades, use your exchange's own live order book."}},
+{"@type":"Question","name":"Where does the data come from?","acceptedAnswer":{"@type":"Answer","text":"Aggregated market data from CoinGecko, a widely used cryptocurrency data provider, fetched directly by your browser."}},
+{"@type":"Question","name":"Is my data or activity tracked?","acceptedAnswer":{"@type":"Answer","text":"No personal data is collected by this tool. Your browser fetches public price data directly; nothing about you is sent anywhere."}}
+]}</script>
+<style>
+.subpage-wrap{position:relative;z-index:10;max-width:980px;margin:0 auto;padding:0 16px 70px;}
+.subpage-nav{display:flex;align-items:center;gap:8px;padding:18px 0 8px;font-size:12px;color:var(--text-muted);}
+.subpage-nav a{color:var(--gold);text-decoration:none;font-weight:600;}
+.subpage-hero{padding:8px 0 18px;}
+.subpage-h1{font-family:'Manrope',sans-serif;font-size:clamp(26px,5vw,34px);font-weight:800;color:var(--text);margin-bottom:8px;}
+.subpage-lead{font-size:14px;line-height:1.7;color:var(--text-dim);max-width:640px;}
+.ad-slot{margin:22px 0;text-align:center;min-height:90px;}
+.ad-label{font-size:9px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.tool-panel{background:var(--dark2);border:1px solid var(--border);border-radius:var(--r-xl);padding:18px;margin-bottom:8px;}
+.subpage-h2{font-family:'Manrope',sans-serif;font-size:19px;font-weight:800;color:var(--text);margin:28px 0 10px;}
+.subpage-body p{font-size:13.5px;line-height:1.8;color:var(--text-dim);margin-bottom:12px;}
+.faq-item{border-top:1px solid var(--border);padding:14px 0;}
+.faq-item:first-of-type{border-top:none;}
+.faq-q{font-weight:600;font-size:13.5px;color:var(--text);margin-bottom:5px;}
+.faq-a{font-size:13px;line-height:1.7;color:var(--text-dim);}
+.related-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.related-row a{background:var(--dark3);border:1px solid var(--border);border-radius:20px;padding:7px 15px;font-size:12.5px;color:var(--text-dim);text-decoration:none;}
+.related-row a:hover{border-color:var(--border-gold);color:var(--gold);}
+
+.ct-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;}
+.ct-controls input[type=text]{flex:1;min-width:140px;}
+.ct-meta{font-size:11px;color:var(--text-muted);margin-left:auto;}
+.ct-table-wrap{overflow-x:auto;border-radius:12px;}
+table.ct-table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:560px;}
+table.ct-table th{text-align:left;padding:10px 12px;color:var(--gold);font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border-gold);cursor:pointer;white-space:nowrap;user-select:none;}
+table.ct-table th:hover{color:var(--gold-light);}
+table.ct-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text);white-space:nowrap;}
+table.ct-table tr:hover td{background:var(--surface);}
+.ct-coin-cell{display:flex;align-items:center;gap:8px;}
+.ct-coin-cell img{width:22px;height:22px;border-radius:50%;}
+.ct-coin-name{font-weight:600;}
+.ct-coin-symbol{color:var(--text-muted);font-size:11px;text-transform:uppercase;}
+.ct-price{font-family:'IBM Plex Mono',monospace;font-weight:600;}
+.ct-change-pos{color:var(--green);font-weight:600;}
+.ct-change-neg{color:var(--red);font-weight:600;}
+.ct-loading{text-align:center;padding:30px;color:var(--text-muted);font-size:13px;}
+.ct-error{background:rgba(209,67,67,0.10);color:#D14343;border:1px solid rgba(209,67,67,0.30);border-radius:10px;padding:12px 16px;font-size:13px;margin-bottom:12px;}
+.ct-attrib{font-size:10.5px;color:var(--text-muted);text-align:right;margin-top:8px;}
+.ct-attrib a{color:var(--gold);text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="announce-bar" id="announce-bar">
+  <span class="announce-text">📄 <strong>New:</strong> Free ATS-friendly Resume Builder — 15 templates by role, no sign-up.</span>
+  <a href="resume-builder.html" class="announce-cta">Try it free →</a>
+  <button class="announce-close" onclick="closeAnnouncement()" aria-label="Dismiss">✕</button>
+</div>
+<script>if(localStorage.getItem('announceDismissed_resumebuilder')){document.getElementById('announce-bar').style.display='none';}</script>
+<div class="orb orb-1" aria-hidden="true"></div>
+
+<div class="overlay-modal" id="terms-modal"><div class="overlay-content"><h3>Terms & Conditions</h3><p>This tool is for general informational purposes only and is not financial or investment advice. Always verify prices on your exchange before trading.</p><button class="overlay-btn" onclick="document.getElementById('terms-modal').classList.remove('active')">Close</button></div></div>
+<div class="overlay-modal" id="privacy-modal"><div class="overlay-content"><h3>Privacy Policy</h3><p><strong>No personal data is collected by this tool.</strong> Your browser fetches public price data directly from CoinGecko. We use Google Analytics and Google AdSense, which may use cookies — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p><button class="overlay-btn" onclick="document.getElementById('privacy-modal').classList.remove('active')">Close</button></div></div>
+<div class="overlay-modal" id="about-modal"><div class="overlay-content"><h3>About 1Utility</h3><p>1Utility is a free collection of 50+ calculators and tools — no sign-up, everything runs locally in your browser.</p><button class="overlay-btn" onclick="document.getElementById('about-modal').classList.remove('active')">Close</button></div></div>
+<div class="overlay-modal" id="contact-modal"><div class="overlay-content"><h3>Contact Us</h3><p><strong>Email:</strong> <a href="#" onclick="showEmail()" style="color:var(--gold)">Click to email us</a></p><button class="overlay-btn" onclick="document.getElementById('contact-modal').classList.remove('active')">Close</button></div></div>
+
+<div class="subpage-wrap">
+  <div class="subpage-nav"><a href="index.html">1Utility</a>&nbsp;›&nbsp;<span>Crypto Price Tracker</span></div>
+
+  <div class="subpage-hero">
+    <h1 class="subpage-h1">🪙 Live Crypto Price Tracker</h1>
+    <p class="subpage-lead">Top 100 cryptocurrencies by market cap, with 24h change and volume — updates automatically every 60 seconds. No sign-up, no account.</p>
+  </div>
+
+  <div class="ad-slot"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7534121473149569" data-ad-slot="7111111111" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+
+  <div class="tool-panel">
+    <div class="ct-controls">
+      <div class="input-wrap" style="max-width:120px;"><select id="ct-currency" onchange="onCurrencyChange()"><option value="usd">USD $</option><option value="inr">INR ₹</option><option value="eur">EUR €</option><option value="gbp">GBP £</option></select></div>
+      <div class="input-wrap"><input type="text" id="ct-search" placeholder="Search coin (e.g. Bitcoin, ETH)" oninput="renderTable()"></div>
+      <div class="ct-meta" id="ct-updated">Loading…</div>
+    </div>
+    <div id="ct-error-box"></div>
+    <div class="ct-table-wrap">
+      <table class="ct-table" id="ct-table">
+        <thead>
+          <tr>
+            <th onclick="setSort('market_cap_rank')">#</th>
+            <th onclick="setSort('name')">Coin</th>
+            <th onclick="setSort('current_price')">Price</th>
+            <th onclick="setSort('price_change_percentage_24h')">24h %</th>
+            <th onclick="setSort('market_cap')">Market Cap</th>
+            <th onclick="setSort('total_volume')">Volume (24h)</th>
+          </tr>
+        </thead>
+        <tbody id="ct-tbody"><tr><td colspan="6" class="ct-loading">Loading live prices…</td></tr></tbody>
+      </table>
+    </div>
+    <div class="ct-attrib">Data: <a href="https://www.coingecko.com" target="_blank" rel="noopener">CoinGecko</a></div>
+  </div>
+
+  <div class="ad-slot"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7534121473149569" data-ad-slot="7222222222" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+
+  <div class="subpage-body">
+    <h2 class="subpage-h2">What these numbers mean</h2>
+    <p><strong style="color:var(--text)">Market cap</strong> is price multiplied by total circulating supply — it's why a coin with a tiny price can still be "bigger" than one priced in the thousands, if enough of it exists. <strong style="color:var(--text)">24h volume</strong> shows how much was actually traded in the last day — high volume relative to market cap generally means a more liquid, easily tradeable asset, while low volume can mean wider price swings on smaller trades.</p>
+    <h2 class="subpage-h2">A word on accuracy and timing</h2>
+    <p>This pulls aggregated market data, refreshed roughly every 1-5 minutes at the source and re-fetched here every 60 seconds — close to real-time for general awareness, but not the live order-book feed an exchange itself would show you. Treat the percentages and prices here as "where things roughly stand," not as the exact price you'd execute a trade at.</p>
+  </div>
+
+  <h2 class="subpage-h2">Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">How often do prices update?</div><div class="faq-a">The tracker refreshes automatically every 60 seconds. The underlying data source itself typically updates every 1-5 minutes, so refreshing more often than that wouldn't show newer information anyway.</div></div>
+  <div class="faq-item"><div class="faq-q">Is this real-time trading data?</div><div class="faq-a">No — treat it as a close approximation for general awareness, not as a live trading terminal. For actual trades, use your exchange's own live order book.</div></div>
+  <div class="faq-item"><div class="faq-q">Where does the data come from?</div><div class="faq-a">Aggregated market data from CoinGecko, a widely used cryptocurrency data provider, fetched directly by your browser.</div></div>
+  <div class="faq-item"><div class="faq-q">Is my data or activity tracked?</div><div class="faq-a">No personal data is collected by this tool. Your browser fetches public price data directly; nothing about you is sent anywhere.</div></div>
+  <div class="faq-item"><div class="faq-q">Is this investment advice?</div><div class="faq-a">No. This is informational market data only. Cryptocurrency is highly volatile — do your own research and consider consulting a financial advisor before investing.</div></div>
+
+  <div class="ad-slot"><div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7534121473149569" data-ad-slot="7333333333" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+
+  <h2 class="subpage-h2">More from 1Utility</h2>
+  <div class="related-row">
+    <a href="currency-converter.html">Currency Converter</a>
+    <a href="sip-calculator.html">SIP Calculator</a>
+    <a href="index.html">All Calculators</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">All Calculators</a>
+    <a href="resume-builder.html">Resume Builder</a>
+    <a href="#" onclick="showAbout();return false;">About Us</a>
+    <a href="#" onclick="showContact();return false;">Contact Us</a>
+    <a href="#" onclick="showTerms();return false;">Terms & Conditions</a>
+    <a href="#" onclick="showPrivacy();return false;">Privacy Policy</a>
+  </div>
+  <div>1Utility.net — One Tool For All &nbsp;·&nbsp; Educational Purposes Only. Not Investment Advice.</div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+let ctCoins = [];
+let ctSortKey = 'market_cap_rank', ctSortDir = 1;
+let ctCurrency = 'usd';
+let ctTimer = null;
+
+function fmtMoney(n, currency){
+  if(n === null || n === undefined) return '—';
+  const symbols = {usd:'$', inr:'₹', eur:'€', gbp:'£'};
+  const sym = symbols[currency] || '';
+  if(n >= 1e9) return sym + (n/1e9).toFixed(2) + 'B';
+  if(n >= 1e6) return sym + (n/1e6).toFixed(2) + 'M';
+  if(n >= 1e3) return sym + (n/1e3).toFixed(2) + 'K';
+  if(n < 1) return sym + n.toFixed(6);
+  return sym + n.toLocaleString('en-US',{maximumFractionDigits:2});
+}
+
+async function fetchCoins(){
+  document.getElementById('ct-error-box').innerHTML = '';
+  try{
+    const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${ctCurrency}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h`);
+    if(!res.ok){
+      if(res.status === 429) throw new Error('Too many requests right now — the free data source is rate-limited. Try again in a minute.');
+      throw new Error('Data source returned an error (status ' + res.status + ').');
+    }
+    ctCoins = await res.json();
+    renderTable();
+    document.getElementById('ct-updated').textContent = 'Updated ' + new Date().toLocaleTimeString();
+  }catch(e){
+    document.getElementById('ct-error-box').innerHTML = `<div class="ct-error">⚠️ Could not load live prices. ${e.message}</div>`;
+    if(!ctCoins.length) document.getElementById('ct-tbody').innerHTML = '<tr><td colspan="6" class="ct-loading">No data available right now.</td></tr>';
+  }
+}
+
+function onCurrencyChange(){
+  ctCurrency = document.getElementById('ct-currency').value;
+  document.getElementById('ct-tbody').innerHTML = '<tr><td colspan="6" class="ct-loading">Loading live prices…</td></tr>';
+  fetchCoins();
+}
+
+function setSort(key){
+  if(ctSortKey === key) ctSortDir *= -1; else { ctSortKey = key; ctSortDir = key==='name' ? 1 : -1; }
+  renderTable();
+}
+
+function renderTable(){
+  const q = (document.getElementById('ct-search').value || '').toLowerCase().trim();
+  let rows = ctCoins.filter(c => !q || c.name.toLowerCase().includes(q) || c.symbol.toLowerCase().includes(q));
+  rows = rows.slice().sort((a,b)=>{
+    let av = a[ctSortKey], bv = b[ctSortKey];
+    if(typeof av === 'string') return av.localeCompare(bv) * ctSortDir;
+    return ((av||0) - (bv||0)) * ctSortDir;
+  });
+  const tbody = document.getElementById('ct-tbody');
+  if(!rows.length){ tbody.innerHTML = '<tr><td colspan="6" class="ct-loading">No coins match your search.</td></tr>'; return; }
+  tbody.innerHTML = rows.map(c => {
+    const chg = c.price_change_percentage_24h;
+    const chgClass = chg >= 0 ? 'ct-change-pos' : 'ct-change-neg';
+    const chgStr = (chg === null || chg === undefined) ? '—' : (chg >= 0 ? '+' : '') + chg.toFixed(2) + '%';
+    return `<tr>
+      <td>${c.market_cap_rank ?? '—'}</td>
+      <td><div class="ct-coin-cell"><img src="${c.image}" alt="" loading="lazy"><span class="ct-coin-name">${c.name}</span><span class="ct-coin-symbol">${c.symbol}</span></div></td>
+      <td class="ct-price">${fmtMoney(c.current_price, ctCurrency)}</td>
+      <td class="${chgClass}">${chgStr}</td>
+      <td>${fmtMoney(c.market_cap, ctCurrency)}</td>
+      <td>${fmtMoney(c.total_volume, ctCurrency)}</td>
+    </tr>`;
+  }).join('');
+}
+
+window.addEventListener('DOMContentLoaded', function(){
+  fetchCoins();
+  ctTimer = setInterval(fetchCoins, 60000);
+});
+document.addEventListener('visibilitychange', () => {
+  if(document.hidden){ clearInterval(ctTimer); } else { fetchCoins(); ctTimer = setInterval(fetchCoins, 60000); }
+});
+</script>
+</body>
+</html>

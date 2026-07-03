@@ -1,9 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-  <loc>https://1utility.net/</loc>
-  <priority>1.0</priority>
-</url>
+<url><loc>https://1utility.net</loc><lastmod>2026-06-29</lastmod><priority>1.0</priority></url>
+
+<!-- Category / hub pages -->
+<url><loc>https://1utility.net/resume-builder.html</loc><lastmod>2026-06-29</lastmod><priority>0.9</priority></url>
+<url><loc>https://1utility.net/pdf-tools.html</loc><lastmod>2026-06-29</lastmod><priority>0.9</priority></url>
+
+<!-- Finance calculators -->
+<url><loc>https://1utility.net/emi-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/sip-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/fd-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/retire-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/currency-converter.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+
+<!-- Health calculators -->
+<url><loc>https://1utility.net/bmi-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/bmr-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/tdee-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/age-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/pregnancy-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/body-fat-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/ideal-weight-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/calorie-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/water-intake-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/protein-intake-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/ovulation-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/heart-rate-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/blood-pressure-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/diabetes-risk-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/sleep-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+
+<!-- Academic calculators -->
+<url><loc>https://1utility.net/percentage-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/cgpa-percentage-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/gpa-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/attendance-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/unit-converter.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/percent-to-cgpa-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/marks-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/grade-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/scientific-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/matrix-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/rank-predictor-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/cutoff-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/score-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/semester-gpa-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/cgpa-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/backlog-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+
+<!-- Salary / Tax calculators -->
+<url><loc>https://1utility.net/inhand-salary-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/new-tax-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/hra-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/ctc-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/pf-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/salary-hike-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/increment-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/bonus-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/old-tax-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/income-tax-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/section-80c-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/epf-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/gratuity-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/nps-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/leave-encashment-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/promotion-hike-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/freelance-rate-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+<url><loc>https://1utility.net/hourly-rate-calculator.html</loc><lastmod>2026-06-29</lastmod><priority>0.7</priority></url>
+
+<!-- PDF Tools -->
+<url><loc>https://1utility.net/merge-pdf.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/split-pdf.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+<url><loc>https://1utility.net/word-to-pdf.html</loc><lastmod>2026-06-29</lastmod><priority>0.8</priority></url>
+
+<!-- Game -->
+<url><loc>https://1utility.net/jet-dash.html</loc><lastmod>2026-06-29</lastmod><priority>0.6</priority></url>
 
 </urlset>

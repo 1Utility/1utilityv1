@@ -224,6 +224,29 @@ header{position:relative;z-index:10;text-align:center;padding:60px 20px 36px;}
 .faq-q{font-weight:600;font-size:13.5px;color:var(--text);margin-bottom:5px;}
 .faq-a{font-size:13px;line-height:1.7;color:var(--text-dim);}
 
+/* PDF TOOLS — shared UI components */
+.pdf-dropzone{border:2px dashed var(--border-gold);border-radius:var(--r-lg);padding:36px 20px;text-align:center;cursor:pointer;background:var(--dark3);transition:all .2s;}
+.pdf-dropzone:hover,.pdf-dropzone.pdf-drop-active{border-color:var(--gold);background:var(--gold-dim);}
+.pdf-dropzone .pdf-drop-icon{font-size:34px;margin-bottom:8px;}
+.pdf-dropzone .pdf-drop-text{font-size:13.5px;color:var(--text);font-weight:600;}
+.pdf-dropzone .pdf-drop-sub{font-size:11.5px;color:var(--text-muted);margin-top:4px;}
+.pdf-file-list{display:flex;flex-direction:column;gap:8px;margin-top:14px;}
+.pdf-file-chip{display:flex;align-items:center;gap:10px;background:var(--dark3);border:1px solid var(--border);border-radius:10px;padding:10px 12px;font-size:12.5px;}
+.pdf-file-chip .pdf-file-name{flex:1;color:var(--text);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.pdf-file-chip .pdf-file-size{color:var(--text-muted);font-size:11px;}
+.pdf-file-chip .pdf-file-remove{background:var(--dark4);border:1px solid var(--border);color:var(--text-muted);border-radius:7px;width:26px;height:26px;cursor:pointer;flex-shrink:0;}
+.pdf-progress-bar{display:none;background:var(--dark3);border-radius:8px;height:8px;overflow:hidden;margin-top:10px;position:relative;}
+.pdf-progress-fill{background:linear-gradient(135deg,var(--gold),var(--gold-light));height:100%;width:0%;transition:width .2s;}
+.pdf-progress-label{font-size:11px;color:var(--text-muted);margin-top:5px;}
+.pdf-thumb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-top:14px;}
+.pdf-thumb-item{background:var(--dark3);border:2px solid var(--border);border-radius:10px;padding:6px;text-align:center;cursor:pointer;transition:all .15s;position:relative;}
+.pdf-thumb-item img{width:100%;border-radius:5px;display:block;box-shadow:0 1px 4px rgba(0,0,0,.15);}
+.pdf-thumb-item.pdf-thumb-selected{border-color:var(--red);background:rgba(209,67,67,0.08);}
+.pdf-thumb-item .pdf-thumb-num{font-size:10.5px;color:var(--text-dim);font-weight:600;margin-top:5px;}
+.pdf-thumb-item .pdf-thumb-check{position:absolute;top:4px;right:4px;width:18px;height:18px;border-radius:50%;background:var(--dark2);border:1.5px solid var(--border);font-size:10px;display:flex;align-items:center;justify-content:center;}
+.pdf-thumb-item.pdf-thumb-selected .pdf-thumb-check{background:var(--red);border-color:var(--red);color:#fff;}
+.pdf-result-box{background:var(--dark2);border:1px solid var(--border-gold);border-radius:var(--r-lg);padding:20px;margin-top:16px;text-align:center;}
+
 /* FOOTER */
 footer{position:relative;z-index:10;text-align:center;padding:24px 20px;color:var(--text-muted);font-size:12px;border-top:1px solid var(--border);margin-top:20px;}
 footer a{color:var(--gold);text-decoration:none;transition:color .15s;}
