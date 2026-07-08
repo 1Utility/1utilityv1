@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Finance, Health, Academic &amp; Salary Calculators | 1Utility</title>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.google.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google.com https://*.gstatic.com https://*.googlesyndication.com https://*.doubleclick.net; frame-src 'self' https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net; connect-src 'self' https://www.googletagmanager.com https://analytics.google.com https://open.er-api.com https://*.google.com;">
-<meta name="description" content="Free calculators for Finance (EMI, SIP, currency converter), Health (BMI, TDEE), Academic (CGPA), and Salary — plus a free ATS resume builder. No sign-up.">
-<meta name="keywords" content="finance calculator, EMI calculator, SIP calculator, currency converter, BMI calculator, CGPA calculator, salary calculator, resume builder, 1utility">
+<meta name="description" content="Free calculators & comprehensive guides: Financial Independence, Income Tax, Salary & Career, Nutrition & Fitness, Student Success. Plus ATS resume builder & crypto tracker. No sign-up.">
+<meta name="keywords" content="finance calculator, EMI calculator, SIP calculator, financial independence, income tax, salary calculator, CGPA calculator, resume builder, 1utility, FI calculator, tax guide, career guide, nutrition guide">
 <meta property="og:title" content="Finance, Health, Academic &amp; Salary Calculators | 1Utility">
 <meta property="og:description" content="Free calculators for Finance, Health, Academic, and Salary — plus a free ATS resume builder. No sign-up.">
 <meta property="og:type" content="website">
@@ -21,6 +21,92 @@
 gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="theme.css">
+<style>
+/* Pillar Guides Section Styling */
+.pillar-guides-section {
+  background: linear-gradient(135deg, rgba(21, 94, 171, 0.05) 0%, rgba(255, 193, 7, 0.05) 100%);
+  padding: 50px 20px;
+  margin: 40px 0;
+}
+
+.pillar-guides-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pillar-guides-intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.pillar-guides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.pillar-card {
+  background: white;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-left-color: var(--gold);
+}
+
+.pillar-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.pillar-title {
+  color: var(--primary);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+}
+
+.pillar-desc {
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+
+.pillar-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.pillar-link:hover {
+  color: var(--gold);
+  gap: 4px;
+}
+
+@media (max-width: 768px) {
+  .pillar-guides-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pillar-guides-intro h2 {
+    font-size: 24px;
+  }
+}
+</style>
 </head>
 <body>
 <div class="announce-bar" id="announce-bar">
@@ -56,15 +142,15 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 
 <div class="overlay-modal" id="about-modal"><div class="overlay-content">
   <h3>About 1Utility</h3><p><strong>One Tool For All</strong></p>
-  <p>1Utility is a free, fast, and accurate collection of 40+ online calculators for students, professionals, and everyday users.</p>
-  <h4>Our Mission</h4><p>Powerful tools should be simple, beautiful, and accessible — completely free, no sign-up required.</p>
+  <p>1Utility is a free collection of 70+ online calculators, 5 comprehensive guides, a resume builder, and a crypto tracker for students, professionals, and everyday users.</p>
+  <h4>Our Mission</h4><p>Powerful tools and knowledge should be simple, beautiful, and accessible — completely free, no sign-up required.</p>
   <h4>What We Offer</h4>
   <ul style="padding-left:20px;line-height:1.7;color:var(--text-dim);font-size:13px;">
-    <li>Finance tools (EMI, SIP, Tax, FD, Retirement)</li>
-    <li>Health calculators (BMI, Calories, BMR, TDEE)</li>
-    <li>Academic tools (CGPA, GPA, Percentage, Attendance)</li>
-    <li>Salary & Career (In-hand, Hike, CTC, PF, NPS)</li>
-    <li>Live Currency Converter with real-time rates</li>
+    <li><strong>70+ Calculators:</strong> Finance, Health, Academic, Salary & Career</li>
+    <li><strong>5 Pillar Guides:</strong> Financial Independence, Income Tax, Career, Nutrition, Student Success</li>
+    <li><strong>ATS Resume Builder:</strong> 15 templates for different roles</li>
+    <li><strong>Live Tools:</strong> Currency Converter, Crypto Tracker</li>
+    <li><strong>Privacy First:</strong> All calculations happen in your browser</li>
   </ul>
   <p style="margin-top:16px;">Built with ❤️ in India for users worldwide.</p>
   <button class="overlay-btn" onclick="document.getElementById('about-modal').classList.remove('active')">Close</button>
@@ -84,9 +170,10 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
 <header>
   <div class="logo-badge">1UTILITY.NET</div>
   <h1 class="site-title">1Utility</h1>
-  <p class="site-tagline">One Tool For All — <span>Free. Fast. Accurate.</span></p>
+  <p class="site-tagline">Calculators + Guides + Tools — <span>Free. Fast. Accurate.</span></p>
   <div class="stats-row">
-    <div class="stat-item"><div class="stat-num">40+</div><div class="stat-label">Free Tools</div></div>
+    <div class="stat-item"><div class="stat-num">70+</div><div class="stat-label">Free Calculators</div></div>
+    <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">Comprehensive Guides</div></div>
     <div class="stat-item"><div class="stat-num">₹ $ £</div><div class="stat-label">20+ Currencies</div></div>
     <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Free Forever</div></div>
     <div class="stat-item"><div class="stat-num">🔒</div><div class="stat-label">No Sign-up</div></div>
@@ -116,6 +203,58 @@ gtag('js',new Date());gtag('config','G-PB96FHY2RG');</script>
       <div class="faq-lead" style="margin-bottom:0;">Pick a template suited to your field (Tech, Finance, Consulting, Healthcare, Academic, and more), fill in your details once, and download a clean PDF — no sign-up, nothing stored on a server.</div>
     </div>
     <a href="resume-builder.html" class="calc-btn" style="text-decoration:none;display:inline-block;width:auto;padding:13px 22px;white-space:nowrap;">Build My Resume →</a>
+  </div>
+</section>
+
+<!-- PILLAR GUIDES SECTION (NEW) -->
+<section class="pillar-guides-section" aria-label="Comprehensive Guides">
+  <div class="pillar-guides-container">
+    <div class="pillar-guides-intro">
+      <h2 style="color: var(--primary); margin-bottom: 10px; font-size: 28px;">📚 Comprehensive Guides</h2>
+      <p style="color: var(--text-dim); margin-bottom: 30px; font-size: 15px; max-width: 600px;">Beyond calculators—deep-dive guides with real examples, case studies, and strategies to help you make better financial, career, health, and academic decisions.</p>
+    </div>
+    
+    <div class="pillar-guides-grid">
+      <!-- Guide 1: Financial Independence -->
+      <div class="pillar-card">
+        <div class="pillar-icon">💰</div>
+        <h3 class="pillar-title">Financial Independence</h3>
+        <p class="pillar-desc">Master FI numbers, understand the 4% rule, compare SIP vs lump sum, and see real case studies of people reaching FI at 25, 30, 40 years old.</p>
+        <a href="/financial-independence/" class="pillar-link">Read Guide →</a>
+      </div>
+      
+      <!-- Guide 2: Income Tax -->
+      <div class="pillar-card">
+        <div class="pillar-icon">📊</div>
+        <h3 class="pillar-title">Income Tax 2024-25</h3>
+        <p class="pillar-desc">Navigate old vs new tax regime, maximize Section 80C & HRA exemption, and see real salary examples (₹10L, ₹20L, ₹50L) with tax calculations.</p>
+        <a href="/income-tax-guide/" class="pillar-link">Read Guide →</a>
+      </div>
+      
+      <!-- Guide 3: Salary & Career -->
+      <div class="pillar-card">
+        <div class="pillar-icon">💼</div>
+        <h3 class="pillar-title">Salary & Career</h3>
+        <p class="pillar-desc">Decode CTC breakdown, learn negotiation strategies with scripts, understand your real take-home pay, and make career switches wisely.</p>
+        <a href="/salary-career-guide/" class="pillar-link">Read Guide →</a>
+      </div>
+      
+      <!-- Guide 4: Nutrition & Fitness -->
+      <div class="pillar-card">
+        <div class="pillar-icon">💪</div>
+        <h3 class="pillar-title">Nutrition & Fitness</h3>
+        <p class="pillar-desc">Calculate TDEE, optimize macros, understand calorie deficits, and find high-protein vegetarian/vegan meal plans for muscle building or fat loss.</p>
+        <a href="/nutrition-fitness-guide/" class="pillar-link">Read Guide →</a>
+      </div>
+      
+      <!-- Guide 5: Student Success -->
+      <div class="pillar-card">
+        <div class="pillar-icon">🎓</div>
+        <h3 class="pillar-title">Student Success</h3>
+        <p class="pillar-desc">Master CGPA calculations, manage attendance, understand backlog impact, and get proven strategies for competitive exams (JEE, NEET, etc.).</p>
+        <a href="/student-guides/" class="pillar-link">Read Guide →</a>
+      </div>
+    </div>
   </div>
 </section>
 
